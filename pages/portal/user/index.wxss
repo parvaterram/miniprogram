@@ -1,0 +1,13 @@
+/* pages/portal/user/index.wxss */
+.layer {
+  position: relative;
+}
+.red-hot {
+  position: absolute;
+  top: 24rpx;
+  right: 50rpx;
+  padding:0 10rpx;
+  background:red;
+  color:#fff;
+  border-radius:14rpx;
+}

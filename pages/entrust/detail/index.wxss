@@ -1,0 +1,182 @@
+/* pages/entrust/detail/index.wxss */
+.txt {
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 30rpx;
+}
+.trade-cell {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10rpx;
+}
+
+.trade-cell .img-cell {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.trade-cell .img-cell image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.trade-cell .info {
+  padding-left: 20rpx;
+}
+
+.trade-cell .info view {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.tips {
+  padding-left: 10rpx;
+  background: #eaeaea;
+  line-height: 40rpx;
+}
+
+.item-head {
+  padding: 10rpx;
+}
+
+.avatar-cell {
+  float: left;
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.gender {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.info {
+  float: left;
+  line-height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.info .label {
+  display: inline-block;
+  height: 60rpx;
+  color: #fff;
+  line-height: 60rpx;
+  padding:0 12rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  background-color: #46c4ff;
+  margin-right: 10rpx;
+}
+
+.info .active {
+  background-color: #8bc34a;
+}
+
+.item-body {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0 10rpx;
+}
+
+.item-body view {
+  flex-grow: 1;
+  color: #ff4081;
+}
+
+.addr {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.addr .tit {
+  width: 160rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: right;
+}
+
+.addr .amply .area {
+  width: 500rpx;
+  height: 80rpx;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.addr .amply .detail {
+  width: 500rpx;
+  min-height: 80rpx;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.desc {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10rpx;
+}
+
+.desc .tit {
+  width: 140rpx;
+  height: 60rpx;
+  text-align: right;
+}
+.desc .cont {
+  width: 576rpx;
+  line-height: 34rpx;
+}
+
+.desc textarea {
+  width:576rpx;
+  min-height:300rpx;
+}
+
+.btn-full {
+  margin-top: 30rpx;
+}
+
+.btn-deactive {
+  background-color: #979696;
+}
+.btn-ft-box {
+  margin-top: 30rpx;
+}
+.btn-ft-box button {
+  width: 50%;
+  height: 112rpx;
+  font-size: 32rpx;
+  line-height: 112rpx;
+  text-align: center;
+  border-radius: 0;
+}
+.box {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.box .left {
+  flex-basis: 160rpx;
+  height: 80rpx;
+  text-align: right;
+  line-height: 80rpx;
+}
+.box .right {
+  line-height: 80rpx;
+}
+
+.tag {
+  width: 480rpx;
+  border-bottom: 1rpx solid #eaeaea;
+}

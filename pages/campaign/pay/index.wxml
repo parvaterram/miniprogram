@@ -1,0 +1,60 @@
+<!--pages/campaign/pay/index.wxml-->
+<view class="container">
+  <view class="layer item">
+    <view class="left">艺人名额：</view>
+    <view class="right stare blod">{{info.num}}</view>
+  </view>
+
+  <view class="layer item">
+    <view class="left">入选人数：</view>
+    <view class="right stare blod">{{info.up_num}}</view>
+  </view>
+
+  <view class="layer">
+    <view class="item">
+      <view class="left">酬劳总值：</view>
+      <view class="right stare">{{info.t_price}}</view>
+    </view>
+
+    <view class="item">
+      <view class="left">酬劳明细：</view>
+      <view class="right">
+        <view class="row" wx:for="{{info.art_arr}}" wx:key="{{item.uid}}">
+          <view class="l stare">{{item.shop_payfee || 0}}</view>
+          <view class="r">{{item.user_nicename}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer item">
+    <view class="left">服务费用：</view>
+    <view class="right">
+      <view class="row">
+        <view class="l stare blod">{{info.dep_price}}</view>
+        <view class="r grey">平台加收7%服务费用</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer item">
+    <view class="left">实际支付：</view>
+    <view class="right">
+      <view class="row">
+        <view class="l stare blod">{{info.total_price}}</view>
+        <view class="r grey">发布人实际需支付的费用</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips">*发布人在确认并支付入选艺人酬劳后，将不可再次录用其他已报名的艺人</view>
+  <view class="tips">*已入选/未受理的艺人，在发布人进行酬劳支付后，将视为拒绝参与活动</view>
+  <view class="tips">*发布人支付的酬劳只计算 已入选/接受 的艺人</view>
+  <view class="tips">*成功支付后，代表该活动正式结束报名流程且进入活动待执行阶段</view>
+  <view class="tips">*活动结束后，需发布人进行完成操作，将对应的酬劳汇入已接受活动的艺人</view>
+
+<view class="btn-cell">
+  <button class="btn-full" wx:if="{{info.pay_status === '0'}}" bindtap="handlePay">支付酬劳</button>
+  <button class="btn-full already" wx:else>已支付</button>
+</view>
+</view>

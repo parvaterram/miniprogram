@@ -1,0 +1,44 @@
+<view class="container">
+  <view class='num'>
+    <view>
+      <view class='dt'>{{list.test_arr.total_price}}</view>
+      <view class='dd'>总收益</view>
+    </view>
+    <view>
+      <view class='dt'>{{list.test_arr.c_price}}</view>
+      <view class='dd'>可提收益</view>
+    </view>
+    <view>
+      <view class='dt'>{{list.test_arr.w_price}}</view>
+      <view class='dd'>提现中</view>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='item' wx:for="{{list.commission_info}}" wx:key="item">
+      <view class='avatar'>
+        <image src='{{item.avatar_thumb}}' mode="aspectFill" binderror='err'></image>
+      </view>
+      <view class='name'>
+        <view>{{item.user_nicename}}</view>
+        <view>
+          <text>分成来源：</text>
+          <text class='source'>{{(item.type == 1) ? '委托类型' : '活动类型'}}</text>
+        </view>
+      </view>
+      <view class='record'>
+        <view>
+          <text>记录时间：</text>
+          <text class='dt'>{{item.addtime}}</text>
+        </view>
+        <view>
+          <text>可得分成：</text>
+          <text class='dd'>{{item.lives_price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+<navigator url="begin/index">
+<button class='put-cash'>提现收益</button>
+</navigator>

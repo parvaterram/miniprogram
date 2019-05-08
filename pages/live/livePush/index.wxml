@@ -1,0 +1,65 @@
+<!--pages/live/livePush/index.wxml-->
+<view class="container">
+  <live-pusher id="pusher" class="live" autopush url="{{liveURL}}" mode="{{mode}}" aspect="{{aspect}}" bindstatechange="statechange" binderror="liveError" style="height: {{liveHeight}}px;">
+    <cover-view class="controls">
+      <cover-view class="left">
+        <cover-view class="v-icon play" bindtap="play">
+          <cover-image class="img" src="/assets/img/play.png" />
+        </cover-view>
+        <cover-view hidden='{{true}}' class="v-icon pause" bindtap="pause">
+          <cover-image class="img" src="/assets/img/pause.png" />
+        </cover-view>
+        <cover-view hidden='{{!torch}}' class="v-icon" bindtap="torch">
+          <cover-image class="img" src="/assets/img/torch.png" />
+        </cover-view>
+        <cover-view hidden='{{torch}}' class="v-icon" bindtap="torch">
+          <cover-image class="img" src="/assets/img/untorch.png" />
+        </cover-view>
+        <cover-view class="v-icon" bindtap="handleSwitchCamera">
+          <cover-image class="img" src="/assets/img/camera.png" />
+        </cover-view>
+      </cover-view>
+      <cover-view class="right">
+        <cover-view hidden="{{fullscreen}}" class="v-icon full" bindtap="fullScreen">
+          <cover-image class="img" src="/assets/img/full.png" />
+        </cover-view>
+        <cover-view hidden='{{!fullscreen}}' class="v-icon full" bindtap="exitfullScreen">
+          <cover-image class="img" src="/assets/img/exitfull.png" />
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </live-pusher>
+
+  <view class="boarder-cell">
+    <scroll-view
+      class="boarder"
+      scroll-y
+      style="height: {{height}}"
+      scroll-top="{{scrollTop}}"
+      bindscroll="handleScroll"
+      bindscrolltolower="handleLower"
+    >
+      <view class="chat">
+        <view class="news-item" wx:for="{{list}}" wx:key="{{index}}">
+          <block wx:if="{{item.type === 1}}">
+              <view class="sys-name">{{item.name}}：</view><view class="sys-ct">{{item.ct}}</view>
+            </block>
+            <block wx:elif="{{item.type === 2}}">
+              <view class="wel">欢迎 <view class="u-name">{{item.name}}</view>进入房间</view>
+            </block>
+            <block wx:elif="{{item.type === 3}}">
+              <image class="level {{item.level < 11 ? 's' : item.level < 30 ? 'm' : 'b'}}" mode="aspectFit" src="http://www.depforlive.com/web/assets/level_icon/wealth_level/lv_{{item.level || 0}}.png"></image><view class="u-name">{{item.name}}：</view><view class="msg">{{item.ct}}</view>
+            </block>
+            <block wx:elif="{{item.type === 4}}">
+              <image class="level {{item.level < 11 ? 's' : item.level < 30 ? 'm' : 'b'}}" mode="aspectFit" src="http://www.depforlive.com/web/assets/level_icon/wealth_level/lv_{{item.level || 0}}.png"></image><view class="u-name">{{item.name}}：</view><view class="msg">赠送{{item.giftname}}</view><image class="news-img-gift" mode="aspectFit" src="{{item.gifticon}}"></image><view class="pup">x {{item.giftcount}}</view>
+            </block>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="unread" wx:if="{{stopScroll && queue.length > 0}}" catchtap="handleReadNews">{{queue.length}}条新消息</view>
+    <view class="foot">
+      <input type="text" value="{{news}}" bindinput="handleEmitNews" placeholder="跟大家一起聊聊吧"></input><button bindtap="handleSend">发送</button>
+      <view class="icon" bindtap="handleShare">分享</view>
+    </view>
+  </view>
+</view>

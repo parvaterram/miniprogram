@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="layer stare title">视频是为了让他人更好的了解其呈现内容。</view>
+  
+  <view class="file-cell">
+    <view class="btn-cell">
+      <button class="grass" bindtap="handleChooseVideo">直接上传</button>
+    </view>
+    <view class='tips'>*从手机中选择视频进行发布呈现</view>
+  </view>
+
+  <view class="txt-cell">
+    <view class="btn-cell">
+      <textarea id="txt" value="{{url}}" bindinput="handleEmitUrl" placeholder='外链地址粘贴于此...' />
+    </view>
+    <view class="btn-cell">
+      <button class="act" bindtap="handleUrlUpload">确认外链上传</button>
+    </view>
+    <view class="tips">*粘贴非本站地址</view>
+  </view>
+
+  <view class='tips stare'>*视频格式要求为mp4，大小建议不超过50M</view>
+  <view class='tips stare'>*大于50M的视频建议通过外链的方式发布，以免因视频过大造成上传过程中断</view>
+  <view class="tips stare">*外链视频地址需为https协议地址链接，提交上传时请确认该链接地址来源是否为https</view>
+  <view class='tips stare'>*视频上传呈现于对应的内容详情内</view>
+  <view class='tips stare'>*委托视频于商品详情中呈现</view>
+  <view class="tips stare">*活动视频于活动详情内呈现</view>
+  <view class="tips stare">*上传的视频需与上传目的内容一致，如发现视频与其不符，平台将采取撤除行为，如触及法律事情，该视频将作为违法依据的取证材料</view>
+</view>

@@ -1,0 +1,38 @@
+<!--pages/fans/index.wxml-->
+<view class="container">
+  <view wx:if="{{list.length > 0}}">
+    <view class="layer clearfix" wx:for="{{list}}" wx:key="{{item.id}}" data-uid="{{item.id}}">
+      <view class="img-cell">
+        <image class="avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+        <image class="gender" mode="aspectFit" src="/assets/img/gender{{item.sex}}.png"></image>
+      </view>
+      <view class="info clearfix">
+        <view class="l">
+          <view class="tag" wx:if="{{item.isauth === '1'}}">认证艺人</view>
+        </view>
+        <view class="r">
+          <view>{{item.user_nicename}}</view>
+          <view>ID:{{item.id}}</view>
+
+        </view>
+      </view>
+      <view class="btn-cell">
+        <button data-id="{{item.id}}" data-name="{{item.user_nicename}}" catchtap="handleFollow">
+          {{item.isattention === 0 ? '关注' : '已关注'}}
+        </button>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    暂无粉丝
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+
+</view>

@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">现有团队</view>
+  <view class='team-list'>
+    <view class='team-item' wx:for="{{list}}" wx:key="item">
+      <view class='t-c'>
+        <view class='avatar'>
+          <view class='default' wx:if="{{item.show_image == ''}}">创建人头像<view>(默认)</view></view>
+          <image mode="widthFix" wx:else="{{item.show_image}}" src="{{item.show_image}}"></image>
+        </view>
+        <view class='name'>
+          <view class='titles'>{{item.familyname}}</view>
+          <view>{{item.uidname}}</view>
+          <view class><text class='dd'>艺人：</text><text class='dt'>{{item.authnum}}</text></view>
+          <view><text class='dd'>成员：</text><text class='dt'>{{item.noauthnum}}</text></view>
+          <view><text class='dd'>分成：</text><text class='dt'>{{item.commission}}</text></view>
+        </view>
+        <view><button class='join-btn' bindtap="show" data-id="{{item.familyid}}">申请加入</button></view>
+      </view>
+      <view class='b-c'>*加入团队后，团队负责人从成员的演出酬劳中抽取分成比例。</view>
+    </view>
+  </view>
+</view>
+<view class="modal-mask" catchtouchmove='preventTouchMove'  wx:if="{{showModal}}"></view>
+<view class='modal-dialog' animation="{{animationData}}" catchtouchmove='preventTouchMove' wx:if="{{showModal}}">
+  <view class='m-title'>确认加入</view>
+  <view class='m-body'>
+    <view>*是否确认加入该团队？</view>
+    <view>*单人只能加入一个团队，当已成功加入以后，将无法加入其它团队</view>
+  </view>
+  <view class='m-foot'>
+    <button class='submit-btn' bindtap='postData'>确认</button>
+    <button class='close-btn' bindtap="hide">取消</button>
+  </view>
+</view>

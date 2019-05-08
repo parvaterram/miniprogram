@@ -1,0 +1,46 @@
+<!--pages/live/liveList/index.wxml-->
+<view class="container">
+  <view class="srch-bar">
+      <input type='text' value="{{kw}}" class="search" placeholder="艺人名、直播间名、关键字" bindinput="handleEmitKW" /><button class="btn-srch" bindtap="handleSearch">搜索</button>
+    </view>
+  <view wx:if="{{list.length > 0}}">
+    <view
+      class="layer"
+      wx:for="{{list}}"
+      wx:key="{{item.uid}}"
+      data-uid="{{item.uid}}"
+      bindtap="handleLinkDetail"
+    >
+      <view class="left">
+        <image class="img-avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+        <image class="gender" mode="scaleToFill" src="/assets/img/gender{{item.sex}}.png"></image>
+        <view class="status" wx:if="{{item.islive === '1'}}">开播中</view>
+      </view>
+
+      <view class="center">
+        <view class="tag-cell">
+          <view class="tag">认证艺人</view>
+          <!-- <view class="tag grass">模特</view> -->
+        </view>
+        <view>{{item.user_nicename}}</view>
+        <view>{{item.title || ''}}</view>
+      </view>
+
+      <view class="right">
+        <button class="label" data-uid="{{item.uid}}" catchtap="handleLinkRoom">去直播间</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    暂无数据~~
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+</view>

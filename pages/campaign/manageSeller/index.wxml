@@ -1,0 +1,80 @@
+<!--pages/campaign/manageSeller/index.wxml-->
+<view class="container">
+  <view class="tab-bar">
+    <view wx:for="{{tabBar}}" class="item {{item.id === tab && 'active'}}" data-index="{{item.id}}" catchtap="handleSwithTab" wx:key="{{item.id}}">{{item.name}}</view>
+  </view>
+
+  <view wx:if="{{list.length > 0}}">
+    <view 
+      class="layer"
+      wx:for="{{list}}"
+      wx:key="{{item.id}}"
+      data-id="{{item.id}}"
+      bindtap="handleLinkDetail"
+    >
+      <view class="head">
+        <view class="left">
+          <view class="clearfix">
+            <button class="tag"  wx:if="{{tab === 1}}">{{item.pay_status === '1' ? '已付款' : '未付款'}}</button>
+            <button class="tag" wx:elif="{{tab === 4}}">{{item.activity_status === '0' ? '未完成' : '已完成'}}</button>
+            {{item.activity_order}}
+          </view>
+          <view>{{item.name}}</view>
+        </view> 
+        <view class="right">
+          <button
+            class="btn-default"
+            data-id="{{item.id}}"
+            catchtap="handleEnterFor"
+            >报名表</button>
+          <button
+            class="btn-primary"
+            data-id="{{item.id}}"
+            wx:if="{{item.activity_status === '0' && tab === 4}}"
+            catchtap="handleFinish"
+          >
+            完成
+          </button>
+        </view>
+      </view>
+      <view class="body stare">
+        单个艺人酬劳- {{item.price_set_status === '1' ? '面议' : item.mix_money + ' ~ ' + item.max_money}}
+      </view>
+      <view class="foot stare">
+        <view>艺人名额：{{item.num}}</view>
+        <view>已录用：{{item.admission_count}}</view>
+        <view>已报名：{{item.activity_signup_count}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    暂无数据
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && list.length > 0}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+
+  <view class="popup-wrap" hidden='{{!pop}}'>
+    <view class="popup-cell">
+      <view class="popup-cont">
+        <view class="title">确认活动完成</view>
+        <view class="pop-bd">
+          <view>*是否确认该活动已玩成？</view>
+          <view>*提交确认即代表已核实活动内的艺人已完成活动要求</view>
+          <view>*提交确认即向已录用艺人进行酬劳结算</view>
+        </view>
+        <view class="pop-ft">
+          <button class="btn-ensure" catchtap="handleEnsure">确认</button>
+          <button class="btn-cancel" catchtap="handleCancel">取消</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

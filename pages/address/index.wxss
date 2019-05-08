@@ -1,0 +1,35 @@
+/* pages/address/index.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+ .item {
+  padding: 20rpx;
+} 
+
+.name-cell {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  line-height: 60rpx;
+}
+
+.desc {
+  line-height: 60rpx;
+}
+
+.ad-ft {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+button {
+  color: #fff;
+  background-color: #00b7ff;
+  margin-left: 20rpx;
+}
+
+.btn-full {
+  position: fixed;
+  bottom: 0;
+}

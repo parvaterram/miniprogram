@@ -1,0 +1,108 @@
+.container {
+  background-color: #eaeaea;
+  overflow: hidden;
+  color: #101010;
+  font-size: 24rpx;
+}
+.title {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  line-height: 60rpx;
+  text-align: center;
+  background: #00B7FF;
+  z-index: 999;
+  color: #fff;
+}
+.content {
+  margin-top: 70rpx;
+}
+.price {
+  background-color: #fff;
+  padding: 0 20rpx;
+}
+  .s-price {
+    display: inline-block;
+    line-height: 80rpx;
+  }
+  .s-price .dt {
+    font-size: 46rpx;
+    color: #444;
+    vertical-align: middle;
+    margin-right: 10rpx;
+  }
+  .s-price .dd {
+    font-size: 40rpx;
+    color: #3F51B5;
+    vertical-align: middle;
+    border: 0;
+  }
+  .price .all-proce {
+    width: 120rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    float: right;
+    color: #3F51B5;
+    background: transparent;
+    font-size: 28rpx;
+  }
+  .price .tips {
+    line-height: 80rpx;
+  }
+  .price .b-c {
+    line-height: 60rpx;
+  }
+  .b-c .dt {
+    display: inline-block;
+    width: 210rpx;
+  }
+  .b-c .dd {
+    color: #E51C23;
+  }
+.info {
+  margin-bottom: 10rpx;
+}
+.info>view{
+  position: relative;
+  margin-top: 10rpx;
+  background-color: #fff;
+  line-height: 80rpx;
+}
+.info .dt {
+  display: inline-block;
+  text-align: right;
+  width: 160rpx;
+}
+.info .dd {
+  position: absolute;
+  width: calc(100% - 160rpx);
+  padding-left: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  vertical-align: middle;
+  border: 0;
+  top: 0;
+  right: 0;
+  color: #101010;
+}
+.info .phcolor {
+  color: #101010;
+}
+.info .bank-choose {
+  width: calc(100% - 175rpx);
+}
+.b-tips {
+  padding: 0 20rpx;
+}
+.put-cash {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #46C4FF;
+  height: 112rpx;
+  line-height: 112rpx;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: 700;
+  border-radius: 0;
+}

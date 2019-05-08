@@ -1,0 +1,92 @@
+<!--pages/live/index/index.wxml-->
+<view class="container">
+
+  <view>
+    <view class="srch-bar">
+      <input type='text' value="{{liveKW}}" class="search" placeholder="艺人名称、直播间名、关键字" bindinput="handleEmitLiveKW" /><button class="btn-srch" bindtap="handleSearchLives">搜索</button>
+    </view>
+
+    <view class="layer">
+      <view class="link-cell" bindtap="handleLinkEntrustList">
+        <view>代言中</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </view>
+    </view>
+
+    <view>
+      <view class="c-box" wx:if="{{liveList.entrust.length > 0}}">
+        <view
+          class="ar-item"
+          wx:for="{{liveList.entrust}}"
+          wx:key="{{item.uid}}"
+          data-uid="{{item.uid}}"
+          data-videourl="{{item.return_video.mp4_url}}"
+          data-videoposter="{{item.return_video.CoverURL}}"
+          data-islive="{{item.islive}}"
+          bindtap="handleLinkRoom"
+        >
+          <view class="feed">
+            <image mode="aspectFill" src="{{item.avatar}}"></image>
+            <view class="tag-cell">
+              <view class="org" wx:if="{{item.islive === '1'}}">直播中</view>
+              <view class="green" wx:elif="{{item.islive === '0' && item.return_video.length > 0 }}">回放</view>
+            </view>
+            <view class="stack">
+              <view>{{item.user_nicename}}</view>
+              <view>{{item.title || ''}}</view>
+            </view>
+          </view>
+          <view class="mes">
+            <view></view>
+            <view>{{item.nums}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="empty" wx:else>
+        暂无列表数据~~
+      </view>
+    </view>
+
+    <view class="layer">
+      <view class="link-cell" bindtap="handleLinkLivesList">
+        <view>直播中</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </view>
+    </view>
+
+    <view>
+      <view class="c-box" wx:if="{{liveList.lives.length > 0}}">
+        <view
+          class="ar-item"
+          wx:for="{{liveList.lives}}"
+          wx:key="{{item.uid}}"
+          data-uid="{{item.uid}}"
+          data-videourl="{{item.return_video.mp4_url}}"
+          data-videoposter="{{item.return_video.CoverURL}}"
+          data-islive="{{item.islive}}"
+          bindtap="handleLinkRoom"
+        >
+          <view class="feed">
+            <image mode="aspectFill" src="{{item.avatar}}"></image>
+            <view class="tag-cell">
+              <view class="org" wx:if="{{item.islive === '1'}}">直播中</view>
+              <view class="green" wx:elif="{{item.islive === '0' && item.return_video.mp4_url}}">回放</view>
+            </view>
+            <view class="stack">
+              <view>{{item.user_nicename || ''}}</view>
+              <view>{{item.title || ''}}</view>
+            </view>
+          </view>
+          <view class="mes">
+            <view></view>
+            <view>{{item.nums}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="empty" wx:else>暂无列表数据~~</view>
+    </view>
+
+  </view>
+  
+
+</view>

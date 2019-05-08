@@ -1,0 +1,83 @@
+<!--pages/campaign/manageArtist/index.wxml-->
+<view class="container">
+  <view class="tab-bar">
+    <view wx:for="{{tabBar}}" class="item {{item.id === tab && 'active'}}" data-index="{{item.id}}" catchtap="handleSwithTab" wx:key="{{item.id}}">{{item.name}}</view>
+  </view>
+
+  <view wx:if="{{list.length > 0}}">
+    <view
+      class="layer"
+      wx:for="{{list}}"
+      wx:key="{{item.id}}"
+      data-id="{{item.id}}"
+      bindtap="handleLinkDetail"
+    >
+      <view class="head">
+        <view class="left">
+          <view class="clearfix" wx:if="{{tab === 1}}">
+            <button class="tag blue">
+              {{item.signup_status === '0' ? '未入选' : item.signup_status === '1' ? '已入选' : item.signup_status === '2' ? '落选' : item.signup_status === '3' ? '已拒绝' : '已接受'}}
+            </button>
+          </view>
+          <view class="clearfix" wx:elif="{{tab === 2}}">
+            <button class="tag blue">
+              {{item.pay_status === '1' ? '已付款' : '未付款'}}
+            </button>
+            <button
+              class="tag grass"
+              wx:if="{{item.signup_status === '3' || item.signup_status === '4'}}"
+            >
+              {{item.signup_status === '3' ? '未受理' : item.signup_status === '4' ? '接受' : ''}}
+            </button>
+          </view>
+          <view class="clearfix" wx:elif="{{tab === 3}}">
+            <button class="tag blue">
+              {{item.video_status === '0' ? '无作品' : '有作品'}}
+            </button>
+          </view>
+          <view class="clearfix" wx:elif="{{tab === 4}}">
+            <button class="tag {{item.getmoney_status === '0' ? 'red' : 'grass'}}">
+              {{item.getmoney_status === '0' ? '未入账' : '已入账'}}
+            </button>
+          </view>
+          <view>{{item.activity_order}}</view>
+          <view>{{item.name}}</view>
+        </view> 
+        <view class="right">
+          <!-- <button
+            class="btn-default"
+            data-id="{{item.id}}"
+            catchtap="handleUploadVideo"
+            wx:if="{{tab === 3 || tab === 4}}"
+          >
+            {{item.video_status === '0' ? '上传视频' : '更新视频'}}
+          </button> -->
+          <button
+            class="btn-primary"
+            data-id="{{item.id}}"
+            data-sid="{{item.sid}}"
+            catchtap="handleLinkTrip"
+          >行程</button>
+        </view>
+      </view>
+      
+      <view class="foot stare">
+        <view>期望酬劳：{{item.art_payfee || 0}}</view>
+        <view>实际酬劳：{{item.price_set_status === '1' ? '面议' : item.shop_payfee || 0}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    暂无数据
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && list.length > 0}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+
+</view>

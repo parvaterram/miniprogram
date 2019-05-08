@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="layer">
+    <view class="left b">嘚米：</view>
+    <view class="right">
+      <view class="cont b">{{coin}}</view>
+    </view>
+  </view>
+
+  <view class="item">
+    <view class="left">请选择购买数量</view>
+    <view class="right">￥1=10嘚米</view>
+  </view>
+
+  <view class="layer">
+    <view class="left">购买额度：</view>
+    <view class="right">
+      <picker bindchange="rangeChange" value="{{index}}" range="{{rangeType}}" range-key="val">
+        <view class="link-cell">
+          <view>{{sub === -1 ? '选择购买额度' : rangeType[sub].val}}</view>
+          <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+        </view> 
+      </picker>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">所得嘚米：</view>
+    <view class="right">
+      <view class="cont">{{income}}</view>
+    </view>
+  </view>
+
+  <view class="tips">*嘚米用于观看艺人直播时，向艺人赠送礼物时候的点数</view>
+
+  <button class="btn-full btm" bindtap="handleBuy">立即购买</button>
+</view>

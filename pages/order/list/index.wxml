@@ -1,0 +1,36 @@
+<!--pages/order/list/index.wxml-->
+<view class="container">
+  <view class="tab-bar">
+    <view wx:for="{{tabBar}}" class="item {{item.id === tab && 'active'}}" data-index="{{item.id}}" catchtap="handleSwithTab" wx:key="{{item.id}}">{{item.name}}</view>
+  </view>
+
+  <view wx:if="{{list.length > 0}}">
+    <view class="layer clearfix" wx:for="{{list}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="handleViewDetail">
+      <view class="img-cell">
+        <image mode="aspectFill" src="{{item.goods_img}}"></image>
+      </view>
+      <view class="info">
+        <view>{{item.goods_name}}</view>
+        <view>下单时间：{{item.createTime}}</view>
+        <view>选购数量：{{item.goods_number}}</view>
+      </view>
+      <view class="btn-cell">
+        <button class="label">
+          {{item.code_status === '0' ? '未使用' : item.code_status === '1' ? '已使用' : '已失效'}}
+        </button>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    暂无订单
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+</view>
+

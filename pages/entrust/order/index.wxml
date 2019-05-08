@@ -1,0 +1,86 @@
+<!--pages/entrust/order/index.wxml-->
+<view class="container">
+  <view class="tab-bar">
+    <view wx:for="{{tabBar}}" class="item {{item.id === tab && 'active'}}" data-index="{{item.id}}" catchtap="handleSwithTab" wx:key="{{item.id}}">{{item.name}}</view>
+  </view>
+  <view class="order-list" wx:if="{{list.length > 0}}">
+    <view class="layer" wx:for="{{list}}" wx:key="{{item.ent_id}}">
+      <view class="cont">
+        <view>
+          <view class="ident">委托单号：</view><view class="txt active">{{item.ymd_orderid}}</view>
+        </view>
+        <view>
+          <view class="ident">发起时间：</view><view class="txt">{{item.createTime}}</view>
+        </view>
+        <view>
+          <view class="ident">起止时间：</view><view class="txt">{{item.startTime}}~{{item.endTime}}</view>
+        </view>
+        <view wx:if="{{type === '1'}}">
+          <view>
+            <view class="ident">委托艺人：</view><view class="txt active">{{item.user_nicename || ''}}</view>
+          </view>
+          <view wx:if="{{tab === '1'}}">
+            <view class="ident">受理时间：</view><view class="txt">{{item.acceptTime}}</view>
+          </view>
+            <view class="bl active" wx:if="{{tab === '0'}}">
+              {{item.ent_type === '0' ? '有商品' : item.ent_type === '2' ? '无商品' : '公开委托'}}
+            </view>
+            <view class="bl active" wx:elif="{{tab === '1'}}">
+            {{item.pay_status === '0' ? '未付款' : item.pay_status === '1' ? '已付款' : ''}}/{{item.sl_status === '0' ? '未开始' : item.sl_status === '1' ? '进行中' : ''}}
+            </view>
+            <view class="bl active" wx:elif="{{tab === '3'}}">
+              {{item.ent_type === '0' ? '有商品' : item.ent_type === '2' ? '无商品' : '公开委托'}}
+            </view>
+            <view class="bl active" wx:else>
+              已取消
+            </view>
+        </view>
+        <view wx:else>
+          <view>
+            <view class="ident">委托商家：</view><view class="txt active">{{item.uid_name}}</view>
+          </view>
+          <view>
+            <view class="ident">委托状态：</view><view class="txt active">
+            {{item.sl_status === '0' ? '未受理' : (item.sl_status === '1' && item.pay_status === '0') ? '未付款' : (item.sl_status === '1' && item.pay_status === '1') ? '已付款' : item.sl_status === '3' ? (item.end_status === '0' ? '未完成' : item.end_status === '1' ? '等量完成' : item.end_status === '2' ? '不足完成' : '超量完成') : '已取消'}}
+            </view>
+          </view>
+        </view>
+        
+      </view>
+
+      <view class="btn-cell">
+        <button class="btn-primary" data-id="{{item.ent_id}}" catchtap="handleView">查看</button>
+        <button class="btn-success" wx:if="{{type === '1' && tab === '1' && item.pay_status === '0'}}" data-id="{{item.ent_id}}" catchtap="handlePay">支付</button>
+        <button class="btn-success" wx:if="{{type === '1' && tab === '3' && item.end_status === '0'}}" data-id="{{item.ent_id}}" catchtap="handleFinish">完成</button>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    暂无订单
+  </view>
+  
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+
+  <view class="popup-wrap" hidden="{{!pop}}">
+    <view class="popup-cell">
+      <view class="popup-cont">
+        <view class="title">确认委托完成</view>
+        <view class="pop-bd">
+          <view class="tips">*是否确认艺人已完成该委托？</view>
+          <view class="tips">*提交后该委托订单将完结结束</view>
+          <view class="tips">*当委托到结束时间5日后，将自动完结</view>
+        </view>
+        <view class="pop-ft">
+          <button class="btn-ensure" catchtap="handleEnsurePop">确认</button>
+          <button class="btn-cancel" catchtap="handleCancelPop">取消</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

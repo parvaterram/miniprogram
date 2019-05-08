@@ -1,0 +1,28 @@
+/* pages/order/list/index.wxss */
+
+.layer {
+  padding: 10rpx;
+}
+
+.img-cell {
+  float: left;
+}
+
+.img-cell image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.info {
+  float: left;
+  padding-left: 20rpx;
+}
+.info view {
+  line-height: 60rpx;
+}
+.btn-cell {
+  float: right;
+}
+.label {
+  background-color: #ff4081;
+}

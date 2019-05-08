@@ -1,0 +1,32 @@
+/* pages/campaign/createFirst/index.wxss */
+.header-guide {
+  margin-bottom: 10rpx;
+}
+.sub view {
+  width: 25%;
+}
+
+.header-guide .order .bar {
+  width: 107.5rpx;
+}
+
+
+.form-item .txt-cell textarea {
+  width: 100%;
+  height: 132rpx;
+}
+
+.form-item .link-cell {
+  width: 570rpx;
+  padding-left: 0;
+}
+.s-label {
+  background: #979696;
+  margin: 4rpx 10rpx 0 0;
+}
+.form-item .active {
+  background: #49cfd8;
+}
+.btn-info {
+  margin-right: 20rpx;
+}

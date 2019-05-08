@@ -1,0 +1,2 @@
+<!--pages/test/web/index.wxml-->
+<web-view src="https://mp.weixin.qq.com/s?__biz=MzI3NTk0ODA1NA==&mid=2247483679&idx=1&sn=9ab50d64231275774225f1b378a70527&chksm=eb7db666dc0a3f7069620b9ff07676b69dbe7db2d71ce35b139b02ef0b3bcab2e7475dec1cc5&token=1971981036&lang=zh_CN#rd" bindload="loadComplete"></web-view>

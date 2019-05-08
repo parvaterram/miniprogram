@@ -1,0 +1,81 @@
+/* pages/live/liveList/index.wxss */
+.layer {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10rpx;
+}
+
+.left {
+  flex-basis: 180rpx;
+  height: 180rpx;
+  position: relative;
+}
+
+.left .img-avatar {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 4rpx;
+}
+
+.left .gender {
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.left .status {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.center {
+  flex-grow: 1;
+  line-height: 40rpx;
+  padding-left: 10rpx;
+}
+
+.center .tag-cell {
+  height: 60rpx;
+}
+
+.center view {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.center .camp {
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+.center .tag {
+  display: inline-block;
+  height: 60rpx;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: #059F9F;
+  border-radius: 4rpx;
+  padding: 0 14rpx;
+  margin-right: 10rpx;
+}
+
+.center .grass {
+  background-color: #8bc34a;
+}
+
+.right {
+  flex-basis: 120rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}

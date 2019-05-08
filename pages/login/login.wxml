@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="top-panel">
+    <view class="intro-cell phone-wrap">
+      <label>关联手机号：</label>
+      <input class="phone" type="number" maxlength="11" placeholder="输入关联注册手机号" bindinput="handleEmitPhone" />
+    </view>
+    <view class="tips">*用于关联已在Dep注册使用的手机号</view>
+    <view class="intro-cell phone-wrap">
+      <label>输入密码：</label>
+      <input class="phone" password maxlength="11" placeholder="输入关联手机号的登录密码" bindinput='handleEmitPW' />
+    </view>
+    <view class="intro-cell phone-wrap">
+      <label>再次输入：</label>
+      <input class="phone" password maxlength="11" placeholder="再次输入密码" bindinput='handleEmitPW2' />
+    </view>
+    <view class="tips">*用于验证已在Dep注册使用的手机号</view>
+    <view class="intro-cell code">
+      <label>验证码：</label>
+      <input class="code" type="text" placeholder="输入验证码" bindinput="handleEmitCode" />
+      <button class="btn-getcode" catchtap="handleGetCode" wx:if="{{!obtain}}">{{codeText}}</button>
+      <button class="btn-getcode" wx:else>{{time}}s</button>
+    </view>
+    <view class="tips">*关联手机号用于将登录用户的信息进行整合，避免已有Dep账户的用户出现无法使用原有账户的功能；</view>
+    <view class="tips">*每个手机号只能关联一个微信号；</view>
+    <view class="tips">*已进行关联微信号的手机号无法关联其它微信号；</view>
+    <view class="tips">*如无Dep账户，该绑定操作作为注册账号。</view>  
+  </view>
+  <view class="bom-panel">
+     <button class="btn-submit" bindtap="handleSubmit">提交</button>
+  </view>
+</view>

@@ -1,0 +1,115 @@
+/* pages/artist/edit/index.wxss */
+.layer {
+  display: flex;
+  flex-flow: row nowrap;
+  min-height: 80rpx;
+}
+
+.left {
+  flex-basis: 160rpx;
+  text-align: right;
+  line-height: 80rpx;
+}
+
+.right {
+  flex-grow: 1;
+}
+
+.right input {
+  width: 90%;
+  height: 80rpx;
+  color: #979696;
+  border: none;
+}
+.right .row {
+  line-height: 80rpx;
+}
+
+.right .city {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 20rpx 0 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.city .city-tag {
+  height: 60rpx;
+  color: #49cfdb;
+  text-align: center;
+  padding: 0 12rpx;
+  line-height: 60rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #49cfdb;
+}
+
+.city button {
+  width: 120rpx;
+  height: 60rpx;
+  margin: 0;
+}
+
+.img-list {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10rpx;
+}
+
+.img-cell {
+  position: relative;
+  width: 218rpx;
+  height: 218rpx;
+  margin: 0 10rpx 10rpx 10rpx;
+}
+
+.img-cell image {
+  width: 218rpx;
+  height: 218rpx;
+}
+
+.img-cell icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.tips {
+  line-height: 40rpx;
+  padding-left: 20rpx;
+}
+
+.video-cell {
+  position: relative;
+  width: 100%;
+}
+
+.video-cell .btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index:999;
+}
+
+video {
+  width: 100%;
+}
+
+.file-cell {
+  width: 100%;
+  padding: 20rpx;
+}
+
+.btn-close {
+  color: #fff;
+  width: 44rpx;
+  height: 44rpx;
+  font-size: 38rpx;
+  text-align: center;
+  line-height: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #e51c23;
+  border-radius: 50%;
+}

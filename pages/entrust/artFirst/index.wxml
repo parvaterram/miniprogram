@@ -1,0 +1,81 @@
+<!--pages/entrust/create/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar"></view>
+      <view class="num">2</view>
+      
+    </view>
+    <view class="sub">
+      <view class="active">委托内容</view>
+      <view>核对信息</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">委托地点：</view>
+      <picker mode="region" bindchange='regionChange'>
+        <view class="ipt-cell bdr-btm">
+          {{region.length > 0 ? region[0] + ' ' + region[1] + ' ' + region[2] : '请选择省市区'}}
+        </view>
+      </picker>
+    </view>
+    <view class="ent-item">
+      <view class="left"> </view>
+      <view class="ipt-cell">
+        <input type="text" placeholder='详细地址' value="{{address}}" bindinput="handleEmitAddress" />
+      </view>
+    </view>
+
+    <view class="tips">*该委托的实际执行地点。</view>
+
+    <view class="ent-item">
+      <view class="left"><label for="desc">委托描述：</label></view>
+      <view class="txt-cell">
+        <textarea id="desc" maxlength="500" value="{{desc}}" bindinput="handleEmitDesc" placeholder='该委托详细信息（500汉字以内）' />
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">委托类型：</view>
+      <view class="ipt-cell bdr-btm">
+        <view class="s-label">指定委托</view>
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">委托酬劳：</view>
+      <view class="ipt-cell">
+        <input type="text" class="stare" value="{{reward}}" bindinput="handleEmitReward" placeholder='请输入给予受理人的直接报酬' />
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">服务费用：</view>
+      <view class="ipt-cell">
+        
+        <input type="text" class="stare" value="{{brokerage}}" disabled='true' placeholder='平台额外收取7%服务费' placeholder-class='plahold' />
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">实际支出：</view>
+      <view class="ipt-cell">
+        <input type="text" class="stare" disabled='true' value="{{cost}}" placeholder='根据委托酬劳计算' placeholder-class='plahold' />
+      </view>
+    </view>
+
+    <view class="tips">*设定该次委托的艺人所得酬劳；</view>
+    <view class="tips">*艺人受理后，商家将需要支付艺人酬劳和平台服务费用</view>
+    <view class="tips">*委托结束后该酬劳将给予艺人；</view>
+    <view class="tips">*若艺人无履行委托，请联系平台，核对后将进行返还。</view>
+  </view>
+
+  <view class="btm">
+    <button class="btn btn-full" bindtap="handleNextStep">下一步</button>
+  </view>
+</view>

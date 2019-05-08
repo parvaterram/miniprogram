@@ -1,0 +1,53 @@
+<!--pages/campaign/search/index.wxml-->
+<view class="container">
+  <view wx:if="{{list.length > 0}}">
+    <view class="layer li-item" wx:for="{{list}}" wx:key="{{item.id}}">
+      <view
+      class="head"
+      data-id="{{item.id}}"
+      bindtap="handleLinkDetail"
+      >
+        <view class="img-cell">
+          <image mode="aspectFill" src="{{item.act_img}}"></image>
+        </view>
+
+        <view class="info">
+          <view>{{item.name}}</view>
+          <view class="mes">
+            <view>{{item.city}}</view>
+            <view>
+              艺人酬劳：{{item.price_set_status === '1' ? '面议' : item.mix_money + ' ~ ' + item.max_money}}
+            </view>
+          </view>
+          <view class="date">
+            活动开始日期：{{item.startTime}}
+          </view>
+        </view>
+
+        <view class="btn-cell">
+          <view>
+            {{item.time_status === 1 ? '未开始' : item.time_status === 2 ? '进行中' : '已结束'}}
+          </view>
+        </view>
+      </view>
+
+      <view class="body">
+        <view class="avatar">
+          <image mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+        </view>
+        <view class="name">{{item.user_nicename}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>暂无数据</view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+
+</view>

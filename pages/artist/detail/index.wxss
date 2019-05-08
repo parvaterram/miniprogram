@@ -1,0 +1,148 @@
+
+/* pages/artistDetail.wxss */
+.container {
+  background-color: #eaeaea;
+  padding-bottom: 120rpx;
+  position: relative;
+}
+
+.layer {
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.header {
+  padding: 10rpx;
+}
+
+.avatar {
+  float: left;
+  width: 120rpx;
+  height: 120rpx;
+  position: relative;
+}
+
+.avatar .img-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.avatar .gender {
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.info {
+  float: left;
+  line-height: 40rpx;
+  padding-top: 20rpx;
+  padding-left: 10rpx;
+}
+
+.follow {
+  float: right;
+}
+
+.follow button {
+  width: 120rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 60rpx;
+  background-color: #059F9F;
+  border-radius: 4rpx;
+  margin-top: 30rpx;
+}
+
+.pf {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  text-align: center;
+  height:110rpx;
+  padding:10rpx 0;
+  justify-content:center;
+}
+
+.pf .row {
+  width: 650rpx;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.pf .row view {
+  width: 210rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #fff;
+  background-color: #46caff;
+  border-radius: 4rpx;
+}
+
+.title {
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.area .row {
+  display: flex;
+  height: 60rpx;
+  align-items: center;
+  justify-content:center;
+}
+
+.area .row .label-item {
+  display: inline-block;
+  width: 210rpx;
+  height: 40rpx;
+  border-radius: 4rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  background-color: #059F9F;
+  margin-right: 10rpx;
+}
+
+.desc {
+  line-height: 34rpx;
+  padding: 10rpx 20rpx 20rpx 20rpx;
+}
+.img-box {
+  overflow: hidden;
+}
+.img-cell {
+  width: 759rpx;
+  display:flex;
+  flex-flow:row wrap;
+
+}
+
+.img-cell image {
+  width:244rpx;
+  height:244rpx;
+  margin: 0 9rpx 6rpx 0;
+}
+
+video {
+  width: 100%;
+}
+
+.active {
+  background-color: #059F9F;
+}
+
+.btn-edit {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 112rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}

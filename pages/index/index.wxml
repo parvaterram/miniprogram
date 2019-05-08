@@ -1,0 +1,77 @@
+
+<view class="container">
+  <navigator class="help link-cell" url="/pages/help/catalog/index">
+    <view>Dep·Live使用帮助</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <swiper class="swiper" indicator-dots="true" indicator-color="#ffffff"
+      autoplay="true" interval="4000" duration="500" indicator-active-color="#059F9F" bindchange="handleSwiperChange">
+      <block wx:for="{{bannerList}}" wx:key="{{index}}">
+        <swiper-item class="swiper-item">
+          <image mode="aspectFit" src="{{item.slide_pic}}" class="slide-image" bindtap="handleBannerTap" data-cid="{{item.slide_cid}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+  <view class="tab-bar">
+    <view class="item active">新秀</view>
+    <view class="item">
+      <picker bindchange='authTypeChange' value="{{index}}" range='{{authType}}' range-key='name'>
+        类型
+      </picker>
+    </view>
+    <view class="item" bindtap="handleFilter">筛选</view>
+  </view>
+  
+  <view class="srch-bar">
+    <input type='text' class="search" placeholder="艺人名称、活动区域…" bindinput="handleEmitKW" /><button class="btn-srch" bindtap="handleSearch">搜索</button>
+  </view>
+
+  <view class="ar-item" wx:for="{{list}}" wx:key="{{item.id}}" data-idx="{{item.uid}}" bindtap="handleLinkDetail">
+    <view class="avatar">
+      <image class="img-avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+      <!-- <view class="live-sta">未开播</view> -->
+      <image class="gender" mode="scaleToFill" src="/assets/img/gender{{item.sex}}.png"></image>
+    </view>
+    <view class="info">
+      <view wx:if="{{item.isauth === '1'}}">
+        <view class="type">认证艺人</view> <view class="auth-type" wx:if="{{item.artType}}">{{item.artType}}</view>
+      </view>
+      <view>
+         <text>{{item.art_name}}</text>
+      </view>
+      <view wx:if="{{item.height !== '' && item.weight !== '' && item.chest !== '' && item.waist !== '' && item.hip !== '' && item.shoe_size !== ''}}">
+        <text space>高：{{item.height}} 重：{{item.weight}} 三：{{item.chest}}-{{item.waist}}-{{item.hip}} 鞋：{{item.shoe_size}}</text>
+      </view>
+      <view>
+        <text space>{{areaList[index]}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+
+  <view class="popup-wrap" wx:if="{{isAuth}}">
+    <view class="popup-cell">
+      <view class="popup-cont">
+        <view class="title">提示</view>
+        <view class="pop-bd">
+          <view>您并未关注《Dep嘚谱直播》公众号，我们需要获取您的登录授权信息！
+您可以前往关注公众号，并从公众号中进入Dep小程序！
+该次授权信息并不会被公开于任何第三方途径！</view>
+        </view>
+        <view class="pop-ft">
+          <button class="btn-ensure" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">确认</button>
+          <button class="btn-cancel" catchtap="handleCancelAuth">取消</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

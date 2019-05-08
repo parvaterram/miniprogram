@@ -1,0 +1,4 @@
+/* pages/artist/filter/index.wxss */
+.list {
+  padding-top: 80rpx;
+}

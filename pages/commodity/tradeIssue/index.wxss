@@ -1,0 +1,32 @@
+/* pages/commodity/waresIssue/index.wxss */
+.header-guide {
+  margin-bottom: 10rpx;
+}
+
+.sub view {
+  width: 33.33%;
+}
+
+.header-guide .order .bar {
+  width: 170rpx;
+}
+
+.stare {
+  padding-bottom: 20rpx;
+}
+.tips {
+  text-align: center;
+  background-color: #fff;
+  line-height: 60rpx;
+}
+
+.img-cell .btn-select {
+  width: 100%;
+  height: 100%;
+  font-size: 120rpx;
+  line-height: 218rpx;
+  text-align: center;
+  color: #bbb;
+  border: 1rpx solid #bbb;
+  border-radius: none;
+}

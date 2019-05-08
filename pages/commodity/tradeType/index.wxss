@@ -1,0 +1,28 @@
+/* pages/commodity/waresType/index.wxss */
+.sub view {
+  width: 33.33%;
+}
+
+.header-guide .order .bar {
+  width: 170rpx;
+}
+
+.btn-cell {
+  padding: 0 20rpx;
+  margin-top: 140rpx;
+}
+
+.btn-big {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 0;
+  background-color: #8bc34a;
+}
+.tips {
+  padding: 0 20rpx;
+  line-height: 34rpx;
+}

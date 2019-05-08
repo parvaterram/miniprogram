@@ -1,0 +1,72 @@
+/* pages/campaign/index/index.wxss */
+.li-item .head {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10rpx;
+}
+
+.head .img-cell {
+  flex-basis: 200rpx;
+  height: 140rpx;
+}
+
+.head .img-cell image {
+  width: 200rpx;
+  height: 140rpx;
+}
+
+.head .info {
+  flex-grow: 1;
+  padding-left: 10rpx;
+  line-height: 40rpx;
+}
+
+.head .info .mes {
+  display: flex;
+  flex-flow: row nowrap;
+  color: #737373;
+}
+
+.head .info .mes view {
+  flex-grow: 1;
+}
+
+.head .info .date {
+  color: #ff4081;
+  line-height: 60rpx;
+}
+
+.head .btn-cell {
+  flex-basis: 120rpx;
+}
+
+.head .btn-cell view {
+  width: 120rpx;
+  height: 60rpx;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: #46c4ff;
+}
+
+.body {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0 0 20rpx 10rpx;
+}
+
+.body .avatar {
+  flex-basis: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.body .avatar image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.body .name {
+  line-height: 60rpx;
+}

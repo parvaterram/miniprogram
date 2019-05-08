@@ -1,0 +1,13 @@
+<!--pages/help/becomeSeller/index.wxml-->
+<view class="container">
+  <view class="world-box">
+    <text space='true'>通过“我的-商家入驻”提供有效的企业信息，经由平台人员审核通过后，即成为Dep入驻商家
+
+成为商家后，可创建商品、发布委托
+    </text>
+  </view>
+  <navigator class="layer link-cell" url="/pages/help/sellerRights/index">
+    <view>商家权益</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+</view>

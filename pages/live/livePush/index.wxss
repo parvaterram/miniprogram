@@ -1,0 +1,168 @@
+/* pages/live/livePush/index.wxss */
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.live {
+  width: 750rpx;
+  height: 600rpx;
+  position: relative;
+}
+.controls {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+.controls .left {
+  padding-left: 20rpx;
+}
+.controls .right {
+  padding-right: 20rpx;
+}
+
+.v-icon {
+  display: inline-block;
+  margin-left: 20rpx;
+}
+
+.full {
+  margin-left: 0;
+}
+
+cover-image {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.boarder-cell {
+  padding: 0 10rpx;
+  width: 100%;
+}
+.boarder {
+  height: 500rpx;
+  width: 100%;
+  overflow: auto;
+  border-radius: 8rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.chat .news-item {
+  font-size: 28rpx;
+	line-height: 50rpx;
+  color: #fff;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+
+.news-item image {
+  height: 30rpx;
+  vertical-align: middle;
+}
+
+.news-item .sys-name {
+  display: inline;
+  color: #f9963e;
+}
+
+.news-item .sys-ct {
+  display: inline;
+  color: #7e5596;
+}
+
+.news-item .wel {
+  color: #000;
+}
+
+.news-item .msg {
+  display: inline;
+  color: #fff;
+}
+
+.news-item .u-name {
+  display: inline;
+  color: #ffd350;
+}
+
+.news-item .pup {
+  display: inline;
+  color: #5733f0;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: row nowrap;
+  align-items: center;
+  padding: 10rpx 0;
+  background-color: #eaeaea;
+}
+
+.foot input {
+  width: 470rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  line-height: 58rpx;
+  border: 1rpx solid #797979;
+  border-radius: 30rpx;
+  padding: 10rpx;
+  background-color: #fff;
+}
+
+.foot button {
+  width: 80rpx;
+  height:60rpx;
+  color:#101010;
+  font-size:24rpx;
+  border:1rpx solid #eaeaea;
+  background:#eaeaea;
+  margin: 0;
+}
+
+.foot .icon {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  color: #fff;
+  justify-content: space-around;
+  border-radius: 50%;
+  background-color: #a9a9a9;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}
+
+.unread {
+  position: fixed;
+  left: 20rpx;
+  bottom: 80rpx;
+  color: #009688;
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+}
+
+.news-item .s {
+  width: 50rpx;
+}
+
+.news-item .m {
+  width: 82rpx;
+}
+
+.news-item .b {
+  width: 120rpx;
+}
+
+.news-item .news-img-gift {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 10rpx;
+}

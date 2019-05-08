@@ -1,0 +1,166 @@
+ .container {
+  background-color: #eaeaea;
+  overflow: hidden;
+  color: #101010;
+  font-size: 24rpx;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10rpx;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+  .item .l-c {
+    position: relative;
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 10rpx;
+  }
+  .item .avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+    .avatar .a-img {
+      width: 120rpx;
+      height: 120rpx;
+    }
+  .l-c .sex-img {
+    position: absolute;
+    width: 40rpx;
+    bottom: 0;
+    left: -5rpx;
+  }
+.iden>button {
+  width: 120rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-right: 10rpx;
+  color: #fff;
+  text-align: center;
+}
+  .iden .admin {
+    background-color: #FF9800;
+  }
+  .iden .artist {
+    background-color: #46C4FF;
+  }
+.name {
+  line-height: 40rpx;
+  width: 210rpx;
+  color: #434343;
+}
+  .name .titles {
+    width: 100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .name .price {
+    color: #E51C23;
+    width: 100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+.offer {
+  width: 120rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-right: 10rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #46C4FF;
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 620rpx; 
+  background-color: #fff;
+  z-index: 9999;
+  padding-top: 20rpx;
+}
+  .m-title {
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 16px;
+    color: #00B7FF;
+  }
+  .m-body {
+    padding: 0 20rpx;
+    color: #101010;
+  }
+    .m-body .dt {
+      display: inline-block;
+      width: 120rpx;
+    }
+    .m-body .name  {
+      width: 100%;
+      line-height: 40rpx;
+      color: #434343;
+    }
+    .input-group>input {
+      width: 100%;
+      height: 60rpx;
+      border-radius: 8rpx;
+      margin-top: 10rpx;
+      padding: 0 20rpx
+    }
+    .m-body .tax {
+      margin-top: 10rpx;
+    }
+    .m-body .amount {
+      margin-bottom: 10rpx;
+    } 
+    .m-body .amount,
+    .m-body .tax {
+      line-height: 60rpx;
+    }
+    .m-body .tax .dt,
+    .m-body .amount .dt {
+       color: #434343;
+    }
+    .m-body .tax .dd,
+    .m-body .amount .dd {
+       color: #E51C23;
+    }
+    .m-foot {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 120rpx;
+    }
+    .m-foot button {
+      width: 50%;
+      height: 120rpx;
+      line-height: 120rpx;
+      font-size: 36rpx;
+      color: #fff;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    .m-foot .submit-btn {
+      background-color: #46C4FF;
+    }
+    .m-foot .close-btn {
+      background-color: #BBB;
+    }

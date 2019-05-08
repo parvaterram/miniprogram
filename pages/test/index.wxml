@@ -1,0 +1,27 @@
+<!--pages/test/index.wxml-->
+<view class="container">
+  <button class="btn-default" bindtap="srun">测试stream</button>
+  <button bindtap="clear">clear</button>
+  <!--<button class="btn-default" bindtap="handleNext">画的</button>
+  <image src="{{url}}"></image> -->
+  <form report-submit bindsubmit="formSubmit" bindreset="formReset">
+    <button formType="submit">Submit</button>
+    <button formType="reset">Reset</button>
+  </form>
+
+  
+  <input type="text" placeholder='撩骚撩骚撩骚'></input>
+  <view>状态吗{{}}</view>
+  <view>error{{}}</view>
+  <!-- <view class="panel"></view> -->
+
+  <view>{{test}}</view>
+  <navigator url="/pages/test/web/index">跳转</navigator>
+
+  <!-- <scroll-view class="scr" scroll-top="{{scrollTop}}" scroll-y bindscrolltolower="lower" bindscroll="scroll" scroll-top="{{scrollTop}}">
+    <view class="chat">
+        <view class="news-item" wx:for="{{list}}" wx:key="{{index}}">fdsddd--{{item}}</view>
+      </view>
+  </scroll-view>
+<view class="hello" wx:if="{{stopScroll && queue.length > 0}}" bindtap="scrollBottom">{{queue.length}}未读消息</view> -->
+</view>

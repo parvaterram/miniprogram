@@ -1,0 +1,104 @@
+<!--pages/createEntrust/date/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar active"></view>
+      <view class="num active">2</view>
+      <view class='bar'></view>
+      <view class="num">3</view>
+      <view class='bar'></view>
+      <view class="num">4</view>
+    </view>
+    <view class="sub">
+      <view class="active">委托目的信息</view>
+      <view class="active">时间与分成</view>
+      <view>选择受理人</view>
+      <view>核对委托</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <picker mode="date" start="{{startDateMix}}" end="{{startDateMax}}" bindchange="startDateChange">
+      <view class="ent-item">
+        <view class="left">开始日期：</view>
+          <view class="ipt-cell bdr-btm">
+            {{startDate || '执行开始日期'}}
+          </view>
+      </view>
+    </picker>
+
+    <picker mode="time" bindchange="startTimeChange">
+      <view class="ent-item">
+        <view class="left">开始时间：</view>
+          <view class="ipt-cell">
+            {{startTime || '执行开始时间'}}
+          </view>
+      </view>
+    </picker>
+  </view>
+
+  <view class="layer">
+    <picker mode="date" start="{{endDateMix}}" end="{{endDateMax}}" bindchange="endDateChange" disabled="{{avail}}" bindtap="handleEndDateTap">
+      <view class="ent-item">
+        <view class="left">结束日期：</view>
+          <view class="ipt-cell bdr-btm">
+            {{endDate || '执行结束日期'}}
+          </view>
+      </view>
+    </picker>
+
+    <picker mode="time" bindchange="endTimeChange">
+      <view class="ent-item">
+        <view class="left">结束时间：</view>
+          <view class="ipt-cell">
+            {{endTime || '执行结束时间'}}
+          </view>
+      </view>
+    </picker>
+
+    <view class="tips">*该委托的实际执行时间段范围；</view>
+    <view class="tips">*委托开始日期不可早于系统当前时间。</view>
+
+    
+      <picker range="{{sell}}" bindchange="sellchange">
+        <view class="ent-item">
+          <view class="left">推购分成：</view>
+          <view class="ipt-cell">
+            <view class="link-cell">
+              {{sell[sellSub] || '请选择推购分成比例'}}
+              <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+            </view>
+          </view>
+        </view>
+      </picker>
+    <view class="assign"></view>
+
+    <view class="layer">
+      <view class="ent-item">
+        <view class="left">艺人抽成：</view>
+        <view class="ipt-cell">
+          <input type="text" class="stare" disabled='true' value="{{assignArt}}" placeholder='推购商品成交时，艺人从成交金额中所得酬劳' placeholder-class='stare' />
+        </view>
+      </view>
+      <view class="ent-item">
+        <view class="left">平台抽成：</view>
+        <view class="ipt-cell">
+          <input type="text" class="stare" disabled='true' value="{{assignPlat}}" placeholder='推购商品成交时，平台从成交金额中所得抽成' placeholder-class='stare' />
+        </view>
+      </view>
+      <view class="ent-item">
+        <view class="left">实际所得：</view>
+        <view class="ipt-cell">
+          <input type="text" class="stare" disabled='true' value="{{left}}" placeholder='推购商品成交时，商家实际所得' placeholder-class='stare' />
+        </view>
+      </view>
+    </view>
+    <view class="tips">*每次推购商品成单后，艺人从中可获取的分成金额</view>
+    <view class="tips">*平台将从商品订单中收取5%分成</view>
+    <view class="tips">*以上报价内容仅受理人可见</view>
+  </view>
+  <view>
+    <button class="btn btn-full btm" bindtap="handleNextStep">下一步</button>
+  </view>
+</view>

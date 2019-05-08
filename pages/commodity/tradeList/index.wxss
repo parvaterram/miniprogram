@@ -1,0 +1,86 @@
+/* pages/commodity/waresManage/index.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+.li-head {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10rpx;
+}
+.img-cell {
+  width: 240rpx;
+  height: 240rpx;
+}
+
+.img-cell image {
+  width: 240rpx;
+  height: 240rpx;
+}
+
+.info {
+  padding: 0 10rpx;
+}
+
+.name {
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+.label {
+  display: inline-block;
+  width: 140rpx;
+  height: 52rpx;
+  color: #fff;
+  line-height: 52rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  background-color: #ff9800;
+  margin-right: 20rpx;
+}
+
+.status {
+  background-color: #8bc34a;
+}
+.cur {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.price {
+  font-size: 32rpx;
+  color: #e51c23;
+}
+.stock {
+  color: #e51c23;
+}
+
+.li-body {
+  line-height: 60rpx;
+  padding-left: 20rpx;
+}
+.li-foot {
+  height: 80rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.li-foot button {
+  flex-grow: 1;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 0;
+}
+
+.btn-del {
+  background: #ff9800;
+}
+.btn-edit {
+  background: #46c4ff;
+}
+.btn-issue {
+  background: #62cdff;
+}
+.btn-ent {
+  background: #8bc34a;
+}

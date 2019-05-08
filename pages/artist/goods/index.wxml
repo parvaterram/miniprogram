@@ -1,0 +1,65 @@
+<!--pages/artist/goods/index.wxml-->
+<view class="container">
+  <view class="layer title">
+    受理商品
+  </view>
+
+  <view wx:if="{{entList.length > 0}}">
+    <view class="layer clearfix" wx:for="{{entList}}" wx:key="{{item.shopid}}" data-id="{{item.shopid}}" bindtap="handleLinkDetail">
+      <view class="img-cell">
+        <image mode="aspectFill" src="{{item.goods_img}}"></image>
+      </view>
+      <view class="info">
+        <view class="name">
+          {{item.goods_name}}
+        </view>
+        <view>
+          <view class="label">{{item.goods_type === '2' ? '到店消费' : '物流配送'}}</view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="price">￥{{item.money}}</view>
+        <button data-id="{{item.shopid}}" catchtap="handleBuy">立即购买</button>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    暂无受理商品
+  </view>
+
+  <view class="layer title">
+    自有商品
+  </view>
+  <view wx:if="{{ownList.length > 0}}">
+    <view class="layer clearfix" wx:for="{{ownList}}" wx:key="{{item.shopid}}" data-id="{{item.shopid}}" bindtap="handleLinkDetail">
+      <view class="img-cell">
+        <image mode="aspectFill" src="{{item.goods_img}}"></image>
+      </view>
+      <view class="info">
+        <view class="name">
+          {{item.goods_name}}
+        </view>
+        <view>
+          <view class="label">
+            {{item.goods_type === '2' ? '到店消费' : '物流配送'}}
+          </view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="price">￥{{item.money}}</view>
+        <button data-id="{{item.shopid}}" catchtap="handleBuy">立即购买</button>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    暂无自有商品
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+</view>

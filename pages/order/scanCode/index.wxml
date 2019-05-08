@@ -1,0 +1,8 @@
+<!--pages/order/scanCode/index.wxml-->
+<view class="container">
+  <view class="btn-full" wx:if="{{status === 3}}" bindtap="handleTap">扫订单码</view>
+  <view class="tip" wx:if="{{status === 2}}">订单识别码已使用，请重新核对使用的订单。（已使用识别码）</view>
+  <view class="tip" wx:if="{{status === 1}}">订单确认，可进行提货。（有效期内首次识别）</view>
+  <view class="tip" wx:if="{{status === 4}}">订单已过有效期，无法提货。（超过有效期）</view>
+  <view class="tip" wx:if="{{status === 5}}">{{txt}}</view>
+</view>

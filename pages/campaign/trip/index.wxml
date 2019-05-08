@@ -1,0 +1,72 @@
+<!--pages/campaign/trip/index.wxml-->
+<view class="container">
+  <view class="layout">{{info.name}}</view>
+
+  <view class="layout stare">
+    <view>{{info.pro}}-{{info.city}}-{{info.area}}</view>
+    <view>{{info.address}}</view>
+  </view>
+  
+  <view class="db-col">
+    <view class="layout stare">期望酬劳：{{signup.art_payfee}}</view>
+    <view class="layout grass">
+      {{signup.signup_status === '0' ? '待确认' : signup.signup_status === '1' ? '未受理' : signup.signup_status === '3' ? '已拒绝' : signup.signup_status === '4' ? '已接受' : ''}}
+    </view>
+    
+  </view>
+
+  <view class="db-col" wx:if="{{signup.signup_status === '1'}}">
+    <view class="layout stare">
+      实际酬劳：{{signup.shop_payfee}}
+    </view>
+    <view class="layout grass">
+      {{signup.getmoney_status === '0' ? '未预付' : signup.getmoney_status === '1' ? '已预付' : ''}}
+    </view>
+  </view>
+
+  <view class="layout blue">报名时间</view>
+
+  <view class="layout">{{enrollStartDate}} ~ {{enrollEndDate}}</view>
+
+  <view class="layout blue">活动时间（该活动实际开始）</view>
+
+  <view
+    class="layout"
+    wx:for="{{info.act_time}}"
+    wx:key="{{item.tid}}"
+  >
+    {{item.ymd_time}} {{item.stime}} ~ {{item.etime}}
+  </view>
+
+  <!-- <view class="layout grass">2018-7-7 12:00 ~ 14:00（准备）</view> -->
+
+  <view class="layout stare txt">
+    {{item.des}}
+  </view>
+
+  <view class="layout blue" wx:if="{{signup.video_status === '1'}}">我的上传</view>
+
+  <video
+    src="{{signup.video_url}}"
+    poster="{{signup.video_img}}"
+    wx:if="{{signup.video_status === '1'}}"
+  ></video>
+
+  <view class="layout blue" wx:if="{{signup.signup_status === '1'}}">我的受理结果</view>
+
+  <view class="layer" wx:if="{{signup.signup_status === '1'}}">
+    <view class="form-item">
+      <view class="left">受理描述：</view>
+      <view class="right">
+        <input type='text' value="{{intro}}" bindinput="handleEmitIntro" placeholder='请填写您对该次委托的受理反馈'></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips" wx:if="{{signup.signup_status === '1'}}">*受理人对该次委托要求的反馈</view>
+
+  <view class="btn-cell" wx:if="{{signup.signup_status === '1'}}">
+    <button class="btn-half" data-type="4" bindtap="handleAccept">接受</button>
+    <button class="btn-half btn-cancel" data-type="3" bindtap="handleAccept">拒绝</button>
+  </view>
+</view>

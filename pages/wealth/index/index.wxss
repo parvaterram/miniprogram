@@ -1,0 +1,68 @@
+/* pages/wealth/index/index.wxss */
+.container {
+  position: relative;
+}
+
+.head {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 120rpx;
+}
+
+.head .avatar {
+  margin: 0 10rpx 0 20rpx;
+}
+
+.head .avatar image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.txt {
+  font-size: 28rpx;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+}
+.txt text {
+  color: #e51c23;
+}
+
+.log {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 28rpx;
+  background: #fff;
+  line-height: 60rpx;
+  text-align: center;
+}
+.log view {
+  flex-grow: 1;
+}
+
+.log .amount {
+  color: #e51c23;
+}
+
+.btn-cell {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.active {
+  background-color: #059F9F;
+}
+
+.test {
+  color: #fff;
+  width: 44rpx;
+  height: 44rpx;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 36rpx;
+  background-color: #e51c23;
+  border-radius: 50%;
+}

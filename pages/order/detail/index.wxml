@@ -1,0 +1,61 @@
+<!--pages/order/detail/index.wxml-->
+<view class="container">
+  <view class="layer">
+    <view class="left">商品名称：</view>
+    <view class="right">{{info.goods_name}}</view>
+  </view>
+
+  <view class="layer">
+    <view class="left">下单时间：</view>
+    <view class="right">{{info.createTime}}</view>
+  </view>
+
+  <view class="layer">
+    <view class="left">选购数量：</view>
+    <view class="right">{{info.goods_number}}</view>
+  </view>
+
+  <view class="layer">
+    <view class="left">订单编号：</view>
+    <view class="right">{{info.orderid}}</view>
+  </view>
+
+  <view class="layer">
+    <view class="left">当前状态：</view>
+    <view class="right">
+      {{info.code_status === '0' ? '未使用' : info.code_status === '1' ? '已使用' : '已失效'}}
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">使用期限：</view>
+    <view class="right">{{info.endTime}}</view>
+  </view>
+
+  <view class="layer">
+    <view class="left">提货地点：</view>
+    <view class="right">
+      <view>{{info.pro}} {{info.city}} {{info.area}}</view>
+      <view>{{info.address}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{type === '1'}}">
+    <view class="layer">
+      <view class="left">下单用户：</view>
+      <view class="right">{{info.uid_name}}</view>
+    </view>
+
+    <view class="layer">
+      <view class="left">下单ID：</view>
+      <view class="right">{{info.uid}}</view>
+    </view>
+  </view>
+
+  <view class="layer" wx:if="{{type === '2'}}">
+    <view class="left">识别码：</view>
+    <view class="right">
+      <canvas hidden="{{canvasHidden}}" canvas-id="mycanvas"/>
+    </view>
+  </view>
+</view>

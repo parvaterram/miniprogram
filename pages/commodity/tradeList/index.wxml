@@ -1,0 +1,61 @@
+<!--pages/commodity/waresManage/index.wxml-->
+<view class="container">
+  <view wx:if="{{list.length > 0}}">
+
+    <view class="layer" wx:for="{{list}}" wx:key="{{item.shopid}}">
+      <view class="li-head" bindtap="handleLinkDetail" data-id="{{item.shopid}}">
+        <view class="img-cell">
+          <image mode="aspectFit" src="{{item.goods_img}}"></image>
+        </view>
+        <view class="info">
+          <view class="name">{{item.goods_name}}</view>
+          <view>
+            <view class="label" wx:if="{{item.goods_type === '2'}}">到店消费</view>
+            <view class="label" wx:if="{{item.goods_type === '1'}}">物流配送</view>
+            <view class="label status">{{item.status === '0' ? '审核中' : item.status === '1' ? '审核通过' : '审核失败'}}</view>
+          </view>
+          <view class="cur">
+            <text>当前售价：</text><text class="price">{{item.money}}</text>
+          </view>
+          <view class="cur">
+            <text>当前库存：</text><text class="stock">{{item.inventory}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="li-body">
+        审核中，未发布
+      </view> -->
+      <view class="li-foot" wx:if="{{!from}}">
+        <button class="btn-del" data-id="{{item.shopid}}" bindtap="handleDel">
+          删除
+        </button>
+        <button class="btn-edit" data-id="{{item.shopid}}" data-type="{{item.goods_type}}" data-sale="{{item.isgo}}" bindtap="handleEdit">
+          编辑
+        </button>
+        <button class="btn-issue" data-id="{{item.shopid}}" wx:if="{{item.status === '1'}}" bindtap="handleSale">
+          {{item.isgo === '0' ? '上架' : '下架'}}
+        </button>
+        <button class="btn-ent" data-id="{{item.shopid}}" wx:if="{{item.status === '1'}}" bindtap="handleEntrust">
+          找代言
+        </button>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="empty" wx:if="{{list.length === 0}}">
+    你暂时还没有商品哦
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+
+  <view wx:if="{{!from}}">
+    <navigator class="btn-full btm" url="/pages/commodity/tradeType/index">新增商品</navigator>
+  </view>
+</view>

@@ -1,0 +1,71 @@
+<!--pages/offer/index.wxml-->
+<view class="container">
+  <view class="layer" wx:if="{{!self}}">
+    <view class="tit-hd">艺人当前报价</view>
+  </view>
+  <view class="layer tip stare" wx:if="{{self}}">
+    <view>变更报价设定后，需点击下方“确认编辑”提交修改</view>
+  </view>
+  <view class="layer">
+    <view class="left">个人报价：</view>
+    <view class="right">
+      <input type="number" value="{{money}}" bindinput="handleEmitMoney" placeholder='输入报价金额' wx:if="{{self}}"></input>
+      <view class="of-for-shop" wx:if="{{!self}}">
+        <view class="l">{{money ? money > 10000 ? '10000+' : money : '无报价'}}</view>
+        <view class="r">{{taxesType === '1' ? '可提供票据' : '不提供票据'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="layer" wx:if="{{self}}">
+    <view class="left">税务票据：</view>
+    <view class="right">
+      <view class="label {{taxesType === '1' && 'active'}}" data-index="1" bindtap="handleChooseTaxes">可提供票据</view>
+      <view class="label {{taxesType === '0' && 'active'}}" data-index="0" bindtap="handleChooseTaxes">不提供票据</view>
+    </view>
+  </view>
+  <view class="tips" wx:if="{{self}}">*艺人单次受理酬劳时能否提供对应税务票据</view> -->
+  <view class="layer">
+    <view class="left">报价类型：</view>
+    <view class="right">
+      <view class="tag-item" wx:for="{{offerIds}}" wx:key="{{item.id}}">
+        <view class="impress-tag">{{item.type}}</view>
+        <button wx:if="{{self}}" data-id="{{item.id}}" catchtap="handleDel">删除</button>
+      </view>
+      <view wx:if="{{self}}" class="select">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{tagList}}" range-key="type">
+          <view class="link-cell">
+            <view>{{tagList[tagSub] ? tagList[tagSub].type : '选择类型'}}</view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>
+          </picker>
+          <button catchtap="handleUpdate">新增</button>
+      </view>
+    </view>
+  </view>
+ 
+  <view class="tips">*艺人报价用于向平台入驻商家显示个人接单的期望酬</view>
+  <view class="tips">*报价类型代表艺人个人平常愿意接受的委托类型</view>
+
+
+  <view class="layer" wx:if="{{!self}}">
+    <view class="left">行业报价：</view>
+    <view class="right">
+      <view wx:if="{{indOffer.length > 0}}">
+        <view class="sum" wx:for="{{indOffer}}">￥{{item.price}}</view>
+        <view class="sum">最近询价反馈</view>
+      </view>
+      <view wx:else>
+        <view class="sum">该艺人当前无他方报价</view>
+      </view>
+    </view>
+  </view>
+  <view class="tips" wx:if="{{!self}}">*艺人他方报价的最低报价费用</view>
+
+  <view class="btn-cell"wx:if="{{self}}" >
+    <button class="btn btn-full" bindtap="handleEdit">保存编辑</button>
+  </view>
+  <view class="btn-cell"wx:if="{{!self}}" >
+    <button class="btn btn-full btn-cancel">已给予过红包</button>
+  </view>
+</view>

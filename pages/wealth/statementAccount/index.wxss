@@ -1,0 +1,85 @@
+/* pages/wealth/statementAccount/index.wxss */
+.tab {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 60rpx;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+.tab view{
+  flex-grow: 1;
+  font-size: 28rpx;
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+}
+.tab .active {
+  color: #3f51b5;
+}
+
+.item {
+  margin-bottom: 10rpx;
+  background-color: #fff;
+}
+.item .hd {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 60rpx;
+}
+
+.tit {
+  width: 120rpx;
+  line-height: 60rpx;
+  text-align: right;
+}
+.left {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.right {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.left .cont {
+  width: 125rpx;
+}
+.bd {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.ft {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.loss {
+  color: #259b24;
+}
+.sum {
+  font-size: 32rpx;
+}
+
+.label {
+  height: 48rpx;
+  line-height: 48rpx;
+}
+
+.tag-ent {
+  background-color: #8bc34a;
+}
+.tag-act {
+  background-color: #3f51b5;
+}
+.tag-wit {
+  background-color: #e51c23;
+}
+.tag-com {
+  background-color: #259b24;
+}
+

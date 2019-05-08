@@ -1,0 +1,104 @@
+<!--pages/wealth/withdraw/index.wxml-->
+<view class="container">
+  <view class="layer head">
+    <view class="left"> 提现类型：</view>
+    <view class="right" bindtap="handleSwitchBill">
+      <view class="label {{bill === '1' && 'active'}}" data-bill="1">票据提现</view>
+      <view class="label {{bill === '2' && 'active'}}" data-bill="2">无票提现</view>
+    </view>
+  </view>
+
+  <view class="layer body">
+    <view class="title">提现数（元）</view>
+    <view class="form">
+      <view class="l clearfix">
+        <view class="icon">￥</view><input type="number" value="{{sum}}" placeholder='请输入你要提现的金额' placeholder-class="p-hold" bindinput="handleEmitSum"></input>
+      </view>
+      <view class="right"></view>
+    </view>
+    <view class="sum">
+      <view>
+        <view>手续费用</view>
+        <view class="stare">{{poundage || 0}}</view>
+      </view>
+      <view>
+        <view>实际到账</view>
+        <view class="stare">{{actualFee || 0}}</view>
+      </view>
+      <view>
+        <view>我的余额</view>
+        <view class="stare">{{balance || 0}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer inp">
+    <view class="form-label">持卡人：</view>
+    <view class="form-right">
+      <input type='text' value="{{cardholder}}" bindinput="handleEmitCardholder" placeholder='输入提现银行卡持卡人姓名'></input>
+    </view>
+  </view>
+
+  <view class="layer inp">
+    <view class="form-label">卡号：</view>
+    <view class="form-right">
+      <input type='text' value="{{cardNo}}" bindinput="handleEmitCardNo" placeholder='银行卡卡面号码列'></input>
+    </view>
+  </view>
+
+  <view class="layer inp">
+    <view class="form-label">卡类型：</view>
+    <view class="form-right">
+      <picker bindchange="handleBankChange" value="{{index}}" range="{{bankList}}">
+        <view class="link-cell">
+          <view>{{bankList[sub] || '选择来源账户'}}</view>
+          <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="layer inp">
+    <view class="form-label">手机号：</view>
+    <view class="form-right">
+      <input type='text' value="{{phone}}" bindinput="handleEmitPhone" placeholder='持卡人所属手机号'></input>
+    </view>
+  </view>
+
+  <view class="layer desc">
+    <view class="item">
+      <view class="l">发票抬头：</view>
+      <view class="r stare">广州腾昊信息科技有限公司</view>
+    </view>
+    <view class="item">
+      <view class="l">识别号：</view>
+      <view class="r stare">91440115MA59BB3P8B</view>
+    </view>
+    <view class="item">
+      <view class="l">收件人：</view>
+      <view class="r stare">罗女士</view>
+    </view>
+    <view class="item">
+      <view class="l">联系号：</view>
+      <view class="r stare">15915858103</view>
+    </view>
+    <view class="item">
+      <view class="l">地址：</view>
+      <view class="r stare">广州市天河区天河路123号8楼827</view>
+    </view>
+    <view class="item">
+      <view class="l">邮箱：</view>
+      <view class="r stare">depadmin@depforlive.onaliyun.com</view>
+    </view>
+  </view>
+
+  <view class="tips">*平台内账户提现需加收手续费用</view>
+  <view class="tips">*选择无票提现时，即表示提现人无法提供对应的税务发票，则平台收取10%手续费用</view>
+  <view class="tips">*选择票据提现时，即表示提现人提供对应的税务发票，则平台收取4%手续费用</view>
+  <view class="tips">*选择票据提现时，平台将接收对应的税务票据后，由工作人员进行对应的财务转汇</view>
+  <view class="tips">*电子发票请发送至指定邮箱</view>
+
+  <view>
+    <button class="btn-full" bindtap="handleSubmit">提交提现</button>
+  </view>
+</view>

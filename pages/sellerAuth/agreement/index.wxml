@@ -1,0 +1,2 @@
+<!--pages/sellerAuth/agreement/index.wxml-->
+<web-view src="https://www.depforlive.com/web/legal_agreement/business_protocol"></web-view>

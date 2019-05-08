@@ -1,0 +1,13 @@
+<view class="container">
+  <view>
+    <view class="icon">
+      <icon type="success" size="100" color='#8bc34a'></icon>
+    </view>
+    <view class="tips">已将举报内容发送至平台，由工作人员针对举报内容进行取证！</view>
+    <view class="tips">举报结果将已微信系统消息发送告知！</view>
+  </view>
+
+  <view>
+    <button class="btn-full" bindtap="handleClose">关闭</button>
+  </view>
+</view>

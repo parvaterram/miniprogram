@@ -1,0 +1,51 @@
+<view class="container">
+  <view class='item' wx:for="{{list}}" wx:key="item">
+    <view class='l-c'>
+      <view class='avatar'>
+        <image class='a-img' wx:if="{{item.images == ''}}" src='/assets/img/default.png' mode="widthFix"></image>
+        <image class='a-img' binderror='err'  data-index="{{index}}" wx:else="{{item.images}}" src='{{item.images}}' mode="aspectFill"></image>
+      </view>
+      <image class='sex-img' wx:if="{{item.sex == 2}}" src='/assets/img/gender2.png' mode="widthFix"></image>
+      <image class='sex-img' wx:if="{{item.sex == 1}}"  src='/assets/img/gender1.png' mode="widthFix"></image>
+    </view>
+    <view class='iden'>
+      <button class='admin'  wx:if="{{item.familylevel == 1}}">创建人</button>
+      <button class='artist' wx:if="{{item.is_auth}}">认证艺人</button>
+    </view>
+    <view class='name'>
+      <view class='titles'>{{item.username}}</view>
+      <view class='id'>ID:{{item.uid}}</view>
+      <!-- <view class='price' wx:if="{{item.offer !== ''}}">{{item.offer}}（报价）</view> -->
+    </view>
+    <!-- <button class='offer' bindtap="show" wx:if="{{item.offer !== ''}}" data-name="{{item.username}}" data-index="{{index}}">报价</button> -->
+  </view>
+</view>
+<view class="modal-mask" catchtouchmove='preventTouchMove' bindtap='hide'  wx:if="{{showModal}}"></view>
+<view class='modal-dialog' animation="{{animationData}}" catchtouchmove='preventTouchMove' wx:if="{{showModal}}">
+  <view class='m-title'>成员报价</view>
+  <view class='m-body'>
+    <view class='name'>
+      <text class='dt'>艺人：</text>
+      <text class='titles'>{{nowName}}</text>
+    </view>
+    <view class='tips'>
+    *必须可开具税务票据才能对艺人进行报价，否则出现对应纠纷时由报价人承担主要责任
+    </view>
+    <view class='input-group'>
+      <input type='digit' confirm-type='next' bindinput='inputIn1' placeholder="输入报价金额" />
+      <input type='digit' confirm-type='done' bindinput='inputIn2' placeholder="输入出具税务比例（例：0.1即10%）"  />
+    </view>
+    <view class='tax'>
+      <text class='dt'>税务金额：</text>
+      <text class='dd'>{{tax_price}}</text>
+    </view>
+    <view class='amount'>
+      <text class='dt'>实际金额：</text>
+      <text class='dd'>{{price}}</text>
+    </view>
+  </view>
+  <view class='m-foot'>
+    <button class='submit-btn' bindtap='postData'>确认</button>
+    <button class='close-btn' bindtap="hide">取消</button>
+  </view>
+</view>

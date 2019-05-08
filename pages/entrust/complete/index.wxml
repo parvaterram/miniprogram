@@ -1,0 +1,12 @@
+<!--pages/createEntrust/complete/index.wxml-->
+<view class="container">
+  <view class="icon">
+    <icon type="success" size="100"/>
+  </view>
+  <view class="tips">委托已创建并发送给艺人</view>
+  <view class="tips">可联系艺人确认委托信息，加快委托受理效率。</view>
+
+  <view>
+    <navigator class="btn btn-full btm" url="/pages/entrust/order/index?type=1">查看委托</navigator>
+  </view>
+</view>

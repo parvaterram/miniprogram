@@ -1,0 +1,168 @@
+/* pages/createEntrust/check/index.wxss */
+.container {
+  position: relative;
+}
+.header-guide {
+  margin-bottom: 10rpx;
+}
+.sub view {
+  width: 50%;
+}
+
+.header-guide .order .bar {
+  width: 295rpx;
+}
+
+.tips {
+  padding: 0 20rpx;
+  line-height: 40rpx;
+  background-color: #eaeaea;
+}
+
+.item-head {
+  padding: 10rpx;
+}
+
+.avatar-cell {
+  float: left;
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.gender {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.info {
+  float: left;
+  line-height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.info .left {
+  display: inline-block;
+  height: 60rpx;
+  color: #fff;
+  line-height: 60rpx;
+  padding:0 12rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  background-color: #46c4ff;
+  margin-right: 10rpx;
+}
+
+.info .active {
+  background-color: #8bc34a;
+}
+
+.item-body {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0 10rpx;
+}
+
+.item-body view {
+  flex-grow: 1;
+  color: #ff4081;
+}
+
+.item-foot {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10rpx 10rpx;
+}
+
+.item-foot view {
+  flex-grow: 1;
+}
+
+.item-foot view text{
+  color: #ff4081;
+}
+
+.popup-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.popup-content {
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.popup-wrap .popup-body {
+  padding-top: 20rpx;
+  background-color: #fff;
+}
+
+.popup-wrap .title {
+  font-size: 32rpx;
+  color: #00b7ff;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.popup-wrap .tips {
+  background-color: #fff;
+}
+
+.popup-wrap .ck-cell {
+  padding: 0 20rpx;
+}
+
+.popup-wrap .ck-cell checkbox-group {
+  display: inline-block;
+}
+
+.popup-wrap .ck-cell navigator {
+  display: inline-block;
+  line-height: 60rpx;
+  color: #00b7ff;
+}
+
+.popup-wrap .popup-ft {
+  height: 60rpx;
+  margin-top: 14rpx;
+}
+
+.popup-wrap .popup-ft button {
+  width: 50%;
+  height: 120rpx;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 120rpx;
+}
+
+.popup-wrap .btn-ensure {
+  background-color: #46c4ff;
+}
+
+.popup-wrap .btn-cancel {
+  background-color: #bbb;
+}
+.stare {
+  color: #e51c23;
+}
+.btm {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

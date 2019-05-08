@@ -1,0 +1,24 @@
+<view class="container">
+  <navigator class="layer link-cell" url="/pages/artist/artistAuth/index">
+        <view>申请认证</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+    <view wx:if="{{userInfo.isauth === '1'}}">
+      <navigator class="layer link-cell" url="/pages/artist/detail/index?id={{userInfo.id}}&from=self">
+        <view>我的才艺</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+      <navigator class="layer link-cell" url="/pages/entrust/order/index?type=2">
+        <view>我的代言</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+      <navigator class="layer link-cell" url="/pages/campaign/manageArtist/index">
+        <view>艺人活动</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+      <navigator class="layer link-cell" url="/pages/offer/index?touid={{depInfo.id}}">
+        <view>我的报价</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+    </view>
+</view>

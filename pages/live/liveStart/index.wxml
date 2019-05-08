@@ -1,0 +1,47 @@
+<!--pages/live/liveStart/index.wxml-->
+<view class="container">
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">直播标题：</view>
+      <view class="right">
+        <input type="text" placeholder='请输入直播间标题' value="{{title}}" bindinput="handleEmitTitle" />
+      </view>
+    </view>
+    <view class="tips stare">*直播间对外呈现的标题</view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">设置画质：</view>
+      <view class="right">
+        <view class="row" bindtap="handleSetMode">
+          <view class="label {{mode === 1 && 'active'}}" data-type="1">SD（标清）</view>
+          <view class="label {{mode === 2 && 'active'}}" data-type="2">HD（高清）</view>
+        </view>
+      </view>
+    </view>
+    <view class="tips stare">*直播清晰度设置，默认高清</view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">直播封面：</view>
+      <view class="right">
+        <view class="row">不选择时默认使用用户头像</view>
+      </view>
+    </view>
+    <view class="tips stare">*直播间对外呈现封面图片</view>
+  </view>
+
+  <view class="img-view">
+    <view class="img-cell" wx:if="{{file}}">
+      <image mode="aspectFill" src='{{file}}' data-src="{{file}}" bindtap="handleImagePreview"></image>
+      <icon type="clear" color="#e51c23" data-src="{{file}}" catchtap="handleDel"></icon>
+    </view>
+    <view class="img-cell" wx:if="{{!file}}">
+      <button class="btn-add" bindtap="handleChooseImage">+</button>
+    </view>
+  </view>
+
+  <button class="btn-full btm" bindtap="handleEnter">开始直播</button>
+</view>

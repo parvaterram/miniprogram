@@ -1,0 +1,13 @@
+<!--pages/help/becomeArtist/index.wxml-->
+<view class="container">
+  <view class="world-box">
+    <text space='true'>用户通过“我的-申请认证”提交认证信息，经由平台人员审核通过后，即成为Dep入驻艺人
+    
+  成为艺人后，可进行才艺编辑、委托受理、受理报价设定（仅用于商家参考）
+    </text>
+  </view>
+  <navigator class="layer link-cell" url="/pages/help/artistRights/index">
+    <view>艺人权益</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+</view>

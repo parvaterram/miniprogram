@@ -1,0 +1,56 @@
+<!--pages/createEntrust/assigns/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar active"></view>
+      <view class="num active">2</view>
+      <view class='bar active'></view>
+      <view class="num active">3</view>
+      <view class='bar'></view>
+      <view class="num">4</view>
+    </view>
+    <view class="sub">
+      <view class="active">委托目的信息</view>
+      <view class="active">时间与分成</view>
+      <view class="active">选择受理人</view>
+      <view>核对委托</view>
+    </view>
+  </view>
+
+  <view wx:if="{{list.length > 0}}">
+    <view class="layer" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="item-head clearfix">
+        <view class="avatar-cell">
+          <image class="avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+          <image class="gender" mode="aspectFit" src="/assets/img/gender{{item.sex || ''}}.png"></image>
+        </view>
+        <view class="info">
+          <view>
+            <view class="label">认证艺人</view>
+            <view class="label active">{{item.istax === 0 ? '不提供票据' : '可提供票据'}}</view>
+          </view>
+          <view>
+            {{item.user_nicename || ''}}
+          </view>
+        </view>
+        
+        <view class="btn-cell">
+          <button class="{{item.selected && 'active'}}" data-id="{{item.uid}}" data-taxes="{{item.istax}}" bindtap="handleChooose">
+          {{item.selected ? '已选' : '选择'}}
+          </button>
+        </view>
+      </view>
+
+      <view class="item-body">
+        <view>该时段可委托数量：{{item.goods_num}}</view>
+        <!-- <view>最近30天受理数：0</view> -->
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>该时段暂无艺人可选</view>
+
+  <view>
+    <button class="btn btn-full btm" bindtap="handleNextStep">确认选择</button>
+  </view>
+</view>

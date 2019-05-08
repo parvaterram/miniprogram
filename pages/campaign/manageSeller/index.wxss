@@ -1,0 +1,53 @@
+/* pages/campaign/manageSeller/index.wxss */
+.tab-bar {
+  margin-bottom: 10rpx;
+}
+
+.layer {
+  padding: 10rpx 10rpx 10rpx 20rpx;
+  line-height: 40rpx;
+}
+
+.head {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 80rpx;
+}
+.head .left {
+  flex-grow: 1;
+  height: 80rpx;
+}
+
+.head .left .tag {
+  float: left;
+  width: 100rpx;
+  height: 40rpx;
+  color: #fff;
+  line-height: 40rpx;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  background-color: #46c4ff;
+  margin-right: 10rpx;
+}
+
+.head .right {
+  flex-basis: 240rpx;
+  text-align: right;
+}
+
+.head .right button {
+  width: 120rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8rpx;
+}
+
+.foot {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.foot view {
+  flex-grow: 1;
+}

@@ -1,0 +1,63 @@
+<!--pages/follow/index.wxml-->
+<view class="container">
+  <view wx:if="{{list.length > 0}}">
+    <view class="layer clearfix" wx:for="{{list}}" wx:key="{{item.id}}" data-uid="{{item.id}}" bindtap="handleLinkDetail">
+      <view class="img-cell">
+        <image class="avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+        <image class="gender" mode="aspectFit" src="/assets/img/gender{{item.sex}}.png"></image>
+      </view>
+      <view class="info clearfix">
+        <view class="l">
+          <view class="tag" wx:if="{{item.isauth === '1'}}">认证艺人</view>
+        </view>
+        <view class="r">
+          <view>{{item.user_nicename}}</view>
+          <view>ID:{{item.id}}</view>
+          <!-- <view class="price">{{item.offer ? '￥' + item.offer : '未报价'}}</view> -->
+        </view>
+      </view>
+      <view class="btn-cell" wx:if="{{isshop}}">
+        <!-- <button data-id="{{item.id}}" data-name="{{item.user_nicename}}" catchtap="handleOffer">报价</button> -->
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    暂无关注的用户
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+
+  <view class="popup-wrap" hidden="{{pop}}">
+    <view class="popup-cell">
+      <view class="popup-cont">
+        <view class="title">艺人报价</view>
+        <view class="pop-bd">
+          <view>艺人：{{artName}}</view>
+          <view>*必须可开具税务票据才能对艺人进行报价，否则出现对应纠纷时由报价人承担主要责任</view>
+          <view>
+            <input type="text" value="{{price}}" bindinput="handleEmitPrice" placeholder="输入报价金额"></input>
+          </view>
+          <view>
+            <input type="text" value="{{tax}}" bindinput="handleEmitTax" placeholder='输入出具税务比例（例：0.1即10%）'></input>
+          </view>
+          <view class="col">
+            <view>税务金额：</view><view class="right">{{taxPrice}}</view>
+          </view>
+          <view class="col">
+            <view>实际金额：</view><view class="right">{{allPrice}}</view>
+          </view>
+        </view>
+        <view class="pop-ft">
+          <button class="btn-ensure" catchtap="handleEnsure">确认</button>
+          <button class="btn-cancel" catchtap="handleCancel">取消</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

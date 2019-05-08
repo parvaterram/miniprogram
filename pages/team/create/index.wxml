@@ -1,0 +1,200 @@
+<!--pages/team/create/index.wxml-->
+<view class="container">
+<view wx:if="{{status === '3'}}">
+  <view class="layer">
+    <view class="left">团队名称：</view>
+    <view class="right">
+      <input type="text" value="{{name}}" bindinput="handleEmitName" placeholder='创建的团队对外称呼'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">联系人：</view>
+    <view class="right">
+      <input type="text" value="{{contact}}" bindinput="handleEmitContact" placeholder='该团队的直接联系人'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">联系号码：</view>
+    <view class="right">
+      <input type="text" value="{{phone}}" bindinput="handleEmitPhone" placeholder='该团队直接联系人的手机号'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">管理密码：</view>
+    <view class="right">
+      <input type="text" value="{{pw}}" bindinput="handleEmitPW" placeholder='团队创建人于PC登录管理操作时使用的密码'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">身份证：</view>
+    <view class="right">
+      <input type="text" value="{{ID}}" bindinput="handleEmitID" placeholder='创建人的身份证件号'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">团队企业：</view>
+    <view class="right">
+      <input type="text" value="{{companyName}}" bindinput="handleEmitCompanyName" placeholder='该团队所属实体企业'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">营业号：</view>
+    <view class="right">
+      <input type="text" value="{{license}}" bindinput="handleEmitLicense" placeholder='实体企业的营业执照号'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">企业法人：</view>
+    <view class="right">
+      <input type="text" value="{{legalPerson}}" bindinput="handleEmitLegalPerson" placeholder='该团队所属企业的实际法人姓名'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">团队公告：</view>
+    <view class="right">
+      <input type="text" value="{{notice}}" bindinput="handleEmitNotice" placeholder='该团队对内公示信息'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">团队分成：</view>
+    <view class="right">
+      <input type="text" value="{{assign}}" bindinput="handleEmitAssign" placeholder='团队名下艺人演出酬劳给予团队负责人的分成比例'></input>
+    </view>
+  </view>
+  <view class="tips">*0.01至1之间，如填0.01即团队从艺人酬劳中抽取1%</view>
+
+  <view class="layer">
+    <view class="left">认证图片：</view>
+    <view class="right">
+      <view class="row">
+        创建者身份证-证件信息正面
+      </view>
+      <view class="file-cell" wx:if="{{IDImgFront}}">
+        <view class="img-cell">
+          <image mode="aspectFit" src="{{IDImgFront}}"></image>
+          <icon type="clear" color="#e51c23" data-type="1" catchtap="handleDel"></icon>
+        </view>
+      </view>
+      <view class="file-cell" wx:else>
+        <view class="btn-add" data-type="1" bindtap="handleChooseFile">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">认证图片：</view>
+    <view class="right">
+      <view class="row">
+        创建者个人照片
+      </view>
+      <view class="file-cell" wx:if="{{personImg}}">
+        <view class="img-cell">
+          <image mode="aspectFit" src="{{personImg}}"></image>
+          <icon type="clear" color="#e51c23" data-type="2" catchtap="handleDel"></icon>
+        </view>
+      </view>
+      <view class="file-cell" wx:else>
+        <view class="btn-add" data-type="2" bindtap="handleChooseFile">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">认证图片：</view>
+    <view class="right">
+      <view class="row">
+        认证企业营业执照
+      </view>
+      <view class="file-cell" wx:if="{{licenseImg}}">
+        <view class="img-cell">
+          <image mode="aspectFit" src="{{licenseImg}}"></image>
+          <icon type="clear" color="#e51c23" data-type="3" catchtap="handleDel"></icon>
+        </view>
+      </view>
+      <view class="file-cell" wx:else>
+        <view class="btn-add" data-type="3" bindtap="handleChooseFile">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">认证图片：</view>
+    <view class="right">
+      <view class="row">
+        团队展示图
+      </view>
+      <view class="file-cell" wx:if="{{bannerImg}}">
+        <view class="img-cell">
+          <image mode="aspectFit" src="{{bannerImg}}"></image>
+          <icon type="clear" color="#e51c23" data-type="4" catchtap="handleDel"></icon>
+        </view>
+      </view>
+      <view class="file-cell" wx:else>
+        <view class="btn-add" data-type="4" bindtap="handleChooseFile">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="ck-cell">
+    <checkbox-group bindchange="checkboxChange">
+        <checkbox value="1" checked="{{isCheck}}"/>
+    </checkbox-group>
+    <navigator url="/pages/team/create/agreement/index">我已阅读并遵守《dep团队三方协议》</navigator>
+  </view>
+
+  <view>
+    <button class="btn-full" bindtap="handleSubmit">提交</button>
+  </view>
+</view>
+
+<view class="prompt-wrap" wx:else>
+  <view class="prompt-cont" wx:if="{{status === '0'}}">
+    <view class="prompt-cell">
+      <view class="icon">
+        <icon type="success" size="100" color='#8bc34a'></icon>
+      </view>
+      <view class="tips">
+        团队认证已上传，等待平台审核。
+      </view>
+      <view class="tips">
+        平台将于1~3个工作台进行相关审核，请保持联系方式能有效通话。
+      </view>
+    </view>
+  </view>
+
+  <view class="prompt-cont" wx:elif="{{status === '1'}}">
+    <view class="prompt-cell">
+      <view class="icon">
+        <icon type="success" size="100" color='#8bc34a'></icon>
+      </view>
+      <view class="tips">
+        团队认证已通过，您可操作对应的团队管理功能！
+      </view>
+    </view>
+  </view>
+
+  <view class="prompt-cont" wx:elif="{{status === '2'}}">
+    <view class="prompt-cell">
+      <view class="icon">
+        <icon type="warn" size="100"></icon>
+      </view>
+      <view class="tips">
+        审核失败， 请重新编辑
+      </view>
+    </view>
+    <view>
+      <button class="btn-full" bindtap="handleEdit">重新编辑</button>
+    </view>
+  </view>
+</view>
+
+</view>

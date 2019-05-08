@@ -1,0 +1,123 @@
+/* pages/commodity/tradeOrder/index.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+.addr {
+  padding: 20rpx;
+}
+.addr-hd {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.addr-hd  view {
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+.addr-hd .left {
+  width: 500rpx;
+}
+
+.addr .detail {
+  line-height: 60rpx;
+}
+
+.art {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 10rpx;
+}
+
+.art image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.goods-hd {
+  padding: 10rpx 20rpx;
+}
+
+.img-cell {
+  float: left;
+}
+.img-cell image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.info {
+  float: left;
+  padding-left: 10rpx;
+}
+.name {
+  line-height: 60rpx;
+}
+
+.right {
+  float: right;
+  font-size: 28rpx;
+  line-height: 120rpx;
+  color: #e51c23;
+}
+
+.goods-ft {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 80rpx;
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.goods-ft button {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 40rpx;
+  border-radius: 0;
+  background-color: #dfdfdf;
+}
+
+.goods-ft input {
+  width: 120rpx;
+  height: 60rpx;
+  font-size: 32rpx;
+  border: none;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.foot-wrap {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 112rpx;
+}
+.foot-cont {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background: #fff;
+}
+.foot-cont .left {
+  width: 50%;
+  line-height: 112rpx;
+  padding-left: 20rpx;
+}
+.foot-cont .left view {
+  display: inline-block;
+  font-size: 36rpx;
+  color: #e51c23;
+}
+.foot-cont .right {
+  width: 50%;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #00b7ff;
+}

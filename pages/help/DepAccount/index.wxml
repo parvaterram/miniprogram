@@ -1,0 +1,21 @@
+<!--pages/help/DepAccount/index.wxml-->
+<view class="container">
+  <view class="world-box">
+    <text space="true">初登入Dep的用户为游客，需通过“关联手机号”获得Dep用户信息
+
+      点击“我的-关联手机号”，认证并提交关联，即成为Dep注册用户
+
+      成功关联注册后即可关注艺人和下单购买商品
+
+      获得用户信息后，更可通过“我的-申请认证”成为艺人，或通过“我的-商家入驻”成为商家
+    </text>
+  </view>
+  <navigator class="layer link-cell" url="/pages/help/becomeArtist/index">
+    <view>如何成为艺人</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+  <navigator class="layer link-cell" url="/pages/help/becomeSeller/index">
+    <view>如何成为商家</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+</view>

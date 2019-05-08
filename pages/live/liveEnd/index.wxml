@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="title">直播已结束</view>
+  <view class="line"></view>
+  <view class="item">
+    <view class="left">当前人数</view>
+    <view class="right">{{info.nums || 0}}</view>
+  </view>
+  <view class="line"></view>
+  <view class="item">
+    <view class="left">直播时长</view>
+    <view class="right">{{duration || 0}}</view>
+  </view>
+  <view class="line"></view>
+  <view class="item">
+    <view class="left">收货嘚米</view>
+    <view class="right">{{info.votes}}</view>
+  </view>
+  <view class="line"></view>
+</view>

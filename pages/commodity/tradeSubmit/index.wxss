@@ -1,0 +1,21 @@
+/* pages/commodity/waresSubmit/index.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+.sub view {
+  width: 33.33%;
+}
+
+.header-guide .order .bar {
+  width: 170rpx;
+}
+
+.icon {
+  margin: 80rpx 0;
+  text-align: center;
+}
+
+.tips {
+  line-height: 60rpx;
+  text-align: center;
+}

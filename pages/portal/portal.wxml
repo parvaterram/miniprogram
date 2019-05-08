@@ -1,0 +1,118 @@
+<!--pages/portal/index.wxml-->
+<view class="container">
+  <view class="layer header clearfix">
+    <view class="avatar-cell">
+      <image class="img-avatar" mode="aspectFill" src="{{userInfo.avatar_thumb}}"></image>
+      <image class="gender" mode="aspectFit" src="/assets/img/gender{{userInfo.sex}}.png"></image>
+    </view>
+    <view class="follow" wx:if="{{userInfo.isauth === '1'}}">
+      <view>认证艺人</view>
+    </view>
+    <view class="info">
+      <view>{{userInfo.user_nicename}}</view>
+      <view>ID:{{userInfo.id === '369' ? '' : userInfo.id}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{userInfo.id === '369'}}">
+    <view class="box">
+      <view class="tit">关联手机号</view>
+      <view class="tip">*获取Dep通告基础功能</view>
+      <view>
+        <navigator class="btn-link" url="/pages/login/login">前往关联>></navigator>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else>
+    <view class="layer atten">
+        <view>
+          <navigator url="/pages/fans/index">
+            <text class="num">{{userInfo.fans}}</text>
+            <text>粉丝</text>
+          </navigator>
+        </view>
+        <view>
+          <navigator url="/pages/follow/index">
+            <text class="num">{{userInfo.follows}}</text>
+            <text>关注</text>
+          </navigator>
+        </view>
+      </view>
+
+
+      <view class="box">
+        <view class="tit">用户管理</view>
+        <view class="tip">*普通用户的Dep通告功能权限</view>
+        <view>
+          <navigator class="btn-link" url="/pages/portal/user/index">用户入口>></navigator>
+        </view>
+        <view class="red-hot" wx:if="{{orderNum > 0}}">{{orderNum}}</view>
+      </view>
+
+      <view class="box" wx:if="{{depInfo.isauth === '1'}}">
+        <view class="tit">直播开播</view>
+        <view class="tip">*艺人、商家进行直播开播的启动操作</view>
+        <view>
+          <navigator class="btn-link" url="/pages/live/liveStart/index">前往关联>></navigator>
+        </view>
+      </view>
+
+    
+      <view class="box">
+        <view class="tit">艺人管理</view>
+        <view class="tip">*艺人用户的Dep通告功能权限</view>
+        <view>
+          <navigator class="btn-link" url="/pages/portal/artist/index?isauth={{}}">艺人入口>></navigator>
+        </view>
+      </view>
+
+      <view class="box">
+        <view class="tit">商家管理</view>
+        <view class="tip">*商家用户的Dep通告功能权限</view>
+        <view>
+          <navigator class="btn-link" url="/pages/portal/seller/index">商家入口>></navigator>
+        </view>
+      </view>
+
+      <view class="box" wx:if="{{userInfo.isshop === '1'}}">
+        <view class="tit">订单扫码</view>
+        <view class="tip">*商家和商家团队成员进行到店订单二维码识别</view>
+        <view>
+          <navigator class="btn-link" url="/pages/order/scanCode/index">扫码入口>></navigator>
+        </view>
+      </view>
+
+      <view class="box">
+        <view class="tit">团队管理</view>
+        <view class="tip">*用户加入现有团队、创建团队、管理团队</view>
+        <view>
+          <navigator class="btn-link" url="/pages/team/join/index" wx:if="{{depInfo.familyid === '0' && userInfo.isshop === '0'}}">加入团队>></navigator>
+          <navigator class="btn-link" url="/pages/team/create/index">创建团队>></navigator>
+          <navigator class="btn-link" url="/pages/team/myteam/index" wx:if="{{userInfo.familyid > 0}}">我的团队>></navigator>
+        </view>
+      </view>
+
+    <!-- <view>
+      <view class="title">团队管理</view>
+
+      <!-- <navigator url="../team/member/index" class="layer link-cell" wx:if="{{userInfo.familyid > 0 && userInfo.family_level === '1'}}">
+        <view>艺人报价</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator> 
+    </view> -->
+  </view>
+
+  <view class="box">
+    <view class="tit">使用帮助</view>
+    <view class="tip">*Dep通告小程序的基础功能说明</view>
+    <view>
+      <navigator class="btn-link" url="/pages/help/catalog/index">查看帮助>></navigator>
+    </view>
+  </view>
+
+      <!-- <navigator class="layer link-cell" url="/pages/test/index">
+        <view>测试页</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator> -->
+</view>

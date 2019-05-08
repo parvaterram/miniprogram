@@ -1,0 +1,125 @@
+/* pages/portal/index.wxss */
+.container {
+  background-color: #eaeaea;
+  padding-bottom: 10rpx;
+}
+
+.header {
+  padding: 10rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.avatar-cell {
+  position: relative;
+}
+.img-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.gender {
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.follow {
+  margin: 0 10rpx;
+}
+
+.follow view {
+  width: 120rpx;
+  height: 80rpx;
+  font-size: 24rpx;
+  line-height: 80rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 4rpx;
+  background-color: #059F9F;
+}
+
+.info {
+  line-height: 40rpx;
+  color: #434343;
+}
+
+.atten {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.atten view {
+  width: 50%;
+  text-align: center;
+}
+
+.atten view text {
+  display: block;
+  line-height: 40rpx;
+}
+
+.atten .num {
+  font-size: 32rpx;
+  line-height: 60rpx;
+}
+
+.title {
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin: 30rpx 0 10rpx 0;
+  background-color: #fff;
+}
+
+.box {
+  box-sizing: border-box;
+  border-radius: 16rpx;
+  text-align: center;
+  border: 2rpx solid #7ccfe6;
+  margin: 0 20rpx 20rpx 20rpx;
+  background-color: #fff;
+  padding: 10rpx 0 20rpx 0;
+  position: relative;
+}
+
+.box .tit {
+  font-size: 32rpx;
+  color: #404040;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.box .tip {
+  color: #e51c23;
+  line-height: 40rpx;
+}
+
+.box .btn-link {
+  display: inline-block;
+  width: 610rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  background-color: #11c2d1;
+}
+
+.red-hot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding:0 10rpx;
+  background:red;
+  color:#fff;
+  border-radius:14rpx;
+}

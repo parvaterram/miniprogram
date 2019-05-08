@@ -1,0 +1,160 @@
+<!--pages/sellerAuth/index.wxml-->
+<view class="container">
+<view wx:if="{{status === '3'}}">
+  <view class="layer">
+    <view class="left">*企业名称：</view>
+    <view class="right">
+      <input type="text" value="{{companyName}}" bindinput="handleEmitCompanyName" placeholder='请输入企业名称'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">*营业执照：</view>
+    <view class="right">
+      <input type="text" value="{{license}}" bindinput="handleEmitLicense" placeholder='统一社会信用代码'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">*法人：</view>
+    <view class="right">
+      <input type="text" value="{{legalPerson}}" bindinput="handleEmitLegalPerson" placeholder='请输入法定代表人姓名'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">*联系人：</view>
+    <view class="right">
+      <input type="text" value="{{contacts}}" bindinput="handleEmitContacts" placeholder='提交人手机号'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">*退货地址：</view>
+    <view class="right">
+      <view class="row">
+        <picker mode="region" bindchange='handleRegionChange'>
+          <view class="link-cell">
+            <view>
+              {{region.length > 0 ? region[0] + ' ' + region[1] + ' ' + region[2] : '选择省市区'}}
+            </view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">详细地址：</view>
+    <view class="right">
+      <input type="text" value="{{address}}" bindinput="handleEmitAddress" placeholder='请输入详细地址'></input>
+    </view>
+  </view>
+  <view class="tips">*企业基础信息</view>
+  <view class="layer">
+    <view class="left">*认证图片：</view>
+    <view class="right">
+      <view class="row">
+        营业执照正面
+      </view>
+      <view class="file-cell" wx:if="{{licenseImg}}">
+        <view class="img-cell">
+          <image mode="aspectFit" src="{{licenseImg}}"></image>
+          <icon type="clear" color="#e51c23" data-type="1" catchtap="handleDel"></icon>
+        </view>
+      </view>
+      <view class="file-cell" wx:else>
+        <view class="btn-add" data-type="1" bindtap="handleChooseFile">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">*认证图片：</view>
+    <view class="right">
+      <view class="row">
+        提交人身份证正面
+      </view>
+      <view class="file-cell" wx:if="{{IDImgFront}}">
+        <view class="img-cell">
+          <image mode="aspectFit" src="{{IDImgFront}}"></image>
+          <icon type="clear" color="#e51c23" data-type="2" catchtap="handleDel"></icon>
+        </view>
+      </view>
+      <view class="file-cell" wx:else>
+        <view class="btn-add" data-type="2" bindtap="handleChooseFile">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">*认证图片：</view>
+    <view class="right">
+      <view class="row">
+        提交人身份证反面
+      </view>
+      <view class="file-cell" wx:if="{{IDImgBack}}">
+        <view class="img-cell">
+          <image mode="aspectFit" src="{{IDImgBack}}"></image>
+          <icon type="clear" color="#e51c23" data-type="3" catchtap="handleDel"></icon>
+        </view>
+      </view>
+      <view class="file-cell" wx:else>
+        <view class="btn-add" data-type="3" bindtap="handleChooseFile">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="ck-cell">
+    <checkbox-group bindchange="checkboxChange">
+        <checkbox value="1" checked="{{isCheck}}"/>
+    </checkbox-group>
+    <navigator url="/pages/sellerAuth/agreement/index">我已阅读并遵守《平台商家合作协议》</navigator>
+  </view>
+  <view>
+    <button class="btn-full" bindtap="handleSubmit">提交</button>
+  </view>
+</view>
+
+<view class="prompt-wrap" wx:else>
+  <view class="prompt-cont" wx:if="{{status === '0'}}">
+    <view class="prompt-cell">
+      <view class="icon">
+        <icon type="success" size="100" color='#8bc34a'></icon>
+      </view>
+      <view class="tips">
+        商家认证已上传，等待平台审核。
+      </view>
+      <view class="tips">
+        平台将于1~3个工作台进行相关审核，请保持联系方式能有效通话。
+      </view>
+    </view>
+  </view>
+
+  <view class="prompt-cont" wx:elif="{{status === '1'}}">
+    <view class="prompt-cell">
+      <view class="icon">
+        <icon type="success" size="100" color='#8bc34a'></icon>
+      </view>
+      <view class="tips">
+        商家认证已通过，您可操作对应的商家管理功能！
+      </view>
+    </view>
+  </view>
+
+  <view class="prompt-cont" wx:elif="{{status === '2'}}">
+    <view class="prompt-cell">
+      <view class="icon">
+        <icon type="warn" size="100"></icon>
+      </view>
+      <view class="tips">
+        审核失败， 请重新编辑
+      </view>
+    </view>
+    <view>
+      <button class="btn-full" bindtap="handleEdit">重新编辑</button>
+    </view>
+  </view>
+</view>
+</view>

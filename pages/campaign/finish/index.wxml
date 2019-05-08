@@ -1,0 +1,13 @@
+<!--pages/campaign/finish/index.wxml-->
+<view class="container">
+  <view>
+    <view class="icon">
+      <icon type="success" size="100" color='#8bc34a'></icon>
+    </view>
+    <view class="tips">活动已成功发布，可于活动列表中呈现！</view>
+  </view>
+
+  <view>
+    <button class="btn-full" bindtap="handleClose">关闭</button>
+  </view>
+</view>

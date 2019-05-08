@@ -1,0 +1,552 @@
+/**app.wxss**/
+page {
+  height: 100%;
+}
+ .container {
+   min-height: 100%;
+   color: #101010;
+   background-color: #eaeaea;
+} 
+view {
+  font-size: 24rpx;
+  box-sizing: border-box;
+}
+
+input {
+  display: inline-block;
+  border: 1rpx solid #bbb;
+  box-sizing: border-box;
+}
+
+button {
+display: inline-block;
+padding: 0;
+box-sizing: border-box;
+outline: none;
+width: 120rpx;
+height: 60rpx;
+text-align: center;
+line-height: 60rpx;
+border-radius: 4rpx;
+font-size: 24rpx;
+}
+
+button::after{
+border: none;
+}
+
+.btn-full {
+  width: 100%;
+  height: 112rpx;
+  font-size: 40rpx;
+  color: #fff;
+  line-height: 112rpx;
+  border-radius: 0;
+  text-align: center;
+  background-color: #00b7ff;
+}
+
+.btn-half {
+  width: 50%;
+  height: 112rpx;
+  font-size: 40rpx;
+  color: #fff;
+  line-height: 112rpx;
+  border-radius: 0;
+  text-align: center;
+  background-color: #00b7ff;
+}
+
+.btn-bot {
+  position: fixed;
+  bottom: 0;
+}
+
+.btn-default {
+  color: #fff;
+  border-radius: 8rpx;
+  background-color: #00b7ff;
+}
+
+.btn-primary {
+  color: #fff;
+  border-radius: 8rpx;
+  background-color: #ff4081;
+}
+
+.btn-success {
+  color: #fff;
+  border-radius: 8rpx;
+  background-color: #49cfd8;
+}
+
+.btn-cancel {
+  background: #bbb;
+}
+
+.btn-info {
+  height: 60rpx;
+  color: #49cfdb;
+  text-align: center;
+  padding: 0 12rpx;
+  line-height: 60rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #49cfdb;
+  background-color: transparent;
+}
+
+.btn-add {
+  width: 220rpx;
+  height: 220rpx;
+  border: 2rpx solid #bbb;
+  font-size: 120rpx;
+  color: #bbb;
+  line-height: 220rpx;
+  text-align: center;
+  background-color: #fff;
+}
+
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}
+
+.layer {
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.title {
+  padding-left: 20rpx;
+  line-height: 60rpx;
+}
+
+.label {
+  display: inline-block;
+  height: 60rpx;
+  color: #fff;
+  text-align: center;
+  padding: 0 12rpx;
+  line-height: 60rpx;
+  border-radius: 8rpx;
+  background-color: #ff9800;
+}
+
+.link-cell {
+  display: flex;
+  height: 80rpx;
+  padding: 0 20rpx;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-link {
+  width: 17rpx;
+  height: 31rpx;
+}
+
+.hovered {
+  background-color: #eee;
+}
+
+.empty {
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.btm {
+  position: fixed;
+  bottom: 0;
+}
+/***搜索栏***/
+.srch-bar {
+  height: 80rpx;
+  text-align: center;
+  background-color: #eaeaea;
+  padding-top: 10rpx;
+}
+
+.search {
+  width: 620rpx;
+  height: 60rpx;
+  border-radius: 40rpx;
+  background: #fff;
+  text-align: left;
+  padding-left: 30rpx;
+  font-size: 24rpx;
+}
+
+.btn-srch {
+  width: 100rpx;
+  height: 60rpx;
+  color: #101010;
+  font-size: 24rpx;
+  border: 1rpx solid #eaeaea;
+  background: #eaeaea;
+}
+
+/* 指引栏*/
+.header-guide {
+  height: 130rpx;
+  background-color: #fff;
+}
+.header-guide .order {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 28rpx;
+}
+.header-guide .order view {
+  margin: 0 5rpx;
+}
+.header-guide .order .num {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  font-size: 36rpx;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  background: #d0d0d0;
+}
+
+.header-guide .order .bar {
+  height: 20rpx;
+  background-color: #d0d0d0;
+}
+
+.header-guide .order .active {
+  background: #8bc34a;
+}
+
+.header-guide .sub {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.header-guide .sub view {
+  color: #d0d0d0;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.header-guide .sub .active {
+  color: #101010;
+}
+
+.loading-panel {
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: center;
+  font-size: 28rpx;
+  background-color: #eaeaea;
+}
+
+.loading {
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+/**创建委托*/
+.ent-item {
+  display: flex;
+  min-height: 80rpx;
+  flex-flow: row nowrap;
+}
+
+.ent-item .left {
+  width: 160rpx;
+  height: 80rpx;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  flex-flow: row-reverse nowrap;
+}
+
+.ent-item .ipt-cell {
+  width: 500rpx;
+  min-height: 80rpx;
+  box-sizing: border-box;
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.ent-item .txt-cell {
+  width: 500rpx;
+  min-height: 160rpx;
+  border: none;
+  margin-left: 20rpx;
+  padding-top: 22rpx;
+}
+
+.ent-item .bdr-btm {
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.ent-item .ipt-cell input {
+  border: none;
+  width: 100%;
+}
+
+.s-label {
+  display: inline-block;
+  width: 180rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 8rpx;
+  background-color: #49cfd8;
+}
+/****表单******/
+.form-item {
+  display: flex;
+  min-height: 80rpx;
+  flex-flow: row nowrap;
+}
+
+.form-item .left {
+  width: 160rpx;
+  height: 80rpx;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  flex-flow: row-reverse nowrap;
+}
+
+.form-item .right {
+  width: 500rpx;
+  min-height: 80rpx;
+  box-sizing: border-box;
+  margin-left: 20rpx;
+  
+}
+
+.form-item .txt-cell {
+  width: 500rpx;
+  min-height: 160rpx;
+  border: none;
+  margin-left: 20rpx;
+  padding-top: 22rpx;
+}
+
+.form-item .bdr-btm {
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.form-item input {
+  border: none;
+  width: 100%;
+  margin-top: 14rpx;
+}
+.form-item .active {
+  background: #49cfd8;
+}
+
+.form-item .row {
+  min-height:80rpx;
+  line-height: 40rpx;
+  color: #979696;
+  padding-top: 18rpx;
+}
+.form-item .txt {
+  padding-bottom: 18rpx;
+}
+/***/
+.tab-bar {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-align: center;
+}
+
+.tab-bar .item {
+  flex-grow: 1;
+  height: 60rpx;
+  line-height: 60rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.tab-bar .active {
+  border-bottom: 10rpx solid #46c4ff;
+}
+/**弹窗**/
+.popup-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.popup-cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3)
+}
+.popup-cell .popup-cont {
+  width: 100%;
+  padding-top: 20rpx;
+  background-color: #fff;
+}
+
+.popup-cont .title {
+  font-size: 32rpx;
+  line-height: 80rpx;
+  color: #00b7ff;
+  text-align: center;
+}
+.popup-cont .pop-bd {
+  padding: 20rpx;
+}
+
+.pop-bd view {
+  line-height: 40rpx;
+}
+
+.pop-bd input {
+  width: 100%;
+  height: 60rpx;
+  border: 2rpx solid #bbb;
+  border-radius: 8rpx;
+  padding-left: 20rpx;
+  margin-top: 10rpx;
+}
+
+.pop-bd .col {
+  display: flex;
+  flex-flow: row nowrap;
+  line-height: 60rpx;
+}
+
+.pop-bd .col .right {
+  color: #e51c23;
+}
+
+.pop-bd .ck-cell {
+  padding: 0 20rpx;
+}
+
+.pop-bd .ck-cell checkbox-group {
+  display: inline-block;
+}
+
+.pop-bd .ck-cell navigator {
+  display: inline-block;
+  line-height: 60rpx;
+  color: #00b7ff;
+}
+
+.pop-ft {
+  height: 102rpx;
+}
+
+.pop-ft button {
+  width: 50%;
+  height: 120rpx;
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 120rpx;
+  text-align: center;
+  border-radius: 0;
+}
+.pop-ft .btn-ensure {
+  background-color: #00b7ff;
+}
+.pop-ft .btn-cancel {
+  background-color: #bbb;
+}
+/*帮助*/
+.world-box {
+  padding: 20rpx;
+}
+
+.world-box text {
+  font-size: 28rpx;
+}
+
+.stare {
+  color: #e51c23;
+}
+
+/***input***/
+.inp {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0 10rpx;
+}
+.inp .form-label {
+  flex-basis: 160rpx;
+  line-height: 80rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}
+.inp .form-right {
+  flex-grow: 1;
+  min-height: 80rpx;
+}
+
+.inp .form-right input {
+  width: 90%;
+  height: 80rpx;
+  color: #979696;
+  border: none;
+}
+
+.tips {
+  padding: 0 20rpx;
+  line-height: 40rpx;
+  background-color: #eaeaea;
+}
+
+/***图片上传***/
+.img-view {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10rpx;
+}
+
+.img-view .img-cell {
+  position: relative;
+  width: 218rpx;
+  height: 218rpx;
+  margin: 0 10rpx 10rpx 10rpx;
+}
+
+.img-view .img-cell image {
+  width: 218rpx;
+  height: 218rpx;
+}
+
+.img-view .img-cell icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.img-view .img-cell .cover {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60rpx;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.img-view .img-cell .active {
+  color: #02ff00;
+}
+
+.btn-share {
+  background-color:#009688;
+}

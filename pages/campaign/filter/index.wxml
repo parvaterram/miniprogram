@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="list">
+    <picker bindchange="handleTypeChange" value="{{index}}" range="{{typeList}}" range-key='name'>
+      <view class="layer link-cell">
+        <view>类型：   {{typeList[typeSub] ? typeList[typeSub].name : '全部'}}</view>
+          <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </view>
+    </picker>
+
+    <picker mode="multiSelector" bindchange='handleRegionChange' bindcolumnchange="handleColumnchange" range='{{mulArray}}'>
+      <view class="layer link-cell">
+        <view>地区：   {{region || '不限'}}</view>
+          <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view>
+    <button class="btn-full btm" bindtap="handleSubmit">筛选</button>
+  </view>
+</view>

@@ -1,0 +1,139 @@
+<!--pages/campaign/createFirst/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar"></view>
+      <view class="num">2</view>
+      <view class='bar'></view>
+      <view class="num">3</view>
+      <view class='bar'></view>
+      <view class="num">4</view>
+    </view>
+    <view class="sub">
+      <view class="active">编辑信息</view>
+      <view>设定时间</view>
+      <view>活动图片</view>
+      <view>核对信息</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动名称：</view>
+      <view class="right">
+        <input type="text" placeholder='命名该活动' value="{{camName}}" bindinput="handleEmitCamName" />
+      </view>
+    </view>
+
+    <view class="tips">*该活动的对外发布名称，不超过20个汉字。</view>
+
+    <view class="form-item">
+      <view class="left"><label for="desc">活动描述：</label></view>
+      <view class="txt-cell">
+        <textarea id="desc" maxlength="500" value="{{desc}}" bindinput="handleEmitDesc" placeholder='该活动详细信息（500汉字以内）' />
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动地点：</view>
+      <view class="right bdr-btm">
+        <picker mode="region" bindchange='regionChange'>
+          <view class="link-cell">
+            <view>
+              {{region.length > 0 ? region[0] + ' ' + region[1] + ' ' + region[2] : '请选择省市区'}}
+            </view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>  
+        </picker>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="left"> </view>
+      <view class="right">
+        <input type="text" placeholder='详细地址' value="{{address}}" bindinput="handleEmitAddress" />
+      </view>
+    </view>
+
+    <view class="tips">*该委托的实际执行地点。</view>
+
+    <view class="form-item">
+      <view class="left">关联商品：</view>
+      <view class="right bdr-btm" bindtap="handleConnect">
+        <view class="link-cell">
+            <view>
+              {{goods.goods_name || '该委托关联的推购商品'}}
+            </view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view> 
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="left">商品数量：</view>
+      <view class="right">
+        <view class="row">{{goods.inventory || '该商品当前剩余可销售数量'}}</view>
+      </view>
+    </view>
+    
+    <view class="tips">*非必选项，用于商品需进行推购时选择；</view>
+    <view class="tips">*总推购商品数量不可高于现有库存数。</view>
+
+    <view class="form-item">
+      <view class="left">艺人名额：</view>
+      <view class="right bdr-btm">
+        <input type="number" placeholder='该活动所需参与艺人的数量' value="{{artNum}}" bindinput="handleEmitArtNum" />
+      </view>
+    </view>
+
+    <view class="form-item">
+      <view class="left">艺人类型：</view>
+      <view class="right">
+        <picker bindchange="artChange" value="{{index}}" range="{{artType}}" range-key='name' wx:if="{{artList.length < 3}}">
+          <view class="link-cell">
+            <view>选择该活动需求的艺人类型（最多可选择3种）</view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>    
+        </picker>
+        <view class="tag-item" wx:for="{{artList}}" wx:key="{{index}}">
+          <button class="btn-info">{{item.name}}</button><button data-id="{{item.id}}" class="btn-primary" bindtap="handleDel">删除</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="tips">*设置活动实际参与艺人的要求；</view>
+    <view class="tips">*设置报名费用后，艺人在支付报名费用且活动结束后，该笔费用将返退艺人；</view>
+    <view class="tips">*如录用的艺人无实际参与活动，该艺人的报名费将作为违约金之一给予活动发起方。</view>
+  
+    <view class="form-item">
+      <view class="left">酬劳设定：</view>
+      <view class="right bdr-btm" bindtap="handleSetting">
+        <view class="s-label {{setting === '1' && 'active'}}" data-mold="1">面议</view>
+        <view class="s-label {{setting === '2' && 'active'}}" data-mold="2">范围</view>
+      </view>
+    </view>
+    <view class="form-item" wx:if="{{setting === '2'}}">
+      <view class="left">预期酬劳：</view>
+      <view class="right bdr-btm">
+        <input type="number" placeholder='该活动支付予单个艺人的预期酬劳量' value="{{reward}}" bindinput="handleEmitReward" />
+      </view>
+    </view>
+    <view class="form-item" wx:if="{{setting === '2'}}">
+      <view class="left">最大酬劳：</view>
+      <view class="right">
+        <input type="number" placeholder='该活动支付予单个艺人的最大酬劳量' value="{{maxReward}}" bindinput="handleEmitMaxReward" />
+      </view>
+    </view>
+
+    <view class="tips">*设定该次活动的艺人可得酬劳；</view>
+    <view class="tips">*默认面议（不设定酬劳范围）；</view>
+    <view class="tips">*确认选择参与艺人时需设定实际给予该艺人的录用酬劳费用；</view>
+    <view class="tips">*范围 - 需设置预期酬劳和最大酬劳；</view>
+    <view class="tips">*面议 - 不需设置酬劳。</view>
+  </view>
+
+  <view>
+    <button class="btn-full" catchtap="handleNextStep">下一步</button>
+  </view>
+</view>

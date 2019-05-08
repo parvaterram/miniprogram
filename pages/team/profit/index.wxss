@@ -1,0 +1,90 @@
+ .container {
+  background-color: #eaeaea;
+  overflow: hidden;
+  color: #101010;
+  font-size: 24rpx;
+}
+.num {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-evenly;
+  background: #fff;
+  z-index: 1;
+}
+  .num>view {
+    width: 33.33%;
+  }
+  .num .dt {
+    line-height: 60rpx;
+    font-size: 36rpx;
+    color: #E51C23;
+    font-weight: 700;
+  }
+  .num .dd {
+    line-height: 40rpx;
+    font-size: 24rpx;
+  }
+.list {
+  padding-top: 100rpx;
+  padding-bottom: 120rpx;
+}
+.item {
+  background: #fff;
+  margin-top: 10rpx;
+  padding: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+  .avatar image {
+     width: 60rpx;
+    height: 60rpx;
+  }
+.name {
+  margin: 0 10rpx;
+  line-height: 60rpx;
+  color: #434343;
+  width: 320rpx;
+}
+  .name .source {
+    display: inline-block;
+    text-align: center;
+    border-radius: 5rpx;
+    width: 120rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    vertical-align: middle;
+    background: #8BC34A;
+    color: #fff;
+  }
+.record {
+  line-height: 60rpx;
+  color: #434343;
+}
+  .record .dt {
+    color: #434343;
+  }
+  .record .dd {
+    color: #E51C23;
+  }
+.put-cash {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #46C4FF;
+  height: 112rpx;
+  line-height: 112rpx;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: 700;
+  border-radius: 0;
+}

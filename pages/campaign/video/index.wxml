@@ -1,0 +1,28 @@
+<view class='container'>
+  <view class='layer mes'>
+    <view class="avatar">
+      <image mode="aspectFill" src="{{campItem.avatar_thumb}}"></image>
+    </view>
+    <view class="name">{{campItem.name}}</view>
+  </view>
+
+  <view wx:if="{{list.length > 0}}">
+    <view class="layer" wx:for="{{list}}" wx:key="{{index}}">
+      <video src="{{item.video_url}}"></video>
+      <view class='mes'>
+        <view class="avatar">
+          <image mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+        </view>
+        <view class="name">{{item.user_nicename}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    暂无活动视频
+  </view>
+
+  <view wx:if="{{self}}">
+    <button class="btn-full btm" bindtap="handleLinkUploadVid">上传活动视频</button>
+  </view>
+
+</view>

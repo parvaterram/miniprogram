@@ -1,0 +1,131 @@
+<!--pages/commodity/waresIssue/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar active"></view>
+      <view class="num active">2</view>
+      <view class='bar'></view>
+      <view class="num">3</view>
+    </view>
+    <view class="sub">
+      <view class="active">选择类型</view>
+      <view class="active">编辑信息</view>
+      <view>提交</view>
+    </view>
+  </view>
+
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">商品名称：</view>
+      <view class="right">
+        <input type="text" value="{{name}}" placeholder='请输入商品名称' bindinput="handleEmitName"></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">促销价格：</view>
+      <view class="right">
+        <input type="text" value="{{price}}" placeholder='请输入商品价格' bindinput="handleEmitPrice"></input>
+       <view class="stare">*在艺人代言，活动时间的商品售价</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">商品原价：</view>
+      <view class="right">
+        <input type="text" bindinput="handleEmitPrimePrice" value="{{primePrice}}" placeholder='请输入商品价格'></input>
+       <view class="stare">*非代言，活动时间的商品售价</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">商品库存：</view>
+      <view class="right">
+        <input type="text" bindinput="handleEmitStock" value="{{stock}}" placeholder='该商品当前可销售总库存'></input>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">商品简介：</view>
+      <view class="right">
+        <input type="text" bindinput="handleEmitIntro" value="{{intro}}" placeholder='请输入对该商品的描述（200个汉字以内）'></input>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">提取地点：</view>
+      <view class="right">
+        <picker mode="region" bindchange='regionChange'>
+          <view class="link-cell">
+      {{region.length > 0 ? region[0] + ' ' + region[1] + ' ' + region[2] : '请选择省市区'}}
+          <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">详细地址：</view>
+      <view class="right">
+        <input type="text" bindinput="handleEmitDesc" value="{{desc}}" placeholder='请输入用户需前往提取商品的详细地址信息'></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">使用时效：</view>
+      <view class="right">
+        <picker range="{{aging}}" value="{{index}}" bindchange="agingChange">
+          <view class="link-cell">
+            {{aging[agingSub] || '请选择该商品的提取有效时长'}}
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view class="tips">
+      商品图片（最多可上传6张，需设定封面）
+    </view>
+    <view class="tips">
+      单张图片不可大于5M，建议尺寸1500 x 1500px
+    </view>
+
+    <view class="img-view">
+      <view class="img-cell" wx:for="{{imgList}}" wx:key="{{index}}">
+        <image mode="aspectFill" src='{{item.url}}' data-src="{{item.url}}" catchtap="handleImagePreview"></image>
+        <icon type="clear" color="#e51c23" data-src="{{item.url}}" catchtap="handleDel"></icon>
+        <view class="cover {{coverIndex === index ? 'active' : ''}}" data-src="{{item.url}}" catchtap="handleSetCover">{{coverIndex === index ? '当前封面' : '设为封面'}}</view>
+      </view>
+      <view class="img-cell" wx:if="{{imgList.length < 6}}">
+        <button class="btn-select" catchtap="handleChooseImage">+</button>
+      </view>
+    </view>
+  </view>
+
+
+  <view>
+    <button class="btn-full" bindtap="handleSubmit">{{isEdit ? '确认修改' : '确认创建'}}</button>
+  </view>
+</view>

@@ -1,0 +1,128 @@
+<!--pages/artist/edit/index.wxml-->
+<view class="container">
+  <view class="layer">
+    <view class="left">*艺名：</view>
+    <view class="right">
+      <input type="text" maxlength="8" value="{{name}}" bindinput="handleEmitName" placeholder='请输入艺人对外称呼'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">身高：</view>
+    <view class="right">
+      <input type="text" value="{{height}}" bindinput="handleEmitHeight" placeholder='cm'></input>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="left">体重：</view>
+    <view class="right">
+      <input type="text" value="{{weight}}" bindinput="handleEmitWeight" placeholder='kg'></input>
+    </view>
+  </view>
+
+   <view class="layer">
+    <view class="left">胸围：</view>
+    <view class="right">
+      <input type="text" value="{{chest}}" bindinput="handleEmitChest" placeholder=''></input>
+    </view>
+  </view>
+
+   <view class="layer">
+    <view class="left">腰围：</view>
+    <view class="right">
+      <input type="text" value="{{waist}}" bindinput="handleEmitWaist" placeholder=''></input>
+    </view>
+  </view>
+
+   <view class="layer">
+    <view class="left">臂围：</view>
+    <view class="right">
+      <input type="text" value="{{arm}}" bindinput="handleEmitArm" placeholder=''></input>
+    </view>
+  </view>
+
+   <view class="layer">
+    <view class="left">鞋码：</view>
+    <view class="right">
+      <input type="text" value="{{shoesize}}" bindinput="handleEmitShoesize" placeholder=''></input>
+    </view>
+  </view>
+
+   <view class="layer">
+    <view class="left">个人简介：</view>
+    <view class="right">
+      <input type="text" value="{{intro}}" bindinput="handleEmitIntro" placeholder='编辑艺人个人对外介绍'></input>
+    </view>
+  </view>
+
+   <view class="layer">
+    <view class="left">*所在地：</view>
+    <view class="right">
+      <view class="row" wx:if="{{region.length < 3}}">
+        <picker mode="multiSelector" bindchange='handleRegionChange' bindcolumnchange="handleColumnchange" range='{{mulArray}}'>
+          <view class="link-cell">
+            <view>
+              选择城市
+            </view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="row city" wx:for="{{region}}" wx:key="{{index}}">
+        <view class="city-tag">{{item}}</view><button data-tag="{{item}}" catchtap="handleDelCity" class="btn-primary">删除</button>
+      </view>
+    </view>
+  </view>
+  <view class="tips">*最多可选三个城市</view>
+  
+  <view class="layer">
+    <view class="left">*选择封面：</view>
+    <view class="right">
+      <view class="row">选择一张封面图</view>
+    </view>
+  </view>
+  <view class="img-cell" wx:if="{{cover}}">
+    <image src="{{cover}}"></image>
+    <icon type="clear" color="#e51c23" catchtap="handleDelCover"></icon>
+  </view>
+  <view class="file-cell" wx:else>
+    <view class="btn-add" bindtap="handleChooseCover">+</view>
+  </view>
+
+   <view class="layer">
+    <view class="left">*作品图片：</view>
+    <view class="right">
+      <view class="row">最多可选9张</view>
+    </view>
+  </view>
+  <view class="img-list">
+    <view class="img-cell" wx:for="{{works}}" wx:key="{{index}}">
+      <image mode="aspectFill" src="{{item.url}}"></image>
+      <icon type="clear" color="#e51c23" data-src="{{item.url}}" catchtap="handleDel"></icon>
+    </view>
+    <view class="img-cell" wx:if="{{works.length < 9}}">
+      <view class="btn-add" bindtap="handleChooseFile">+</view>
+    </view>
+  </view>
+  <view class="tips">*单张图片建议1080x720尺寸，2M以内jpg、png图片</view>
+
+   <view class="layer">
+    <view class="left">视频：</view>
+    <view class="right">
+      <view class="row">不超过10M的MP4视频</view>
+    </view>
+  </view>
+  <view class="video-cell" wx:if="{{video}}">
+    <video src="{{video}}" poster="{{poster}}">
+        <cover-view class="btn-close" catchtap="handleDelVideo">×</cover-view>
+    </video>
+  </view>
+  <view class="file-cell" wx:else>
+    <view class="btn-add" bindtap="handleChooseVideo">+</view>
+  </view>
+
+  <view>
+    <button class="btn-full" bindtap="handleSubmit">提交</button>
+  </view>
+</view>

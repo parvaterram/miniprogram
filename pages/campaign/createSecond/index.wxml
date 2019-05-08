@@ -1,0 +1,116 @@
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar active"></view>
+      <view class="num active">2</view>
+      <view class='bar'></view>
+      <view class="num">3</view>
+      <view class='bar'></view>
+      <view class="num">4</view>
+    </view>
+    <view class="sub">
+      <view class="active">编辑信息</view>
+      <view class="active">设定时间</view>
+      <view>活动图片</view>
+      <view>核对信息</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">报名日期：</view>
+      <view class="right bdr-btm">
+        <picker mode="date" bindchange='enrollStartChange'>
+          <view class="link-cell">
+            <view>
+              {{enrollStart || '设置开始日期'}}
+            </view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>  
+        </picker>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="left"> </view>
+      <view class="right">
+        <picker mode="date" bindchange='enrollEndChange'>
+          <view class="link-cell">
+            <view>
+              {{enrollEnd || '设置结束日期'}}
+            </view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>  
+        </picker>
+      </view>
+    </view>
+
+    <view class="tips">*设置对该活动感兴趣的艺人可进行报名的日期；</view>
+    <view class="tips">*开始日期默认为系统当日+1，不可低于该日期；</view>
+    <view class="tips">*结束日期默认为系统当日+1，不可低于该日期；</view>
+    <view class="tips">*超过结束日期时，艺人无法进行报名参与。</view>
+
+    <view class="form-item">
+      <view class="left">活动时段：</view>
+      <view class="right bdr-btm">
+        <picker mode="date" bindchange='campStartChange'>
+          <view class="link-cell">
+            <view>
+              {{campStart || '设置开始日期'}}
+            </view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>  
+        </picker>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="left"> </view>
+      <view class="right">
+        <picker mode="date" bindchange='campEndChange'>
+          <view class="link-cell">
+            <view>
+              {{campEnd || '设置结束日期'}}
+            </view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>  
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动时段：</view>
+      <view class="right">
+        <view class="row stare">可对单个日期进行修正</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer time-item" wx:for="{{period}}" wx:key="{{index}}">
+    <view class="date">{{item.date}}</view>
+    <view class="btn-info">
+      <picker mode="time" bindchange="timeStartChange" data-id="{{item.timeStamp}}">
+        {{item.st}}
+      </picker>
+    </view>
+    <view class="btn-info">
+      <picker mode="time" bindchange="timeEndChange" data-id="{{item.timeStamp}}">
+        {{item.et}}
+      </picker>
+    </view>
+    <view class="right">
+      <button class="btn-primary" data-id="{{item.timeStamp}}" bindtap="handleDel">删除</button>
+    </view>
+  </view>
+
+  <view class="tips">*设置活动的实际进行时间；</view>
+  <view class="tips">*活动开始进行时间默认为报名结束日期+1；</view>
+  <view class="tips">*活动结束时间默认为开始时间+1；</view>
+  <view class="tips">*可对单个日期进行“删除时间”操作，如活动在该日期为休息时间；</view>
+  <view class="tips">*每个日期可对期时段进行修改，用于告知他人该活动每日的实际进行时间。</view>
+
+  <view class="btn-cell">
+    <button class="btn-full" bindtap="handleNextStep">下一步</button>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+<form bindsubmit="postData">
+<view class="container">
+  <view class="title">以下信息均为必填项，为保证您的利益，请如实填写</view>
+  <view class='content'>
+    <view class='price'>
+      <view class='tips'>提现数（元）</view>
+      <view>
+        <view class='s-price'>
+          <text class='dt'>￥</text>
+          <input type='digit' confirm-type='done' placeholder="" class='dd' auto-focus bindfocus="inputOn"  bindblur="inputOff" value='{{input_price}}' focus="{{focus}}"/>
+        </view>
+        <button class='all-proce' bindtap='showAll'>全部体现</button>
+      </view>
+      <view class='b-c'>
+        <text class='dt'>可提现（元）</text>
+        <text class='dd'>{{all_price}}</text>
+      </view>
+      <view class='b-c'>
+        <text class='dt'>手续费（0.5%）</text>
+        <text class='dd'>{{poundage}}</text>
+      </view>
+    </view>
+    <view class='info'>
+      <view>
+        <text class='dt'>持卡人：</text>
+        <input type='text' confirm-type='next' name="name" placeholder-class="phcolor" placeholder="输入提现银行卡持卡人姓名" class='dd'/>
+      </view>
+      <view>
+        <text class='dt'>卡号：</text>
+        <input type='number' confirm-type='next' name="card" placeholder-class="phcolor" placeholder="银行卡卡面号码列" class='dd'/>
+      </view>
+      <view>
+        <text class='dt'>卡类型：</text>
+        <picker bindchange="bindCasPickerChange" name="card_type"  range="{{bankArray}}" class='dd bank-choose'>
+          <view>
+          <text>{{bankArray[bankIndex]}}</text>
+          </view>
+    
+        </picker>
+      </view>
+      <view>
+        <text class='dt'>手机号：</text>
+        <input type='number' confirm-type='done' name="phone" placeholder-class="phcolor" placeholder="持卡人所属手机号" class='dd'/>
+      </view>
+    </view>
+    <view class='b-tips'>*首次需输入，后续进入读取。</view>
+  </view>
+</view>
+<button class='put-cash' formType='submit'>提交提现</button>
+</form>

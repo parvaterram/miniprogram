@@ -1,0 +1,23 @@
+/* pages/campaign/createThird/index.wxss */
+.container {
+  position: relative;
+  padding-bottom: 120rpx;
+}
+.header-guide {
+  margin-bottom: 10rpx;
+}
+.sub view {
+  width: 25%;
+}
+
+.header-guide .order .bar {
+  width: 107.5rpx;
+}
+
+
+.btn-cell {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

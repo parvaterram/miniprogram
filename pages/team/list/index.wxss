@@ -1,0 +1,94 @@
+ .container {
+  background-color: #eaeaea;
+  overflow: hidden;
+  color: #101010;
+  font-size: 24rpx;
+}
+.top-tips {
+  text-align: center;
+  color: #333;
+  margin-top: 30rpx;
+}
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10rpx;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+  .item .l-c {
+    position: relative;
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 10rpx;
+  }
+  .item .avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+    .avatar .a-img {
+      width: 120rpx;
+      height: 120rpx;
+    }
+  .l-c .sex-img {
+    position: absolute;
+    width: 40rpx;
+    bottom: 0;
+    left: -5rpx;
+  }
+.iden>button {
+  width: 120rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-right: 10rpx;
+  color: #fff;
+  text-align: center;
+}
+  .iden .admin {
+    background-color: #FF9800;
+  }
+  .iden .artist {
+    background-color: #46C4FF;
+  }
+.name {
+  line-height: 40rpx;
+  width: 280rpx;
+  color: #434343;
+}
+  .name .titles {
+    width: 100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .name .price {
+    color: #E51C23;
+  }
+.choice-btn {
+  position: absolute;
+  width: 140rpx;
+  height: 120rpx;
+  right: 20rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.choice-btn>button {
+  display: block;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  margin: 0;
+  border-radius: 0;
+}
+  .choice-btn .agree {
+    background-color: #259B24;
+  }
+  .choice-btn .refuse {
+    background-color: #E51C23;
+  }

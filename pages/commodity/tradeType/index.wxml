@@ -1,0 +1,29 @@
+<!--pages/commodity/waresType/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar"></view>
+      <view class="num">2</view>
+      <view class='bar'></view>
+      <view class="num">3</view>
+    </view>
+    <view class="sub">
+      <view class="active">选择类型</view>
+      <view>编辑信息</view>
+      <view>提交</view>
+    </view>
+  </view>
+
+  <view>
+    <view class="btn-cell">
+      <navigator class="btn-big" url="/pages/commodity/tradeIssue/index?type=2">到店消费商品</navigator>
+    </view>
+    <view class="tips">
+      *用户下单后，需要自行前往商家门店或指定取货店进行到店提取消费的商品
+    </view>
+    <view class="tips">*该类商品需设定消费有效期</view>
+    <view class="tips">*用户下单后未于时效内前往提取消费，则视用户自行取消订单</view>
+    <view class="tips">*超时取消的到店消费订单将不予退款</view>
+  </view>
+</view>

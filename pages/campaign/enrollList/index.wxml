@@ -1,0 +1,89 @@
+<!--pages/campaign/enrollList/index.wxml-->
+<view class="container">
+  <view class="layer title" wx:if="{{type === '1'}}">
+    报名列表（名额{{quota}}；已报名{{enroll}}；入选{{chosen}}）
+  </view>
+
+  <view class="tab-bar">
+    <view wx:for="{{tabBar}}" class="item {{item.id === tab && 'active'}}" data-index="{{item.id}}" catchtap="handleSwithTab" wx:key="{{item.id}}">{{item.name}}</view>
+  </view>
+
+  <view wx:if="{{list.length > 0}}">
+    <view class="layer li-item" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="head">
+        <view class="avatar">
+          <image class="img-avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+          <view class="state" wx:if="{{item.signup_status === '1' || item.signup_status === '3' || item.signup_status === '4'}}">
+            {{item.signup_status === '1' ? '已入选/未受理' : item.signup_status === '3' ? '已入选/拒绝' : item.signup_status === '4' ? '已入选/接受' : ''}}
+          </view>
+        </view>
+        <view class="info">
+          <view>
+            <view class="type" wx:if="{{item.isauth === '1'}}">认证艺人</view> <view class="auth-type">{{item.artType}}</view>
+          </view>
+          <view>
+            <text>{{item.user_nicename}}</text>
+          </view>
+          <view wx:if="{{item.height !== '' && item.weight !== '' && item.chest !== '' && item.waist !== '' && item.hip !== '' && item.shoe_size !== ''}}">
+            <text space>高：{{item.height}} 重：{{item.weight}} 三：{{item.chest}}-{{item.waist}}-{{item.hip}} 鞋：{{item.shoe_size}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="body stare">
+        <view>期望酬劳：￥{{item.art_payfee}}</view>
+        <view wx:if="{{item.signup_status !== '0'}}">入选酬劳：￥{{item.shop_payfee || 0}}</view>
+      </view>
+      <view
+        class="foot red"
+        wx:if="{{item.signup_status === '1'}}"
+        data-id="{{item.sid}}"
+        data-name="{{item.user_nicename}}"
+        data-reward="{{item.shop_payfee}}"
+        bindtap="handleRelieve"
+      >
+        解除录用
+      </view>
+      <view class="foot grey" wx:if="{{item.signup_status === '4'}}">
+        已接受入选酬劳的艺人无法解除
+      </view>
+      <view
+        class="foot blue"
+        wx:if="{{item.signup_status === '0' || item.signup_status === '2' || item.signup_status === '3'}}"
+        data-id="{{item.sid}}"
+        data-name="{{item.user_nicename}}"
+        bindtap="handleEmploy"
+        >
+        录用
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    暂无艺人
+  </view>
+
+  <view>
+    <button class="btn-full btm" bindtap="handlePay">支付酬劳</button>
+  </view>
+
+  <view class="popup-wrap" hidden='{{!pop}}'>
+    <view class="popup-cell">
+      <view class="popup-cont">
+        <view class="title">录用艺人</view>
+        <view class="pop-bd">
+          <view>艺人名称：{{artName}}</view>
+          <view wx:if="{{employ === 1}}">录用酬劳 <input type="number" value="{{price}}" bindinput="handleEmitPrice" placeholder='输入实际酬劳'></input></view>
+          <view wx:if="{{employ === 1}}">*提交后，于活动开始前可进行变更（解除录用）。</view>
+          <view wx:if="{{employ === 2}}">录用酬劳：{{reward}}</view>
+          <view wx:if="{{employ === 2}}">*提交后立即解除该艺人与活动的录用关系。</view>
+        </view>
+        <view class="pop-ft">
+          <button class="btn-ensure" catchtap="handleEnsure">提交</button>
+          <button class="btn-cancel" catchtap="handleCancel">考虑</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

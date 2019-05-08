@@ -1,0 +1,55 @@
+<!--pages/information/index.wxml-->
+<view class="container">
+  <view class="layer link-cell" bindtap="handleChooseImage">
+    <view>头像</view>
+    <image class="img-avatar" mode="scaleToFill" src="{{avatar_thumb}}"></image>
+  </view>
+
+  <view class="layer link-cell" bindtap="handleNicename">
+    <view>昵称: {{info.user_nicename}}</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </view>
+
+  <view class="layer link-cell" bindtap="handleSign">
+    <view>签名: {{info.signature}}</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </view>
+
+<picker mode="date" bindchange="dateChange">
+  <view class="layer link-cell">
+    <view>生日: {{info.birthday}}</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </view>
+</picker>
+
+<picker mode="selector" range="{{genderList}}" value="{{index}}" bindchange="genderChange">
+  <view class="layer link-cell">
+    <view>性别: {{info.sex === '1' ? '男' : '女'}}</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </view>
+</picker>
+
+  <navigator class="layer link-cell" url="/pages/address/index">
+    <view>地址管理 </view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <navigator class="layer link-cell" url="/pages/information/account/index">
+    <view>提现账户 </view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator> 
+
+  <view class="prompt-wrap" hidden="{{prompt}}">
+    <view class="prompt-cell">
+      <view class="prompt-cont">
+        <view class="prompt-bd">
+          <input type="text" maxlength="{{maxLen}}" value="{{promptVal}}" bindinput="handleEmitPrompt"></input>
+        </view>
+        <view class="prompt-ft">
+          <button catchtap="handleCancel">取消</button>
+          <button class="btn-ensure" catchtap="handleEnsure">确定</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

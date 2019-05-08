@@ -1,0 +1,33 @@
+<!--pages/help/catalog/index.wxml-->
+<view class="container">
+  <navigator class="layer link-cell" url="/pages/help/DepAccount/index">
+    <view>如何获取Dep账号</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <navigator class="layer link-cell" url="/pages/help/artistRights/index">
+    <view>艺人权益</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <navigator class="layer link-cell" url="/pages/help/becomeArtist/index">
+    <view>如何成为艺人</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <navigator class="layer link-cell" url="/pages/help/sellerRights/index">
+    <view>商家权益</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <navigator class="layer link-cell" url="/pages/help/becomeSeller/index">
+    <view>如何成为商家</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <navigator class="layer link-cell" url="/pages/help/overview/index">
+    <view>Q&A总览</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+</view>

@@ -1,0 +1,77 @@
+/* pages/endorsing/index.wxss */
+.c-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background-color: #eaeaea;
+  padding: 10rpx;
+}
+
+.location {
+  font-size: 28rpx;
+  line-height: 80rpx;
+  padding-left: 20rpx;
+}
+
+.goods-item {
+  width: 360rpx;
+  background-color: #fff;
+  padding: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.goods-item .head {
+  position: relative;
+  height: 340rpx;
+}
+
+.goods-item image {
+  width: 340rpx;
+  height: 340rpx;
+}
+
+.goods-item .head .avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.stack {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  line-height: 40rpx;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.goods-item .mes {
+  padding-top: 10rpx;
+}
+
+.mes {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 40rpx;
+}
+
+.mes .price {
+  color: #e51c23;
+}
+
+.mes .btn {
+  width: 120rpx;
+  height: 60rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 60rpx;
+  background-color: #00b7ff;
+  margin: 0;
+}

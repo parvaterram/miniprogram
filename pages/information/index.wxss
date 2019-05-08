@@ -1,0 +1,62 @@
+/* pages/information/index.wxss */
+
+.img-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.prompt-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.prompt-cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.prompt-cont {
+  width: 80%;
+  height: 220rpx;
+  border: 1rpx solid #e8e8e8;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.prompt-bd {
+  height: 140rpx;
+  text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.prompt-bd input {
+  width: 80%;
+  height: 80rpx;
+  text-align: left;
+  padding-left: 10rpx;
+}
+
+.prompt-ft {
+  text-align: right;
+}
+
+.prompt-ft button {
+  margin-right: 20rpx;
+}
+
+.prompt-ft .btn-ensure {
+  color: #fff;
+  background-color: #059F9F;
+}

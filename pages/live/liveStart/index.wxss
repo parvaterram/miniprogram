@@ -1,0 +1,13 @@
+.tips {
+  background-color: #fff;
+  padding-bottom: 10rpx;
+}
+
+.label {
+  margin: 0 20rpx 10rpx 0;
+  background-color: #eaeaea;
+}
+
+.layer .row .active {
+  background-color: #ffa000;
+}

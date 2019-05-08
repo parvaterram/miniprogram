@@ -1,0 +1,31 @@
+<!--pages/editAddress/index.wxml-->
+<view class="container">
+  <view class="layer">
+    <label class="tab">收件人：</label>
+    <input type="text" value="{{name}}" placeholder='收件人称呼' bindinput="handleEmitName"></input>
+  </view>
+
+  <view class="layer">
+    <label class="tab">联系方式：</label>
+    <input type="text" value="{{phone}}" placeholder='收件人手机号' bindinput="handleEmitPhone"></input>
+  </view>
+
+  <picker mode="region" bindchange="handleRegion">
+    <view class="layer link-cell">
+      <view>
+        <label class="tab">所在地区：</label>
+        <text>{{region[0] || ''}} {{region[1] || ''}} {{region[2] || ''}}</text>
+      </view>
+      <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+    </view>
+  </picker>
+
+  <view class="layer">
+    <label class="tab">详细地址：</label>
+    <input type="text" value="{{desc}}" placeholder='请输入详细地址' bindinput="handleEmitDesc"></input>
+  </view>
+
+  <view>
+    <button class="btn-full btn-bot" bindtap="handleSubmit">{{!add ? '添加地址' : '修改地址'}}</button>
+  </view>
+</view>

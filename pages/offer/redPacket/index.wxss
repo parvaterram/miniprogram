@@ -1,0 +1,19 @@
+/* pages/offer/redPacket/index.wxss */
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  justify-content:space-between;
+}
+.title {
+  line-height: 60rpx;
+  background: #fff;
+}
+
+.icon {
+  margin-bottom: 80rpx;
+}
+
+.tips {
+  line-height: 60rpx;
+}

@@ -1,0 +1,44 @@
+/* pages/entrust/order/index.wxss */
+
+.layer {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10rpx;
+}
+.layer .cont {
+  flex-grow: 1;
+}
+
+.layer .btn-cell {
+  flex-basis: 150rpx;
+}
+.layer .ident {
+  display: inline-block;
+  width: 140rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.layer .txt {
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.layer .active {
+  color: #ff4081;
+}
+
+.layer .bl {
+  padding-left: 10rpx;
+}
+
+.layer .btn-cell button {
+  width: 140rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 8rpx;
+}

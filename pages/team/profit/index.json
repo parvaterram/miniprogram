@@ -1,0 +1,6 @@
+{
+  "backgroundColor": "#eaeaea",
+  "navigationBarTitleText": "团队收益",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 0
+}

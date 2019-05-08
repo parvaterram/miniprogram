@@ -1,0 +1,182 @@
+<!--pages/campaign/createFourth/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar active"></view>
+      <view class="num active">2</view>
+      <view class='bar active'></view>
+      <view class="num active">3</view>
+      <view class='bar active'></view>
+      <view class="num active">4</view>
+    </view>
+    <view class="sub">
+      <view class="active">编辑信息</view>
+      <view class="active">设定时间</view>
+      <view class="active">活动图片</view>
+      <view class="active">核对信息</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动名称：</view>
+      <view class="right">
+        <view class="row">{{campFst.camName}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动描述：</view>
+      <view class="right">
+        <view class="row txt">{{campFst.desc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动地点：</view>
+      <view class="right bdr-btm">
+        <view class="row">{{campFst.region[0]}} {{campFst.region[1]}} {{campFst.region[2]}}</view>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="left"> </view>
+      <view class="right">
+        <view class="row">{{campFst.address}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer" wx:if="{{campFst.goods.shopid}}">
+    <view class="form-item">
+      <view class="left">关联商品：</view>
+      <view class="right bdr-btm">
+        <view class="row">{{campFst.goods.goods_name}}</view>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="left">剩余数量：</view>
+      <view class="right bdr-btm">
+        <view class="row">{{campFst.goods.inventory}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">艺人名额：</view>
+      <view class="right bdr-btm">
+        <view class="row">{{campFst.artNum}}</view>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="left">艺人类型：</view>
+      <view class="right">
+        <view class="row">
+          <button class="btn-info" wx:for="{{campFst.artList}}" wx:key="{{index}}">{{item.name}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">酬劳设定：</view>
+      <view class="right bdr-btm">
+        <view class="s-label {{campFst.setting === '1' && 'active'}}">面议</view>
+        <view class="s-label {{campFst.setting === '2' && 'active'}}">范围</view>
+      </view>
+    </view>
+    <view class="form-item" wx:if="{{campFst.setting === '2'}}">
+      <view class="left">预期酬劳：</view>
+      <view class="right bdr-btm">
+        <view class="row">{{campFst.reward}}</view>
+      </view>
+    </view>
+    <view class="form-item" wx:if="{{campFst.setting === '2'}}">
+      <view class="left">最大酬劳：</view>
+      <view class="right">
+        <view class="row">{{campFst.maxReward}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">报名时间：</view>
+    </view>
+  </view>
+
+  <view class="layer time-item">
+    <view class="date">{{campSec.enrollStart}}</view>
+    <view class="time">00:00</view>
+    <view class="time">23:59</view>
+  </view>
+
+  <view class="layer time-item">
+    <view class="date">{{campSec.enrollEnd}}</view>
+    <view class="time">00:00</view>
+    <view class="time">23:59</view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动时段：</view>
+    </view>
+  </view>
+
+  <view class="layer time-item" wx:for="{{campSec.period}}" wx:key="{{index}}">
+    <view class="date">{{item.date}}</view>
+    <view class="time">{{item.st}}</view>
+    <view class="time">{{item.et}}</view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动图片：</view>
+    </view>
+  </view>
+
+  <view class="layer img-view">
+    <view class="img-cell" wx:for="{{campTrd.imgList}}" wx:key="{{index}}">
+      <image mode="aspectFill" src='{{item}}' data-src="{{item}}" catchtap="handleImagePreview"></image>
+      <view class="cover active" wx:if="{{campTrd.coverIndex === index}}">当前封面</view>
+    </view>
+  </view>
+
+  <view class="tips">*确认无误后，操作发布即可将该活动于前端呈现；</view>
+  <view class="tips">*可上传添加视频，增加活动介绍深度；</view>
+  <view class="tips">*单个活动，发布者只可上传一个视频，重复上传会变更原有视频；</view>
+  <view class="tips">*视频格式为MP4，容量不可高于30M。</view>
+
+  <view>
+    <button class="btn-full" catchtap="handleSubmit">确认发布</button>
+  </view>
+
+  <view class="popup-wrap" hidden='{{!pop}}'>
+    <view class="popup-cell">
+      <view class="popup-cont">
+        <view class="title">确认活动发布</view>
+        <view class="pop-bd">
+          <view>*是否确认提交该委托内容？</view>
+          <view>*提交后将无法进行二次修改，请认真核对委托信息</view>
+          <view>*提交、且艺人已确认委托后，需支付的委托费用请尽快落实，以免委托因费用情况耽误</view>
+          <view class="ck-cell">
+            <checkbox-group bindchange="checkboxChange">
+                <checkbox value="1" checked="{{isCheck}}"/>
+            </checkbox-group>
+            <navigator url="/pages/campaign/agreement/index">我已阅读并遵守《委托协议》</navigator>
+          </view>
+        </view>
+        <view class="pop-ft">
+          <button class="btn-ensure" catchtap="handleEnsure">确认</button>
+          <button class="btn-cancel" catchtap="handleCancel">取消</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

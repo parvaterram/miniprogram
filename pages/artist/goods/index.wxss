@@ -1,0 +1,54 @@
+/* pages/artist/goods/index.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+.layer {
+  padding: 10rpx;
+}
+.title {
+  line-height: 40rpx;
+  padding-left: 20rpx;
+}
+
+
+.layer .img-cell {
+  float: left;
+  width: 130rpx;
+  height: 130rpx;
+  padding-left: 10rpx;
+}
+
+.layer .img-cell image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.layer .info {
+  float: left;
+  padding-left: 10rpx;
+}
+
+.layer .info .name {
+  line-height: 60rpx;
+}
+
+.layer .right {
+  float: right;
+  text-align: right;
+}
+
+.layer .right .price {
+  margin-right: 10rpx;
+  font-size: 28rpx;
+  color: #e51c23;
+  line-height: 60rpx;
+}
+
+.layer .right button {
+  padding: 0 12rpx;
+  line-height: 60rpx;
+  color: #fff;
+  background-color: #00b7ff;
+  border-radius: 8rpx;
+  margin-right: 10rpx;
+}

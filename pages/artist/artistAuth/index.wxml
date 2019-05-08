@@ -1,0 +1,166 @@
+<!--pages/artist/artistAuth/index.wxml-->
+<view class="container">
+  <view wx:if="{{status === '3'}}">
+    <view class="layer">
+      <view class="left">*真实姓名：</view>
+      <view class="right">
+        <input type="text" value="{{name}}" bindinput="handleEmitName" placeholder='请填写您的真实姓名'></input>
+      </view>
+    </view>
+
+    <view class="layer">
+      <view class="left">*手机号码：</view>
+      <view class="right">
+        <input type="text" value="{{phone}}" bindinput="handleEmitPhone" placeholder='请填写您的手机号码'></input>
+      </view>
+    </view>
+
+    <view class="layer">
+      <view class="left">*认证类型：</view>
+      <view class="right">
+        <view class="row">
+          <picker bindchange="typeChange" value="{{index}}" range="{{authType}}" range-key="name">
+            <view class="link-cell">
+              <view>
+                {{authType[authTypeSub] ? authType[authTypeSub].name : '选择认证类型' }}
+              </view>
+              <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="layer">
+      <view class="left">*证件类型：</view>
+      <view class="right">
+        <picker bindchange="credChange" value="{{index}}" range="{{credType}}">
+            <view class="link-cell">
+              <view>
+                {{credType[credTypeSub] || '选择证件类型' }}
+              </view>
+              <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="layer">
+      <view class="left">*证件号：</view>
+      <view class="right">
+        <input type="text" value="{{credNum}}" bindinput="handleEmitCredNum" placeholder='请输入您的证件号'></input>
+      </view>
+    </view>
+
+    <view class="tips">*艺人认证基础信息</view>
+
+    <view class="layer">
+      <view class="left">*证件正面：</view>
+      <view class="right">
+        <view class="row">
+          证件正面信息
+        </view>
+        <view class="file-cell" wx:if="{{IDImgFront}}">
+          <view class="img-cell">
+            <image mode="aspectFit" src="{{IDImgFront}}"></image>
+            <icon type="clear" color="#e51c23" data-type="1" catchtap="handleDel"></icon>
+          </view>
+        </view>
+        <view class="file-cell" wx:else>
+          <view class="btn-add" data-type="1" bindtap="handleChooseFile">+</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="layer">
+      <view class="left">*证件反面：</view>
+      <view class="right">
+        <view class="row">
+          证件背面信息
+        </view>
+        <view class="file-cell" wx:if="{{IDImgBack}}">
+          <view class="img-cell">
+            <image mode="aspectFit" src="{{IDImgBack}}"></image>
+            <icon type="clear" color="#e51c23" data-type="2" catchtap="handleDel"></icon>
+          </view>
+        </view>
+        <view class="file-cell" wx:else>
+          <view class="btn-add" data-type="2" bindtap="handleChooseFile">+</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="layer">
+      <view class="left">持照图：</view>
+      <view class="right">
+        <view class="row">
+          手持证件照
+        </view>
+        <view class="file-cell" wx:if="{{holdID}}">
+          <view class="img-cell">
+            <image mode="aspectFit" src="{{holdID}}"></image>
+            <icon type="clear" color="#e51c23" data-type="3" catchtap="handleDel"></icon>
+          </view>
+        </view>
+        <view class="file-cell" wx:else>
+          <view class="btn-add" data-type="3" bindtap="handleChooseFile">+</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="tips">*选择<text decode='true'>&lt;</text>中国公民身份证<text decode="true">&gt;</text>时，证件照片必须为认证人自有身份证以及认证人手持证件正面照片</view>
+    <view class="tips">*选择<text decode="true">&lt;</text>外籍人员工作签证<text decode="true">&gt;</text>时，证件照片必须为认证人自有工作签证以及认证人手持证件正面照片</view>
+    <view class="tips">*foreign user please upload：working license(do not upload passport picture)</view>
+
+    <view class="ck-cell">
+      <checkbox-group bindchange="checkboxChange">
+          <checkbox value="1" checked="{{isCheck}}"/>
+      </checkbox-group>
+      <navigator url="/pages/artist/artistAuth/agreement/index">提交认证即同意《主播协议》</navigator>
+    </view>
+    
+      <button class="btn-full" bindtap="handleSubmit">提交</button>
+    
+  </view>
+
+  <view class="prompt-wrap" wx:else>
+    <view class="prompt-cont" wx:if="{{status === '0'}}">
+      <view class="prompt-cell">
+        <view class="icon">
+          <icon type="success" size="100" color='#8bc34a'></icon>
+        </view>
+        <view class="tips">
+          艺人认证已上传，等待平台审核。
+        </view>
+        <view class="tips">
+          平台将于1~3个工作台进行相关审核，请保持联系方式能有效通话。
+        </view>
+      </view>
+    </view>
+
+    <view class="prompt-cont" wx:elif="{{status === '1'}}">
+      <view class="prompt-cell">
+        <view class="icon">
+          <icon type="success" size="100" color='#8bc34a'></icon>
+        </view>
+        <view class="tips">
+          艺人认证已通过，您可操作对应的艺人功能！
+        </view>
+      </view>
+    </view>
+
+    <view class="prompt-cont" wx:elif="{{status === '2'}}">
+      <view class="prompt-cell">
+        <view class="icon">
+          <icon type="warn" size="100"></icon>
+        </view>
+        <view class="tips">
+          审核失败， 请重新编辑
+        </view>
+      </view>
+      <view>
+        <button class="btn-full" bindtap="handleEdit">重新编辑</button>
+      </view>
+    </view>
+  </view>
+</view>

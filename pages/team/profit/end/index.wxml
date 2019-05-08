@@ -1,0 +1,5 @@
+<view class="container">
+  <image src='/assets/img/success.png' mode='widthFix'></image>
+  <view>收益提现已提交，预计1~3工作日到账。</view>
+</view>
+<button class='put-cash' bindtap='goList'>关闭</button>

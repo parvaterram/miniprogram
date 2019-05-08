@@ -1,0 +1,70 @@
+/* pages/wealth/compete/index.wxss */
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.head {
+  flex-basis: 120rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  background: #fff;
+}
+.head view {
+  flex-grow: 1;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.body {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.body .tips {
+  text-align: center;
+  line-height: 60rpx;
+}
+
+
+
+
+.desc {
+  position: relative;
+  background-color: #fff;
+}
+
+.desc .item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.desc .item .l {
+  flex-basis: 160rpx;
+  line-height: 60rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}
+.desc .item .r {
+  min-height: 60rpx;
+  line-height: 60rpx;
+}
+.copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120rpx;
+  height: 60rpx;
+  color: #3f51b5;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.tips {
+  padding: 0 10rpx;
+  line-height: 40rpx;
+}

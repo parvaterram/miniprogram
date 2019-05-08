@@ -1,0 +1,34 @@
+/* pages/campaign/uploadVideo/index.wxss */
+.title {
+  line-height: 60rpx;
+}
+.btn-cell {
+  padding: 0 20rpx;
+}
+button {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+.grass {
+  background-color: #8bc34a;
+}
+
+.act {
+  background-color: #ff9800;
+}
+
+.file-cell {
+  margin-top: 60rpx;
+}
+
+#txt {
+  width: 100%;
+  height: 120rpx;
+  background-color: #fff;
+  padding: 10rpx;
+  margin: 20rpx 0;
+}

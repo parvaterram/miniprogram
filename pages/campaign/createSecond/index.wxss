@@ -1,0 +1,51 @@
+/* pages/campaign/createSecond/index.wxss */
+.container {
+  position: relative;
+  padding-bottom: 120rpx;
+}
+.header-guide {
+  margin-bottom: 10rpx;
+}
+.sub view {
+  width: 25%;
+}
+
+.header-guide .order .bar {
+  width: 107.5rpx;
+}
+
+.time-item {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 80rpx;
+  align-items: center;
+}
+
+.time-item .date {
+  flex-basis: 220rpx;
+  text-align: center;
+}
+
+.btn-info {
+  margin-right: 20rpx;
+}
+.time-item .right {
+  flex-grow: 1;
+  padding-right: 20rpx;
+  text-align: right;
+}
+.btn-primary {
+  padding:0 24rpx;
+  line-height:60rpx;
+}
+
+.btn-cell {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.form-item .stare {
+  color:#e51c23;
+}

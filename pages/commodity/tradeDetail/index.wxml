@@ -1,0 +1,45 @@
+<!--pages/commodity/waresDetail/index.wxml-->
+<view class="container">
+  <view class="name">
+    {{info.goods_name}}
+    <button class="btn-default btn-share" bindtap="handleShare">分享</button>
+  </view>
+  <view>
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}" indicator-color="#ffffff"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#059F9F" bindchange="handleSwiperChange">
+      <block wx:for="{{imgList}}" wx:key="{{index}}">
+        <swiper-item class="swiper-item">
+          <image mode="aspectFit" src="{{item.url}}" class="slide-image" bindtap="handleShowPreview" data-src="{{item.url}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="label-cell">
+    <view class="label">到店消费</view>
+  </view>
+  <view class="intro stare">
+    商品售价：￥{{info.money}}
+  </view>
+  <view class="intro">
+    {{info.goods_dec}}
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">提取地点：</view>
+      <view class="right">
+        <view class="row">
+          <view>{{info.pro || ''}} {{info.city || ''}} {{info.area || ''}}</view>
+          <view>{{info.address}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{aid !== '' && uid !== info.uid}}">
+    <button class="btn btn-full btm" wx:if="{{info.inventory > 0}}" bindtap="handleBuy">立即购买</button>
+    <button class="btn btn-full btm btn-cancel" wx:else>暂时缺货</button>
+  </view>
+  
+</view>

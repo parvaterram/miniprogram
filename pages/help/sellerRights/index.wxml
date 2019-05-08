@@ -1,0 +1,15 @@
+<!--pages/help/sellerRights/index.wxml-->
+<view class="container">
+  <view class='world-box'>
+    <text space='true'>创建商品：
+
+成为认证商家后，可创建商品
+
+商品创建后需经过审核，以免恶意扰乱信息发布于平台上影响用户体验
+
+发布委托：
+
+商家可通过商品进行商品推购委托，亦可通过艺人详情页的“约ta委托”发布艺人邀约
+    </text>
+  </view>
+</view>

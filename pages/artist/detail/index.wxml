@@ -1,0 +1,129 @@
+<!--pages/artistDetail.wxml-->
+<view class="container">
+  <view class="layer header clearfix">
+    <view class="avatar">
+      <image class="img-avatar" mode="aspectFill" src="{{info.avatar_thumb}}"></image>
+      <image class="gender" mode="scaleToFill" src="/assets/img/gender{{info.sex}}.png"></image>
+    </view>
+    <view class="info">
+      <view>{{info.art_name}}</view>
+      <view>ID:{{info.uid}}</view>
+    </view>
+    <view class="follow" wx:if="{{!self && notOwn}}">
+      <button catchtap="handleFollow">{{follow == '0' ? '关注' : '取消关注'}}</button>
+    </view>
+  </view>
+
+  <navigator class="layer link-cell" url="/pages/live/livePlay/index?roomnum={{info.uid}}">
+    <view>查看直播间</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <navigator class="layer link-cell" url="/pages/artist/goods/index?id={{info.uid}}">
+    <view>Ta的代言</view>
+    <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+  </navigator>
+
+  <view class="layer pf">
+    <view class="row">
+      <view wx:if="{{info.height}}">身高 {{info.height}}</view>
+      <view wx:if="{{info.weight}}">体重 {{info.weight}}</view>
+      <view wx:if="{{info.shoe_size}}">鞋码 {{info.shoe_size}}</view>
+
+      <view wx:if="{{info.chest}}">胸围 {{info.chest}}</view>
+      <view wx:if="{{info.waist}}">腰围 {{info.waist}}</view>
+      <view wx:if="{{info.hip}}">臂围 {{info.hip}}</view>
+    </view>
+  </view>
+
+  <view class="layer area">
+    <view class="title">所在地</view>
+    <view class="row">
+      <view class="label-item" wx:for="{{info.cityinfo}}" wx:key="{{index}}">{{item.city || ''}}</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="title">个人简介</view>
+    <view class="desc">
+      {{info.experience || ''}}
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="title">形象作品</view>
+    <view class="img-box">
+      <view class="img-cell">
+        <image mode="aspectFill" wx:for="{{info.imginfo}}" wx:key="{{item.id}}" data-src="{{item.url}}" src="{{item.url}}" data-index="{{index}}" catchtap="handleShowPswp"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer" wx:if="{{info.video_url}}">
+    <view class="title">形象视频</view>
+    <video controls src="{{info.video_url || ''}}" poster="{{info.video_img || ''}}"></video>
+  </view>
+
+  <view class="btn-edit" wx:if="{{!self}}">
+    <button class="btn-half" catchtap="handleInvite">约ta下单</button><button class="btn-half active" catchtap="handleOffer">ta的报价</button>
+  </view>
+  <view class="btn-edit" wx:if="{{self}}">
+    <navigator class="btn-full" url="/pages/artist/edit/index">编辑</navigator>
+  </view>
+
+  <view class="popup-wrap" hidden="{{!pop}}">
+    <view class="popup-cell">
+      <view class="popup-cont">
+        <view class="title">邀约艺人</view>
+        <view class="pop-bd">
+          <view class="layer">
+            <picker mode="date" start="{{startDateMix}}" end="{{startDateMax}}" bindchange="startDateChange">
+              <view class="ent-item">
+                <view class="left">开始日期：</view>
+                  <view class="ipt-cell bdr-btm">
+                    {{startDate || '执行开始日期'}}
+                  </view>
+              </view>
+            </picker>
+
+            <picker mode="time" bindchange="startTimeChange">
+              <view class="ent-item">
+                <view class="left">开始时间：</view>
+                  <view class="ipt-cell">
+                    {{startTime || '执行开始时间'}}
+                  </view>
+              </view>
+            </picker>
+          </view>
+
+          <view class="layer">
+            <picker mode="date" start="{{endDateMix}}" end="{{endDateMax}}" bindchange="endDateChange" disabled="{{avail}}" bindtap="handleEndDateTap">
+              <view class="ent-item">
+                <view class="left">结束日期：</view>
+                  <view class="ipt-cell bdr-btm">
+                    {{endDate || '执行结束日期'}}
+                  </view>
+              </view>
+            </picker>
+
+            <picker mode="time" bindchange="endTimeChange">
+              <view class="ent-item">
+                <view class="left">结束时间：</view>
+                  <view class="ipt-cell">
+                    {{endTime || '执行结束时间'}}
+                  </view>
+              </view>
+            </picker>
+          </view>
+          <view class="tips">*选择邀约艺人的时间</view>
+          <view class="tips">*当艺人于时段内已无法再继续受理邀约时，将不可邀约</view>
+          <view class="tips">*当前每个艺人相同时段内最大可受理3个邀约委托</view>
+        </view>
+        <view class="pop-ft">
+          <button class="btn-ensure" open-type="getUserInfo" catchtap="handleEnsure">确认</button>
+          <button class="btn-cancel" catchtap="handleCancel">取消</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

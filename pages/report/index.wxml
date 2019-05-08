@@ -1,0 +1,56 @@
+<view class="container">
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">举报类型：</view>
+      <view class="right">
+        <picker bindchange="reportTypeChange" value="{{index}}" range="{{reportType}}">
+          <view class="link-cell">
+            <view>{{sub === -1 ? '选择举报类型' : reportType[sub]}}</view>
+            <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+          </view>    
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">举报描述：</view>
+      <view class="right">
+        <input type="text" value="{{desc}}" bindinput="handleEmitDesc" placeholder='该次举报详细描述，便于平台跟进举报情况'></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">举报举证：</view>
+      <view class="right">
+        <view class="row">最多可添加3张图片</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="img-view">
+    <view class="img-cell" wx:for="{{imgList}}" wx:key="{{index}}">
+      <image mode="aspectFill" src='{{item}}' data-src="{{item}}" catchtap="handleImagePreview"></image>
+      <icon type="clear" color="#e51c23" data-src="{{item}}" catchtap="handleDel"></icon>
+    </view>
+    <view class="img-cell" wx:if="{{imgList.length < 3}}">
+      <button class="btn-add" bindtap="handleChooseImage">+</button>
+    </view>
+  </view>
+
+  <view class="tips">*举报描述和举报举证为非必填项目，补充完整有助于平台跟进该次举报情况</view>
+
+  <view class="ck-cell">
+    <checkbox-group bindchange="checkboxChange">
+        <checkbox value="1" checked="{{isCheck}}"/>
+    </checkbox-group>
+    <view class="t">确认提交即代表举报人对举报内容真实性负责</view>
+  </view>
+
+  <button class="btn-full btm" bindtap="handleSubmit">提交举报</button>
+
+</view>

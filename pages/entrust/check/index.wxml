@@ -1,0 +1,208 @@
+<!--pages/createEntrust/check/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar active"></view>
+      <view class="num active">2</view>
+      <view class='bar active'></view>
+      <view class="num active">3</view>
+      <view class='bar active'></view>
+      <view class="num active">4</view>
+    </view>
+    <view class="sub">
+      <view class="active">委托目的信息</view>
+      <view class="active">时间与分成</view>
+      <view class="active">选择受理人</view>
+      <view class="active">核对委托</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">委托地点：</view>
+      <view class="ipt-cell bdr-btm">
+        {{first.region[0] + '-' + first.region[1] + '-' + first.region[2]}}
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left"></view>
+      <view class="ipt-cell">
+        {{first.address}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">委托描述：</view>
+      <view class="txt-cell">
+       {{first.desc}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">委托类型：</view>
+      <view class="ipt-cell bdr-btm">
+        <view class="s-label">指定委托</view>
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">委托酬劳：</view>
+      <view class="ipt-cell stare">
+        {{first.reward}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">服务费用：</view>
+      <view class="ipt-cell bdr-btm stare">
+        {{first.brokerage}}
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">实际支出：</view>
+      <view class="ipt-cell stare">
+        {{first.cost}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">开始日期：</view>
+      <view class="ipt-cell bdr-btm">
+        {{second.startDate}}
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">开始时间：</view>
+      <view class="ipt-cell">
+        {{second.startTime}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">结束日期：</view>
+      <view class="ipt-cell bdr-btm">
+        {{second.endDate}}
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">结束时间：</view>
+      <view class="ipt-cell">
+        {{second.endTime}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">关联商品：</view>
+      <view class="ipt-cell bdr-btm">
+        {{first.tradeName}}
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">剩余库存：</view>
+      <view class="ipt-cell">
+        {{first.quantity}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">推购分成：</view>
+      <view class="ipt-cell">
+        {{second.sell}}
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">艺人抽成：</view>
+      <view class="ipt-cell stare">
+        {{second.assignArt}}
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">平台抽成：</view>
+      <view class="ipt-cell stare">
+        {{second.assignPlat}}
+      </view>
+    </view>
+    <view class="ent-item">
+      <view class="left">实际所得：</view>
+      <view class="ipt-cell stare">
+        {{second.left}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="ent-item">
+      <view class="left">委托艺人：</view>
+      <view class="ipt-cell">
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view class="layer" wx:for="{{third}}" wx:key="{{index}}">
+      <view class="item-head clearfix">
+        <view class="avatar-cell">
+          <image class="avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+          <image class="gender" mode="aspectFit" src="/assets/img/gender{{item.sex}}.png"></image>
+        </view>
+        <view class="info">
+          <view>
+            <view class="left">认证艺人</view>
+            <view class="label active">{{item.istax === 0 ? '不提供票据' : '可提供票据'}}</view>
+          </view>
+          <view>
+            {{item.user_nicename}}
+          </view>
+        </view>
+      </view>
+
+      <view class="item-body">
+        <view>该时段可委托数量：{{item.goods_num}}</view>
+        <!-- <view>最近30天受理数：0</view> -->
+      </view>
+    </view>
+  </view>
+  <view class="tips">*委托不可违背国家相关法律和平台规则</view>
+  <view class="tips">*当该次委托会对受理人造成不良影响时，受理人有权追诉维权</view>
+  <view class="tips">*单次最多只能选择三个受理人进行委托</view>
+
+  <view>
+    <button class="btn btn-full" bindtap="handleCreate">确认创建</button>
+  </view>
+
+  <view class="popup-wrap" wx:if="{{pop}}">
+    <view class="popup-content">
+      <view class="popup-body">
+        <view class="title">确认提交委托</view>
+        <view class="tips">*是否确认提交该委托内容？</view>
+        <view class="tips">*提交后将无法进行二次修改，请认真核对委托信息</view>
+        <view class="tips">*提交、且艺人已确认委托后，需支付的委托费用请尽快落实，以免委托因费用情况耽误</view>
+        <view class="ck-cell">
+          <checkbox-group bindchange="checkboxChange">
+              <checkbox value="1" checked="{{isCheck}}"/>
+          </checkbox-group>
+          <navigator url="/pages/entrust/agreement/index">我已阅读并遵守《委托协议》</navigator>
+        </view>
+        <view class="popup-ft">
+          <button class="btn-ensure" bindtap="handleEnsure">确认</button>
+          <button class="btn-cancel" bindtap="handleCancel">取消</button>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>

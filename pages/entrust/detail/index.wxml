@@ -1,0 +1,158 @@
+<!--pages/entrust/detail/index.wxml-->
+<view class="container">
+  <view class="layer txt">
+    委托商品：
+  </view>
+
+  <view class="layer trade-cell">
+    <view class="img-cell">
+      <image mode="aspectFit" src="{{info.url}}"></image>
+    </view>
+    <view class="info">
+      <view>{{info.goods_name}}</view>
+      <view>{{info.goods_type === '2' ? '线下商品' : '线上商品'}}</view>
+      <view>剩余库存：{{info.inventory}}</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="box">
+      <view class="left">推购分成：</view>
+      <view class="right stare">{{info.d_paythan * 100}}%</view>
+    </view>
+    <view class="box">
+      <view class="left">艺人抽成：</view>
+      <view class="right stare">{{info.artgoods_price}}</view>
+    </view>
+    <view class="box">
+      <view class="left">平台抽成：</view>
+      <view class="right stare">{{info.dep_price}}</view>
+    </view>
+    <view class="box">
+      <view class="left">实际所得：</view>
+      <view class="right stare">{{info.shop_price}}</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="box">
+      <view class="left">委托类型：</view>
+      <view class="right tag">
+        <view class="s-label">{{info.ent_type === '0' ? '指定委托' : '公开委托'}}</view>
+      </view>
+    </view>
+    <view class="box">
+      <view class="left">委托酬劳：</view>
+      <view class="right stare">{{info.sta_pay_price}}</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="box">
+      <view class="left">服务费用：</view>
+      <view class="right stare">{{info.commission_price}}</view>
+    </view>
+    <view class="box">
+      <view class="left">实际支出：</view>
+      <view class="right stare">{{actualCost}}</view>
+    </view>
+  </view>
+
+  <view class="layer txt" wx:if="{{type === 1}}">
+    委托艺人
+  </view>
+
+  <view class="layer art" wx:if="{{type === 1}}">
+    <view class="item-head clearfix">
+      <view class="avatar-cell">
+        <image class="avatar" mode="aspectFill" src="{{info.avatar_thumb}}"></image>
+        <image class="gender" mode="aspectFit" src="/assets/img/gender{{info.sex}}.png"></image>
+      </view>
+      <view class="info">
+        <view>
+          <view class="label">认证艺人</view>
+          <view class="label active">{{info.tax_type === 1 ? '可提供票据' : '不提供票据'}}</view>
+        </view>
+        <view>
+          {{info.user_nicename}}
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class="item-body">
+      <view>该时段可委托数量：1</view>
+      <view>最近30天受理数：0</view>
+    </view> -->
+  </view>
+
+  <view class="layer addr">
+    <view class="tit">
+      委托地点：
+    </view>
+    <view class="amply">
+      <view class="area">
+        {{info.pro}}-{{info.city}}-{{info.area}}
+      </view>
+      <view class="detail">
+        {{info.address}}
+      </view>
+    </view>
+  </view>
+
+  <view class="layer txt">
+    开始时间：{{startTime}}
+  </view>
+
+  <view class="layer txt">
+    结束时间：{{endTime}}
+  </view>
+
+  <view class="layer">
+    <view class="desc">
+      <view class="tit">委托描述：</view>
+      <view class="cont">
+        {{info.des}}
+      </view>
+    </view>
+    
+    <view class="tips">*委托不可违背国家相关法律和平台规则</view>
+    <view class="tips">*当该次委托会对受理人造成不良影响时，受理人有权追诉维权</view>
+    <view class="tips">*单次最多只能选择三个受理人进行委托</view>
+    <view class="desc">
+      <view class="tit"><label for="desc">受理描述：</label></view>
+      <view class="cont" wx:if="{{type === 1}}">
+        {{info.reason || ''}}
+      </view>
+      <view class="cont" wx:else>
+        <view wx:if="{{info.sl_status === '0'}}">
+          <textarea id="desc" maxlength="500" value="{{desc}}" bindinput="handleEmitDesc" placeholder='该委托详细信息（500汉字以内）' />
+        </view>
+        <view wx:else>
+          {{info.reason}}
+        </view>
+      </view>
+    </view>
+    <view class="tips">*单次最多只能选择三个受理人进行委托</view>
+  </view>
+  <view wx:if="{{type === 1}}">
+    <button class="btn btn-full btn-cancel" wx:if="{{info.outtime_status === 0 && info.sl_status === '0'}}">艺人未受理</button>
+    <button class="btn btn-full btn-success" wx:elif="{{info.outtime_status === 0 && info.sl_status === '1' && info.pay_status === '0'}}" catchtap="handlePay">支付委托酬劳</button>
+    <button class="btn btn-full btn-cancel" wx:elif="{{info.outtime_status === 0 && info.sl_status === '1' && info.pay_status === '1'}}">
+      已付款
+    </button>
+    <button class="btn btn-full btn-cancel" wx:if="{{info.outtime_status !== 0}}">
+      {{info.outtime_status === 1 ? '超时未付款' : '超时未受理'}}
+    </button>
+  </view>
+  <view class="btn-ft-box" wx:else>
+    <view wx:if="{{info.sl_status === '0'}}">
+      <button class="btn-success" data-type="1" bindtap="handleAccept">接受</button>
+      <button class="btn-cancel" data-type="2" bindtap="handleAccept">拒绝</button>
+    </view>
+    <view wx:else>
+      <view class="btn btn-full btn-cancel">
+        {{info.sl_status === '1' ? '已受理' : info.sl_status === '2' ? '已取消' : '已完结'}}
+      </view>
+    </view>
+  </view>
+</view>

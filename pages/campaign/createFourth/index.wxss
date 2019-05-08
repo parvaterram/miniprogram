@@ -1,0 +1,41 @@
+/* pages/campaign/createFourth/index.wxss */
+.header-guide {
+  margin-bottom: 10rpx;
+}
+.sub view {
+  width: 25%;
+}
+
+.header-guide .order .bar {
+  width: 107.5rpx;
+}
+
+.btn-info {
+  margin-right: 10rpx;
+}
+
+.time-item {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 80rpx;
+  align-items: center;
+}
+
+.time-item .date {
+  flex-basis: 220rpx; 
+  text-align: center;
+}
+
+.time-item .time {
+  flex-basis: 140rpx;
+  text-align: center;
+  margin-right: 20rpx;
+}
+
+.s-label {
+  background: #979696;
+  margin: 4rpx 10rpx 0 0;
+}
+.form-item .active {
+  background: #49cfd8;
+}

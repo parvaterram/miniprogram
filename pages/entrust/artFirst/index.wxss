@@ -1,0 +1,38 @@
+/* pages/entrust/create/index.wxss */
+.container {
+  position: relative;
+}
+.header-guide {
+  margin-bottom: 10rpx;
+}
+.sub view {
+  width: 50%;
+}
+
+.header-guide .order .bar {
+  width: 295rpx;
+}
+
+
+.ent-item .txt-cell textarea {
+  width: 100%;
+  height: 132rpx;
+}
+.tips {
+  padding: 0 20rpx;
+  line-height: 40rpx;
+  background-color: #eaeaea;
+}
+
+.plahold {
+  color: #e51c23;
+}
+.stare {
+  color: #e51c23;
+}
+.btm {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

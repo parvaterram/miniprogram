@@ -1,0 +1,6 @@
+{
+  "backgroundColor": "#eaeaea",
+  "navigationBarTitleText": "艺人搜索",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 0
+}

@@ -1,0 +1,75 @@
+<!--pages/commodity/tradeOrder/index.wxml-->
+<view class="container">
+  <view class="layer addr" wx:if="{{address}}" bindtap="handleChooseAddr">
+    <view class="addr-hd">
+      <view class="left">{{address.name}}（收件人）</view>
+      <view>{{address.number}}</view>
+    </view>
+    <view class="detail">
+      {{address.pro}} {{address.city}} {{address.area}} {{address.address}}
+    </view>
+  </view>
+  <view class="layer" wx:else bindtap="handleChooseAddr">
+    <view class="addr-hd link-cell">
+      <view>添加收货地址</view>
+      <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+    </view>
+  </view>
+
+  <view class="layer title" wx:if="{{artist.name}}">
+    商品来源
+  </view>
+
+  <view class="layer art" wx:if="{{artist.name}}">
+    <image mode="scaleToFill" src="{{artist.avatar_thumb}}"></image>
+    {{artist.name}}
+  </view>
+
+  <view class="layer title">
+    提货地址
+  </view>
+  <view class="layer addr" wx:if="{{address}}" bindtap="handleChooseAddr">
+    <view class="detail">
+      <view>{{info.pro}} {{info.city}} {{info.area}}</view>
+    <view>{{info.address}}</view>
+    </view>
+  </view>
+
+  <view class="layer title">
+    商品清单
+  </view>
+
+  <view class="layer">
+    <view class="goods-hd clearfix">
+      <view class="img-cell">
+        <image mode="aspectFill" src="{{info.goods_img}}"></image>
+      </view>
+      <view class="info">
+        <view class="name">{{info.goods_name}}</view>
+        <view>
+          <view class="label">{{info.goods_type === '2' ? '到店消费' : '物流配送'}}</view>
+        </view>
+      </view>
+      <view class="right">
+        ￥{{info.money}}
+      </view>
+    </view>
+    <view class="goods-ft">
+      <view>购买数量：</view>
+      <view>
+        <button bindtap="handleMinus">-</button>
+        <input type="number" value="{{quantity}}" bindinput="handleEmitQuan"></input>
+        <button bindtap="handleAdd">+</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="foot-wrap">
+    <view class="foot-cont">
+      <view class="left">合计金额：<view>{{spend}}</view></view>
+      <view class="right" catchtap="handleBuy">
+        立即购买
+      </view>
+    </view>
+  </view>
+</view>

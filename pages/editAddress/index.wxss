@@ -1,0 +1,22 @@
+/* pages/editAddress/index.wxss */
+.layer {
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.tab {
+  display: inline-block;
+  width: 160rpx;
+  text-align: right;
+}
+
+input {
+  display: inline-block;
+  width: 500rpx;
+  border: none;
+  padding-left: 5rpx;
+  margin-left: 10rpx;
+}

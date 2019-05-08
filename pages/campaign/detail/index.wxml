@@ -1,0 +1,148 @@
+<view class="container">
+  <view class="box-cell">
+    <view class="layer header">
+      <view class="avatar">
+        <image mode="aspectFill" src="{{info.avatar_thumb}}"></image>
+      </view>
+      <view class="name">{{info.name}}</view>
+      <view>
+        <button class="btn-default btn-share" bindtap="handleDown">分享</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="swiper-cell">
+    <swiper class="swiper" indicator-dots="true" indicator-color="#ffffff"
+      autoplay="true" interval="5000" duration="400" indicator-active-color="#059F9F" bindchange="handleSwiperChange">
+      <block wx:for="{{info.img_arr}}" wx:key="{{index}}">
+        <swiper-item class="swiper-item">
+          <image mode="aspectFit" src="{{item.img_url}}" class="slide-image" bindtap="handleShowPreview" data-src="{{item.img_url}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="box-cell">
+    <view class="layer">
+      <view class="tit">活动时间</view>
+      <view class="ct" wx:for="{{info.act_time}}" wx:key="{{item.tid}}">{{item.ymd_time}} {{item.stime}}~{{item.etime}}</view>
+      <view class="tit">活动地点</view>
+      <view class="ct">{{info.pro}}-{{info.city}}-{{info.area}}</view>
+      <view class="ct">{{info.address}}</view>
+    </view>
+  </view>
+
+  <view class="box-cell" wx:if="{{info.goodsid}}">
+    <view class="layer">
+      <view class="tit">活动优惠</view>
+      <view class="goods-cell">
+        <view class="l">
+          <image mode="aspectFill" src="{{info.goods.img_url}}"></image>
+        </view>
+        <view class="r">
+          <view class="blod name">{{info.goods.goods_name}}</view>
+          <view>
+            <view class="label">{{info.goods.goods_type === '2' ? '到店消费' : '物流配送'}}</view>
+          </view>
+          <view class="ft">
+            <view class="stare">￥{{info.goods.money || 0}}</view>
+            <view>
+              <button bindtap="handleBuy" class="btn-default">立即购买</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="box-cell" wx:if="{{info.goodsid}}" bindtap="handleGoodsCode">
+    <view class="layer dark">
+      点我生成商品二维码图片！（图片可用于朋友圈发布）
+    </view>
+  </view>
+
+  <view class="video-cell" wx:if="{{info.mp4}}">
+    <video src="{{info.mp4}}" poster='{{info.mp4_gif}}'></video>
+  </view>
+
+  <view class="box-cell">
+    <view class="layer">
+      <view class="tit">活动招募</view>
+      <view class="desc">{{info.des}}</view>
+      <view class="tit">招募类型</view>
+      <view class="type-cell">
+        <view class="type-tag" wx:for="{{artType}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+      <view class="tit">报名截止时间</view>
+      <view class="ct">{{enrollEndDate}}</view>
+    </view>
+  </view>
+
+  <view class="box-cell" wx:if="{{info.uid === user.id}}">
+    <view class="layer">
+      <view class="link-cell" bindtap="handleLinkEnroll">
+        <view class="blod">报名列表</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="box-cell" wx:if="{{info.uid === user.id}}">
+    <view class="layer">
+      <view class="link-cell" bindtap="handleLinkVideo">
+        <view class="blod">上传视频</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </view>
+    </view>
+  </view>
+  
+  <view>
+    <button class="btn-full" bindtap="handleEnroll">我要报名</button>
+  </view>
+
+  <view class="popup-wrap" hidden='{{!pop}}'>
+    <view class="popup-cell">
+      <view class="popup-cont">
+
+        <view wx:if="{{popType === 1}}">
+          <view class="title">无法报名</view>
+          <view class="pop-bd">
+            <view class="blod">*作为活动发起方，无法报名自己创建的活动。</view>
+          </view>
+          <view class="pop-ft">
+            <button class="btn-row" catchtap="handleCancel">关闭</button>
+          </view>
+        </view>
+
+        <view wx:if="{{popType === 2}}">
+          <view class="title">无法报名</view>
+          <view class="pop-bd">
+            <view class="blod">*参与活动，需具有艺人认证省份</view>
+            <view class="blod">*点击查看前往了解如何成为认证艺人</view>
+          </view>
+          <view class="pop-ft">
+            <button class="btn-ensure" catchtap="handleSee">查看</button>
+            <button class="btn-cancel" catchtap="handleCancel">关闭</button>
+          </view>
+        </view>
+
+        <view wx:if="{{popType === 3}}">
+          <view class="title">报名确认</view>
+          <view class="pop-bd">
+            <view class="ipt-cell">期望酬劳： <input type="number" value="{{reward}}" bindinput="handleEmitReward" placeholder='请输入期望酬劳的金额'></input></view>
+            <view class="stare">*艺人输入参与该次活动，期望获得的酬劳金额</view>
+            <view class="stare">*活动发布方选择艺人参与该活动时，将会设定给予该艺人的实际酬劳</view>
+            <view class="stare">*艺人在查看且认可发布方给出的酬劳时，需操作“确认”，操作后即代表艺人同意该酬劳且履行活动</view>
+            <view class="stare">*艺人可在“我的-艺人活动”中查看报名参与的活动动态</view>
+          </view>
+          <view class="pop-ft">
+            <button class="btn-ensure" catchtap="handleEnsure">提交</button>
+            <button class="btn-cancel" catchtap="handleCancel">考虑</button>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+</view>

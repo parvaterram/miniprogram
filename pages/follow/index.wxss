@@ -1,0 +1,66 @@
+/* pages/follow/index.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+.layer {
+  padding: 10rpx;
+}
+
+.img-cell {
+  float: left;
+  width: 120rpx;
+  height: 120rpx;
+  position: relative;
+}
+
+.img-cell .avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.img-cell .gender {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.info {
+  float: left;
+}
+.info .l {
+  float: left;
+}
+.info .l .tag {
+  width: 120rpx;
+  height: 80rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 4rpx;
+  margin: 0 10rpx;
+  background-color: #059F9F;
+}
+.info .r {
+  float: left;
+  padding-left: 10rpx;
+}
+.info .r view {
+  line-height: 40rpx;
+}
+.info .r .price {
+  color: #e51c23;
+}
+
+.btn-cell {
+  float: right;
+}
+.btn-cell button {
+  width: 120rpx;
+  height: 80rpx;
+  color: #fff;
+  line-height: 80rpx;
+  background-color: #46c4ff;
+  margin-right: 10rpx;
+}

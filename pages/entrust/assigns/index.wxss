@@ -1,0 +1,93 @@
+/* pages/createEntrust/assigns/index.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+.header-guide {
+  margin-bottom: 10rpx;
+}
+.sub view {
+  width: 25%;
+}
+
+.layer {
+  padding-bottom: 10rpx;
+}
+
+.header-guide .order .bar {
+  width: 107.5rpx;
+}
+
+.item-head {
+  padding: 10rpx;
+}
+
+.avatar-cell {
+  float: left;
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.gender {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.info {
+  float: left;
+  line-height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.info .label {
+  display: inline-block;
+  height: 60rpx;
+  color: #fff;
+  line-height: 60rpx;
+  padding:0 12rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  background-color: #46c4ff;
+  margin-right: 10rpx;
+}
+
+.info .active {
+  background-color: #8bc34a;
+}
+
+.btn-cell {
+  float: right;
+}
+
+.btn-cell button {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 4rpx;
+  background-color: #979696;
+}
+
+.btn-cell .active {
+  background-color: #ff4081;
+}
+
+.item-body {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0 10rpx;
+}
+
+.item-body view {
+  flex-grow: 1;
+  color: #ff4081;
+}

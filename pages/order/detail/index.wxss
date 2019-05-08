@@ -1,0 +1,19 @@
+/* pages/order/detail/index.wxss */
+.layer {
+  display: flex;
+  flex-flow: row nowrap;
+  line-height: 80rpx;
+}
+.left {
+  flex-basis: 160rpx;
+  text-align: right;
+}
+.right {
+  flex-grow: 1;
+  color: #979696;
+}
+
+canvas {
+  width: 480rpx;
+  height: 480rpx;
+}

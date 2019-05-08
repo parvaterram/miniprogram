@@ -1,0 +1,21 @@
+/* pages/report/index.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+
+.ck-cell {
+  width: 100%;
+  padding: 20rpx 20rpx;
+  position: absolute;
+  bottom: 120rpx;
+}
+
+.ck-cell checkbox-group {
+  display: inline-block;
+}
+
+.ck-cell .t {
+  display: inline-block;
+  line-height: 60rpx;
+  color: #00b7ff;
+}

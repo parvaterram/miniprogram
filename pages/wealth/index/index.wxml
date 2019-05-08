@@ -1,0 +1,31 @@
+<!--pages/wealth/index/index.wxml-->
+<view class="container">
+  <view class="layer head">
+    <view class="avatar">
+      <image mode="aspectFill" src='{{userInfo.avatar_thumb}}'></image>
+    </view>
+    <view>
+      {{userInfo.user_nicename}}
+    </view>
+  </view>
+
+  <!-- <view class="layer txt">
+    <view>持有嘚米：<text>{{userInfo.coin}}</text></view>
+  </view> -->
+
+  <view class="log">
+    <view>
+      <view class="tit">我的余额</view>
+      <view class="amount">{{wealth.total_price || 0}}</view>
+    </view>
+    <view>
+      <view class="tit">已提现</view>
+      <view class="amount">{{wealth.end_priced || 0}}</view>
+    </view>
+  </view>
+
+  <view class="btn-cell">
+    <button class="btn-half" bindtap="handleWithdraw">余额提现</button>
+    <button class="btn-half active" bindtap="handleAccount">流水明细</button>
+  </view>
+</view>

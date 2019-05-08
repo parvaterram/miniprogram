@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='banner'>
+    <image src='/assets/img/banner.jpg'></image>
+  </view>
+  <view class='user-info'>
+    <view class='avatar'>
+      <image src='{{list.show_image}}' mode="aspectFill" binderror='err'></image>
+    </view>
+    <view class='name'>
+      <view class='titles'>{{list.uidname}}</view>
+      <view>ID: {{list.familyid}}</view>
+    </view>
+  </view>
+  <view class='num'>
+    <view>
+      <view class='dt'>{{list.authnum}}</view>
+      <view class='dd'>艺人</view>
+    </view>
+    <view>
+      <view class='dt'>{{list.noauthnum}}</view>
+      <view class='dd'>成员</view>
+    </view>
+    <view>
+      <view class='dt'>{{list.addtime}}</view>
+      <view class='dd'>创立</view>
+    </view>
+  </view>
+  <view class='notice'>
+    <text class='dt'>团队公告：</text>
+    <text class='dd'>{{list.announcement}}</text>
+  </view>
+  <view class='control-list'>
+    <view bindtap='goMember'>成员管理</view>
+    <view bindtap='goProfit' wx:if="{{info.family_level === '1'}}">团队收益</view>
+    <view bindtap='goList' wx:if="{{info.family_level === '1'}}">申请列表</view>
+  </view>
+</view>

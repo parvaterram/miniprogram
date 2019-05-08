@@ -1,0 +1,51 @@
+/* pages/campaign/pay/index.wxss */
+.container {
+  position: relative;
+  padding-bottom: 120rpx;
+}
+
+.item {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.item .left {
+  flex-basis: 160rpx;
+  height: 60rpx;
+  text-align: right;
+  line-height: 60rpx;
+}
+
+.item .right {
+  flex-grow: 1;
+  min-height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+}
+
+.right .row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.right .row .l {
+  margin-right: 20rpx;
+}
+
+.blod {
+  font-size: 28rpx;
+}
+.grey {
+  color: #797979;
+}
+
+.already {
+  background-color: #797979;
+}
+
+.btn-cell {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

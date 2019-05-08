@@ -1,0 +1,35 @@
+<!--pages/address/index.wxml-->
+<view class="container">
+  <view wx:if="{{list.length > 0}}">
+    <view class="layer item" wx:for="{{list}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="handleChoose">
+      <view class="ad-bd">
+        <view class="name-cell">
+          <view>{{item.name}}（收件人）</view>
+          <view>{{item.number}}</view>
+        </view>
+        <view class="desc">
+          <text>{{item.pro}} {{item.city}} {{item.area}} {{item.address}}</text>
+        </view>
+      </view>
+      <view class="ad-ft">
+        <view>
+        <checkbox-group bindchange="setDefault">
+          <checkbox value="{{item.id}}" color="#059F9F" checked="{{item.is_ture === '1'}}" wx:if="{{item.is_ture !== '1'}}"></checkbox><text>默认地址</text>
+        </checkbox-group>
+        </view>
+        <view>
+          <button data-index="{{item.id}}" catchtap="handleEdit">编辑</button>
+          <button data-index="{{item.id}}" catchtap="handleDel">删除</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="empty">
+    你目前还没有添加过地址哦`
+  </view>
+
+  <navigator class="btn-full" url="/pages/editAddress/index">
+    添加地址
+  </navigator>
+</view>

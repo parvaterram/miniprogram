@@ -1,0 +1,57 @@
+<view class="container">
+  <view>
+    <view class="srch-bar">
+      <input type='text' value="{{goodsKW}}" class="search" placeholder="商品名字、关键字..." bindinput="handleEmitGoodsKW" /><button class="btn-srch" bindtap="handleSearchGoods">搜索</button>
+    </view>
+
+    <view class="layer location">
+      <picker mode="multiSelector" bindchange='handleRegionChange' bindcolumnchange="handleColumnchange" range='{{mulArray}}'>
+        <view class="link-cell">
+          <view>
+            {{city || '选择城市'}}
+          </view>
+          <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+        </view>
+      </picker>
+    </view>
+
+    <view class="c-box" wx:if="{{list.length > 0}}">
+      <view
+        class="goods-item"
+        wx:for="{{list}}"
+        wx:key="{{item.goods_id}}"
+        data-id="{{item.goods_id}}"
+        data-aid="{{item.uid}}"
+        data-name="{{item.user_nicename}}"
+        data-avatar="{{item.avatar_thumb}}"
+        bindtap="handleLinkGoodsDetail"
+      >
+        <view class="head">
+          <image mode="aspectFill" src="{{item.url}}"></image>
+          <image class="avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+          <view class="stack">{{item.goods_name}}</view>
+        </view>
+        <view class="mes">
+          <view class="price">￥{{item.money}}</view>
+          <button
+            class="btn"
+            data-id="{{item.goods_id}}"
+            data-aid="{{item.uid}}"
+            data-name="{{item.user_nicename}}"
+            data-avatar="{{item.avatar_thumb}}"
+            catchtap="handleBuy"
+          >立即购买</button>
+        </view>
+      </view>
+    </view>
+    <view class="empty" wx:else>暂无数据~~</view>
+
+    <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+      <text>{{loadText}}</text>
+    </view>
+    <view class="loading-panel" hidden="{{!loading}}">
+      <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+      <text>{{loadText}}</text>
+    </view>
+  </view>
+</view>

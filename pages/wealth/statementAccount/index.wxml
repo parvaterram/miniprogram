@@ -1,0 +1,55 @@
+<!--pages/wealth/statementAccount/index.wxml-->
+<view class="container">
+  <!-- <view class="tab" bindtap="handleTabSwitch">
+    <view class="{{tab === '1' && 'active'}}" data-tab="1">余额流水</view>
+    <view class="{{tab === '2' && 'active'}}" data-tab="2">嘚米流水</view>
+  </view> -->
+
+  <view wx:if="{{list.length > 0}}">
+    <view class="item" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="hd">
+        <view class="left">
+          <view class="tit">来源：</view>
+          <view class="cont">
+            <view class="label {{item.type === '9' ? 'tag-wit' : item.type === '6' ? 'tag-act' : item.type === '5' ? 'tag-com' : 'tag-wit'}}">
+              {{item.type === '9' ? '余额提现' : item.ch_type}}
+            </view>
+          </view>
+        </view>
+        <view class="right">
+          <view class="tit">单号：</view>
+          <view class="cont">{{item.orderid}}</view>
+        </view>
+      </view>
+      <view class="bd">
+        <view class="left">
+          <view class="tit">金额：</view>
+          <view class="cont sum loss">{{item.price}}</view>
+        </view>
+        <view class="right">
+          <view class="tit">手续费用：</view>
+          <view class="cont sum loss">{{item.poundage_price}}</view>
+        </view>
+      </view>
+      <view class="ft">
+        <view class="tit">
+          时间：
+        </view>
+        <view class="cont">
+          {{item.time}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="empty" wx:else>
+    暂无数据
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<view class="container">
+  <navigator class="layer link-cell" url="/pages/sellerAuth/index">
+      <view>商家入驻</view>
+      <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+    </navigator>
+
+    <view wx:if="{{userInfo.isshop === '1'}}">
+      <navigator class="layer link-cell" url="/pages/commodity/tradeList/index">
+        <view>商品管理</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+      <navigator class="layer link-cell" url="/pages/entrust/order/index?type=1">
+        <view>代言管理</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+
+      <navigator class="layer link-cell" url="/pages/order/list/index?type=1">
+        <view>商品订单</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+
+      <navigator class="layer link-cell" url="/pages/order/scanCode/index">
+        <view>订单扫码</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+
+      <navigator class="layer link-cell" url="/pages/campaign/createFirst/index">
+        <view>发起活动</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+
+      <navigator class="layer link-cell" url="/pages/campaign/manageSeller/index">
+        <view>活动管理</view>
+        <image class="img-link" mode="aspectFit" src="/assets/img/link.png"></image>
+      </navigator>
+    </view>
+</view>

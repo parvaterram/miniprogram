@@ -1,0 +1,48 @@
+<!--pages/campaign/createThird/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar active"></view>
+      <view class="num active">2</view>
+      <view class='bar active'></view>
+      <view class="num active">3</view>
+      <view class='bar'></view>
+      <view class="num">4</view>
+    </view>
+    <view class="sub">
+      <view class="active">编辑信息</view>
+      <view class="active">设定时间</view>
+      <view class="active">活动图片</view>
+      <view>核对信息</view>
+    </view>
+  </view>
+
+  <view class="layer">
+    <view class="form-item">
+      <view class="left">活动图片：</view>
+      <view class="right">
+        <view class="row stare">最多可选6张</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="img-view">
+    <view class="img-cell" wx:for="{{imgList}}" wx:key="{{index}}">
+      <image mode="aspectFill" src='{{item}}' data-src="{{item}}" catchtap="handleImagePreview"></image>
+      <icon type="clear" color="#e51c23" data-src="{{item}}" catchtap="handleDel"></icon>
+      <view class="cover {{coverIndex === index ? 'active' : ''}}" data-src="{{item}}" catchtap="handleSetCover">{{coverIndex === index ? '当前封面' : '设为封面'}}</view>
+    </view>
+    <view class="img-cell" wx:if="{{imgList.length < 6}}">
+      <button class="btn-add" catchtap="handleChooseImage">+</button>
+    </view>
+  </view>
+
+  <view class="tips">*单个活动最多只能添加6张图片作为活动相关介绍图；</view>
+  <view class="tips">*如不添加则以默认图片作为活动的呈现图</view>
+  <view class="tips">*单张限定1080x720（建议尺寸），2M以内的JPG、PNG图。</view>
+  
+  <view class="btn-cell">
+    <button class="btn-full" bindtap="handleNextStep">下一步</button>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="srch-bar">
+    <input type='text' value="{{kw}}" class="search" placeholder="艺人名称、活动区域…" bindinput="handleEmitKW" /><button class="btn-srch" bindtap="handleSearch">搜索</button>
+  </view>
+
+  <view wx:if="{{list.length > 0}}">
+    <view class="ar-item" wx:for="{{list}}" wx:key="{{item.id}}" data-idx="{{item.id}}" bindtap="handleLinkDetail">
+      <view class="avatar">
+      <image class="img-avatar" mode="aspectFill" src="{{item.avatar_thumb}}"></image>
+      <!-- <view class="live-sta">未开播</view> -->
+      <image class="gender" mode="scaleToFill" src="/assets/img/gender{{item.sex}}.png"></image>
+    </view>
+    <view class="info">
+      <view>
+        <view class="type">认证艺人</view>
+      </view>
+      <view>
+         <text>{{item.art_name}}</text>
+      </view>
+      <view>
+        <text space>高：{{item.height}} 重：{{item.weight}} 三：{{item.chest}}-{{item.waist}}-{{item.hip}} 鞋：{{item.shoe_size}}</text>
+      </view>
+      <view>
+        <text space>{{areaList[index]}}</text>
+      </view>
+    </view>
+    </view>
+  </view>
+  <view wx:else class="empty">
+    暂时没有符合条件的艺人哦~
+  </view>
+
+  <view class="loading-panel" wx:if="{{isDownBottom && p > 1}}">
+    <text>{{loadText}}</text>
+  </view>
+  <view class="loading-panel" hidden="{{!loading}}">
+    <image class="loading" mode="scaleToFill" src="/assets/img/loading.gif"></image>
+    <text>{{loadText}}</text>
+  </view>
+</view>

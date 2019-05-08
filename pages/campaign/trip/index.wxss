@@ -1,0 +1,55 @@
+/* pages/campaign/trip/index.wxss */
+.container {
+  padding: 10rpx 0 120rpx 0;
+  position: relative;
+}
+
+.layout {
+  line-height: 60rpx;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 0 10rpx 10rpx 10rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+}
+
+.db-col {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.db-col view {
+  flex-basis: 360rpx;
+}
+
+.txt {
+  text-align: left;
+  padding: 0 10rpx;
+}
+
+video {
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+
+.grass {
+  color: #fff;
+  background-color: #8bc34a;
+}
+
+.blue {
+  color: #fff;
+  background-color: #46c4ff;
+}
+
+.tips {
+  margin-bottom: 100rpx;
+}
+
+.btn-cell {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

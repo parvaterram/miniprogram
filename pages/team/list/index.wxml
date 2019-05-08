@@ -1,0 +1,22 @@
+<view class="container">
+  <view wx:if="{{list.length < 1}}" class='top-tips'>当前没有用户申请</view>
+  <view class='item' wx:for="{{list}}" wx:key="item">
+    <view class='l-c'>
+      <view class='avatar'>
+        <image class='a-img' wx:if="{{item.images == ''}}" src='/assets/img/default.png' mode="widthFix"></image>
+        <image class='a-img' binderror='err'  data-index="{{index}}" wx:else="{{item.images}}" src='{{item.images}}' mode="aspectFill"></image>
+      </view>
+    </view>
+    <view class='iden'>
+      <button class='artist' wx:if="{{item.is_auth}}">认证艺人</button>
+    </view>
+    <view class='name'>
+      <view class='titles'>{{item.username}}</view>
+      <view class='id'>ID:{{item.uid}}</view>
+    </view>
+    <view class='choice-btn'>
+      <button class='agree' data-option='1'  data-aid='{{item.applyid}}' data-index='{{index}}' bindtap='examine'>同意申请</button>
+      <button class='refuse' data-option='0' data-aid='{{item.applyid}}' data-index='{{index}}' bindtap='examine'>拒绝申请</button>
+    </view>
+  </view>
+</view>

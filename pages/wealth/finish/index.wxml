@@ -1,0 +1,59 @@
+<!--pages/wealth/compete/index.wxml-->
+<view class="container">
+  <view class="head">
+    <view>
+      <view>提现金额</view>
+      <view class="stare">{{sum}}</view>
+    </view>
+    <view>
+      <view>手续费用</view>
+      <view class="stare">{{fee}}</view>
+    </view>
+    <view>
+      <view>实际到账</view>
+      <view class="stare">{{account}}</view>
+    </view>
+  </view>
+
+  <view class="body">
+    <view class="icon">
+      <icon type="success" size="100" color='#8bc34a'></icon>
+    </view>
+    <view>
+      <view class="tips">余额提现已发起，请尽快提供税务票据。</view>
+      <view class="tips">平台接收税务票据后，将于1~3工作日进行转汇</view>
+    </view>
+  </view>
+
+  <view class="foot">
+    <view class="desc" wx:if="{{bill === '1'}}">
+      <view class="item">
+        <view class="l">发票抬头：</view>
+        <view class="r stare">广州腾昊信息科技有限公司</view>
+      </view>
+      <view class="item">
+        <view class="l">识别号：</view>
+        <view class="r stare">91440115MA59BB3P8B</view>
+      </view>
+      <view class="item">
+        <view class="l">收件人：</view>
+        <view class="r stare">罗女士</view>
+      </view>
+      <view class="item">
+        <view class="l">联系号：</view>
+        <view class="r stare">15915858103</view>
+      </view>
+      <view class="item">
+        <view class="l">地址：</view>
+        <view class="r stare">广州市天河区天河路123号8楼827</view>
+      </view>
+      <view class="item">
+        <view class="l">邮箱：</view>
+        <view class="r stare">depadmin@depforlive.onaliyun.com</view>
+      </view>
+    </view>
+    <view>
+      <button class="btn-full" bindtap="handleClose">关闭</button>
+    </view>
+  </view>
+</view>

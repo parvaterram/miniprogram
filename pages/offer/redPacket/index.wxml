@@ -1,0 +1,18 @@
+<!--pages/offer/redPacket/index.wxml-->
+<view class="container">
+  <view class="title">艺人当前报价</view>
+  <view class="body">
+    <view class="icon">
+      <icon type="warn" size="100" color="#46c4ff"/>
+    </view>
+    <view class="tips">
+      您未能查看该艺人的出场费用报价！
+    </view>
+    <view class="tips">
+      支付红包可进行查看！
+    </view>
+  </view>
+  <view class="foot">
+    <button class="btn-full" bindtap="handlePayRedPacket">红包查看报价（￥2）</button>
+  </view>
+</view>

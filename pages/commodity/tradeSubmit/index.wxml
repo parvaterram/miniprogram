@@ -1,0 +1,30 @@
+<!--pages/commodity/waresSubmit/index.wxml-->
+<view class="container">
+  <view class="header-guide">
+    <view class="order">
+      <view class="num active">1</view>
+      <view class="bar active"></view>
+      <view class="num active">2</view>
+      <view class='bar active'></view>
+      <view class="num active">3</view>
+    </view>
+    <view class="sub">
+      <view class="active">选择类型</view>
+      <view class="active">编辑信息</view>
+      <view class="active">提交</view>
+    </view>
+  </view>
+
+  <view class="icon">
+    <icon type="success" color="#8bc34a" size="100"></icon>
+  </view>
+
+  <view class="tip-list">
+    <view class="tips">商品已创建，1~2工作日审核周期，请耐心等待。</view>
+    <view class="tips">已审核通过后，重新编辑过的商品需重新提交审核。</view>
+  </view>
+
+  <view>
+    <navigator class="btn-full btm" url="/pages/commodity/tradeList/index">返回商品列表</navigator>
+  </view>
+</view>

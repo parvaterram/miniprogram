@@ -1,0 +1,18 @@
+<view class="container">
+  <view>
+    <view class="layer">
+      <view class="stare">成功入选后，建议艺人于活动中上传相关视频！</view>
+      <view class="stare">有助于活动推力和自我才艺展现！</view>
+    </view>
+    <view class="icon">
+      <icon type="success" size="100" color='#8bc34a'></icon>
+    </view>
+    <view class="tips">已成功报名该活动!</view>
+    <view class="tips">请留意活动安排和信息更新!</view>
+    <view class="tips">商家确认选择你之后,需根据商家意愿支付的酬劳决定时候受理!</view>
+  </view>
+
+  <view>
+    <button class="btn-full" bindtap="handleBack">返回活动</button>
+  </view>
+</view>

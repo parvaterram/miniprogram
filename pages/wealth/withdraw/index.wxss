@@ -1,0 +1,129 @@
+/* pages/wealth/withdraw/index.wxss */
+.head {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 80rpx;
+}
+
+.head .left {
+  flex-basis: 160rpx;
+  text-align: right;
+}
+.head .label {
+  margin-left: 20rpx;
+  background-color: #979696;
+}
+.head .active {
+  background-color: #00b7ff;
+}
+
+.body {
+  padding: 0 20rpx;
+}
+
+.body .title {
+  line-height: 80rpx;
+}
+
+.form {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 80rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.form .l {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.form .l .icon {
+  /* float: left; */
+  font-size: 42rpx;
+  font-weight: 600;
+}
+.form .l input {
+  /* float: left; */
+  /* display: block; */
+  font-size: 40rpx;
+  color: #3f51b5;
+  padding-left: 10rpx;
+  border: none;
+}
+.form .right {
+  font-size: 28rpx;
+  color: #3f51b5;
+}
+
+.sum {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.sum view {
+  flex-grow: 1;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.inp {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0 10rpx;
+}
+.inp .form-label {
+  flex-basis: 160rpx;
+  line-height: 80rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}
+.inp .form-right {
+  flex-grow: 1;
+  min-height: 80rpx;
+}
+
+.inp .form-right input {
+  width: 90%;
+  height: 80rpx;
+  color: #979696;
+  border: none;
+}
+
+.desc {
+  position: relative;
+}
+
+.desc .item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.desc .item .l {
+  flex-basis: 160rpx;
+  line-height: 60rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}
+.desc .item .r {
+  min-height: 60rpx;
+  line-height: 60rpx;
+}
+.copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120rpx;
+  height: 60rpx;
+  color: #3f51b5;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.p-hold {
+  font-size: 28rpx;
+}
+
+.tips {
+  padding: 0 10rpx;
+  line-height: 40rpx;
+}
