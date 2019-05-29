@@ -1,0 +1,24 @@
+<view class="root">
+  <view class="container clearfix">
+    <view class="box-wrapper" wx:if="{{list.length < 9}}">
+      <view class="main">
+        <view class="add-cell" bindtap="handleUpdate">
+          <view class="btn-select">
+            <image src="/assets/img/add.png" ></image>
+          </view>
+          <view>上传图片</view>
+        </view>
+      </view>
+    </view>
+    <view class="box-wrapper" wx:for="{{list}}" wx:key="{{item.zuopin_img_id}}">
+      <view class="main">
+        <image src="{{item.url}}" mode="aspectFill" bindtap="handlePreview" data-index="{{item.url}}"></image>
+      </view>
+      <view class="box-del" data-id="{{item.zuopin_img_id}}" bindtap="handleDelItem">删除</view>
+    </view>
+  </view>
+  <view class="action">
+    <view class="action-edit" bindtap="handleEdit">编辑相册</view>
+    <view class="action-del" bindtap="handleDel">删除相册</view>
+  </view>
+</view>

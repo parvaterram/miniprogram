@@ -1,0 +1,35 @@
+/* .container {
+  padding: 0 20rpx;
+} */
+.name {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+  background-color: #fff;
+}
+.name input {
+  width: 100%;
+  line-height: 120rpx;
+  font-size: 40rpx;
+  border: none;
+}
+.role {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-size: 34rpx;
+  align-items: center;
+  background-color: #fff;
+  padding: 20rpx;
+}
+
+.btn-cell {
+  padding: 30rpx 20rpx;
+}
+button {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background-color: #00b7ee;
+}

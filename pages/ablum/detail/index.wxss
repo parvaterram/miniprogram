@@ -1,0 +1,80 @@
+.root {
+  min-height: 100vh;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 34rpx 0 110rpx 34rpx;
+}
+.box-wrapper {
+  float: left;
+  width: 324rpx;
+  margin-bottom: 34rpx;
+}
+.main image {
+  width: 324rpx;
+  height: 324rpx;
+  border-radius: 10rpx;
+}
+
+.box-wrapper:nth-child(odd) {
+  margin-right: 34rpx;
+}
+
+.box-wrapper .main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 324rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.add-cell {
+  color: #00b7ee;
+}
+
+.main .btn-select image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 10rpx;
+}
+
+.ablum-name {
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #333;
+}
+.ablum-desc {
+  font-size: 20rpx;
+  line-height: 30rpx;
+  color: #999;
+}
+
+.action {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.action view {
+  flex-grow: 1;
+  font-size: 40rpx;
+}
+.action-edit {
+  background: #00b7ee;
+}
+.action-del {
+  background: #ff4d4f;
+}
+.box-del {
+  line-height: 60rpx;
+  color: #ff4d4f;
+  text-align: center;
+}

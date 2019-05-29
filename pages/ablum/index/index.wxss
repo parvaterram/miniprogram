@@ -1,0 +1,52 @@
+.container {
+  /* display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: flex-start; */
+  padding: 34rpx 0 0 34rpx;
+}
+.box-wrapper {
+  float: left;
+  width: 324rpx;
+  margin-bottom: 34rpx;
+}
+
+.box-wrapper:nth-child(odd) {
+  margin-right: 34rpx;
+}
+
+.box-wrapper .main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 324rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.add-cell {
+  color: #00b7ee;
+}
+
+.main .btn-select image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 10rpx;
+}
+
+.main .cover {
+  width: 324rpx;
+  height: 324rpx;
+  border-radius: 10rpx;
+}
+
+.ablum-name {
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #333;
+}
+.ablum-desc {
+  font-size: 20rpx;
+  line-height: 30rpx;
+  color: #999;
+}

@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="name">
+    <input placeholder="相册名称" bindinput="onNameChange"></input>
+  </view>
+  <view class="role">
+    权限
+    <radio-group bindchange="radioChange">
+      <radio value="{{10}}" checked="{{true}}" color="#00b7ee" />公开
+      <radio value="{{20}}" color="#00b7ee" />隐私
+    </radio-group>
+  </view>
+  <view class="btn-cell">
+    <button bindtap="onFinish">确定</button>
+  </view>
+</view>

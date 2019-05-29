@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="box-wrapper">
+    <view class="main">
+      <view class="add-cell" bindtap="handleCreate">
+        <view class="btn-select">
+          <image src="/assets/img/add.png" ></image>
+        </view>
+        <view>新建相册</view>
+      </view>
+    </view>
+  </view>
+  <view class="box-wrapper" wx:for="{{dataSource}}" wx:key="{{item.zuopin_id}}" data-id="{{item.zuopin_id}}" bindtap="onTap">
+    <view class="main">
+      <image wx:if="{{item.cover_flag}}" class="cover" src="{{item.cover_img}}" mode="aspectFill"></image>
+      <view wx:else>暂无作品</view>
+    </view>
+    <view class="ablum-name">{{item.zuopin_name}}</view>
+    <view class="ablum-desc">{{item.privacy == '10' ? '公开' : '私密'}}</view>
+  </view>
+</view>

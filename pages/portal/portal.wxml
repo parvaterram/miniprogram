@@ -50,6 +50,14 @@
         <view class="red-hot" wx:if="{{orderNum > 0}}">{{orderNum}}</view>
       </view>
 
+      <view class="box">
+        <view class="tit">个人相册</view>
+        <view class="tip">*用户的作品展示功能权限</view>
+        <view>
+          <navigator class="btn-link" url="/pages/ablum/index/index">查看相册>></navigator>
+        </view>
+      </view>
+
       <view class="box" wx:if="{{depInfo.isauth === '1'}}">
         <view class="tit">直播开播</view>
         <view class="tip">*艺人、商家进行直播开播的启动操作</view>

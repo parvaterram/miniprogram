@@ -92,7 +92,10 @@
     "pages/portal/user/index",
     "pages/portal/artist/index",
     "pages/portal/seller/index",
-    "pages/article/index"
+    "pages/article/index",
+    "pages/ablum/index/index",
+    "pages/ablum/create/index",
+    "pages/ablum/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
